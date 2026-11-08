@@ -1,0 +1,1194 @@
+<!DOCTYPE html>
+
+<html lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1" name="viewport"/><title>Rotational Symmetry — Interactive Presentation · Lessons 1–3</title>
+<style>html,body{margin:0;width:100%;height:100%;overflow:hidden;background:#f4f8fc}iframe{width:100%;height:100%;border:0;display:block}iframe[hidden]{display:none}</style><style>html:fullscreen,html:-webkit-full-screen{width:100vw!important;height:100vh!important}html:fullscreen iframe,html:-webkit-full-screen iframe{width:100%!important;height:100%!important}</style>
+<style id="rotation-tablet-v3-style">
+/* Tablet-only fullscreen dock: never overlays the slide; iframe reserves all dock height. */
+#rotationTabletDock{display:none;box-sizing:border-box;position:fixed;left:0;right:0;bottom:0;
+ z-index:2147483000;justify-content:center;align-items:center;background:#f4f8fc;
+ border-top:1px solid #d0dfea;padding:5px 8px max(5px,env(safe-area-inset-bottom));
+ font-family:Arial,Helvetica,sans-serif;}
+#rotationTabletControls{box-sizing:border-box;display:flex;align-items:center;justify-content:center;
+ flex-wrap:wrap;column-gap:8px;row-gap:4px;max-width:100%;padding:4px 7px;
+ border-radius:12px;border:1px solid #bed1e3;background:#fff;
+ box-shadow:0 2px 11px rgba(20,47,77,.12);}
+#rotationTabletTools,#rotationTabletNav{display:flex;align-items:center;justify-content:center;
+ flex-wrap:wrap;gap:4px;max-width:100%;}
+#rotationTabletNav{flex-wrap:nowrap;}
+#rotationTabletControls button{box-sizing:border-box;min-height:38px;border:1px solid #c7d8e7;
+ border-radius:8px;padding:7px 10px;background:#fff;color:#1c4368;
+ font:700 13px Arial,Helvetica,sans-serif;touch-action:manipulation;cursor:pointer;white-space:nowrap;}
+#rotationTabletControls button.is-active{background:#174e86;color:white;border-color:#174e86;}
+#rotationTabletControls button:disabled{opacity:.36;}
+#rotationTabletControls [data-nav="next"]{background:#1769ac;border-color:#1769ac;color:#fff;}
+#rotationTabletControls .rotation-counter{min-width:46px;text-align:center;color:#546f87;
+ font:700 13px Arial,Helvetica,sans-serif;}
+#rotationTabletControls button:focus-visible{outline:2px solid #f0a13e;outline-offset:1px;}
+html.rotation-tablet-active #rotationTabletDock{display:flex;}
+html.rotation-tablet-active iframe{position:fixed!important;top:0!important;left:0!important;
+ width:100%!important;height:calc(100% - var(--rotation-dock-height,58px))!important;
+ max-height:calc(100% - var(--rotation-dock-height,58px))!important;min-height:0!important;}
+@media(max-width:650px){
+ #rotationTabletDock{padding:3px 4px max(3px,env(safe-area-inset-bottom));}
+ #rotationTabletControls{column-gap:4px;padding:3px 4px;row-gap:3px;}
+ #rotationTabletControls button{font-size:11px;min-height:35px;padding:5px 7px;}
+ #rotationTabletControls .rotation-counter{font-size:11px;min-width:38px;}
+}
+</style>
+</head>
+<body><iframe allow="fullscreen" allowfullscreen="" id="deck1" srcdoc="&lt;!DOCTYPE html&gt;
+
+&lt;html lang=&quot;en&quot;&gt;
+&lt;head&gt;
+&lt;meta charset=&quot;utf-8&quot;/&gt;
+&lt;meta content=&quot;width=device-width, initial-scale=1&quot; name=&quot;viewport&quot;/&gt;
+&lt;meta content=&quot;#122942&quot; name=&quot;theme-color&quot;/&gt;
+&lt;title&gt;Rotational Symmetry | Lesson 1 — Interactive&lt;/title&gt;
+&lt;style&gt;
+:root{--navy:#142f4d;--blue:#205c9f;--blue2:#0f78b9;--sky:#e8f4ff;--ink:#17324b;--muted:#627a91;--line:#d8e5ee;--panel:#fff;--orange:#c9791c;--green:#147b67;--red:#b63f47;--bg:#f4f8fc;--shadow:0 12px 38px rgba(20,47,77,.09)}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font-family:Arial,Helvetica,sans-serif;overscroll-behavior:none}button,input{font:inherit}button{border-radius:10px;border:1px solid #c7d8e7;background:white;color:#1c4368;padding:11px 15px;font-weight:700;cursor:pointer;min-height:44px;touch-action:manipulation}button:hover{background:#e9f4fc}button:focus-visible,.match-item:focus-visible{outline:3px solid #f0a13e;outline-offset:2px}.primary{background:#1769ac;color:#fff;border-color:#1769ac}.primary:hover{background:#0b538e}.active{background:#174e86;color:white;border-color:#174e86}.success{background:#e0f4ee;border-color:#a8ddc9;color:#146956}.pill{border-radius:999px}.icon-btn{min-width:43px;padding:10px 12px}header{height:68px;background:var(--navy);color:white;display:flex;align-items:center;gap:20px;padding:0 24px}header .brand{font-size:13px;letter-spacing:.16em;text-transform:uppercase;color:#a9d1ef;font-weight:800}header h1{margin:3px 0 0;font-size:22px;letter-spacing:-.025em}header .right{margin-left:auto;display:flex;gap:9px;align-items:center}header button{background:#234565;color:#fff;border:1px solid #45627e;font-size:13px;min-height:36px;padding:8px 11px}header button:hover{background:#365c7f}.page-progress{display:flex;gap:5px;align-items:center}.page-progress i{display:inline-block;height:5px;width:26px;border-radius:4px;background:#55708d}.page-progress i.done{background:#74c9f8}main{padding:20px 25px 12px;height:calc(100vh - 133px);min-height:580px;max-height:1200px;display:flex;flex-direction:column;gap:14px}.slide-title{display:flex;align-items:baseline;justify-content:space-between;gap:15px}.slide-title h2{margin:0;font-size:clamp(23px,2.4vw,36px);letter-spacing:-.045em;color:var(--navy)}.slide-title .time{font-size:15px;color:var(--muted);white-space:nowrap}.slide-body{display:grid;grid-template-columns:minmax(0,1fr) minmax(330px,30%);gap:17px;flex:1;min-height:0}.stage{border:1px solid var(--line);background:white;border-radius:16px;overflow:hidden;box-shadow:var(--shadow);display:flex;flex-direction:column;min-height:0}.scene-area{position:relative;flex:1;min-height:290px;background:linear-gradient(180deg,#fff 0%,#f7fbff 100%);overflow:hidden}.scene-area&gt;svg{position:absolute;inset:0;width:100%;height:100%;display:block}.ink-layer{z-index:10;pointer-events:none;touch-action:none}.ink-layer.enabled{pointer-events:all;cursor:crosshair}.stage-bottom{padding:11px 14px;border-top:1px solid var(--line);background:#fcfeff;display:flex;align-items:center;justify-content:space-between;gap:10px;min-height:70px;flex-wrap:wrap}.control-group{display:flex;gap:7px;align-items:center;flex-wrap:wrap}.control-group button{font-size:14px;padding:9px 12px;min-height:38px}.rightpanel{background:white;border-radius:16px;border:1px solid var(--line);box-shadow:var(--shadow);padding:24px 24px 20px;display:flex;flex-direction:column;gap:15px;overflow:auto}.eyebrow{color:#2b76b1;font-size:12px;font-weight:800;letter-spacing:.13em;text-transform:uppercase}.bigquestion{font-size:clamp(21px,2vw,28px);font-weight:800;line-height:1.27;letter-spacing:-.035em;margin:0}.explain{font-size:17px;line-height:1.5;color:#3e5870}.note{padding:13px 15px;background:#f0f7ff;border-left:4px solid #60a5d8;border-radius:8px;font-size:16px;line-height:1.4}.subtle{color:var(--muted);font-size:14px}.scene-caption{font-size:16px;color:#496b89;font-weight:650;position:absolute;left:21px;top:16px;z-index:2;pointer-events:none}.rowbtns{display:flex;gap:8px;flex-wrap:wrap}.rowbtns button{flex:1;white-space:nowrap}.answer{padding:13px 15px;background:#e8f5ed;border:1px solid #a4d4b7;border-radius:10px;color:#176143;font-size:17px}.warning{padding:12px;background:#fff3dd;border:1px solid #f0d18c;border-radius:10px;color:#78510d}.controls-label{font-weight:700;font-size:14px;color:#607c93}.range{width:100%;accent-color:#2277ae;cursor:pointer}.fancy-fraction{display:inline-flex;flex-direction:column;vertical-align:middle;align-items:center;line-height:1.1;margin:0 5px;font-weight:800}.fancy-fraction span:first-child{padding:0 7px 3px;border-bottom:2px solid currentColor}.fancy-fraction span:last-child{padding-top:3px}.fraction-row{display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid #e8eff5;padding:9px 0;font-size:17px}.fraction-row:last-child{border-bottom:0}.a-small{font-size:14px;color:var(--muted)}.present-bottom{height:65px;background:white;border-top:1px solid var(--line);display:flex;justify-content:space-between;align-items:center;padding:0 22px;gap:10px}.present-bottom button{min-height:39px;font-size:14px}.navgrp,.toolgrp{display:flex;align-items:center;gap:7px}.counter{color:#627b93;font-size:14px;min-width:65px;text-align:center}.match-item{width:100%;border:1px solid #d7e3ed;text-align:left;font-size:15px;line-height:1.3;padding:12px 15px;min-height:49px;background:#fff;border-radius:10px;transition:background .12s}.match-item.selected{background:#d9edff;border-color:#3288c4;box-shadow:inset 0 0 0 1px #3288c4}.match-item.correct{background:#e7f4ee;border-color:#add8c3;color:#23644e}.match-item:disabled{opacity:1;cursor:default}.match-wrap{display:grid;grid-template-columns:1fr 1fr;gap:16px;height:100%;padding:15px;overflow:auto}.match-list{display:flex;flex-direction:column;gap:8px}.match-list h3{margin:0 0 6px;font-size:17px}.match-list .match-item{flex:1}.math-key{display:flex;align-items:center;gap:9px}.math-key strong{font-size:20px}.metric{border:1px solid #d6e6f4;border-radius:10px;padding:13px;text-align:center;background:#f8fcff}.metric strong{font-size:24px;display:block}.metric span{font-size:12px;color:#627a91}.table-mini{border-collapse:collapse;font-size:15px;width:100%}.table-mini td,.table-mini th{padding:9px;border-bottom:1px solid var(--line);text-align:left}.table-mini th{color:#4b6a83}.turn-four{display:grid;grid-template-columns:1fr 1fr;gap:9px}.turn-choice{border:1px solid var(--line);border-radius:10px;padding:12px 11px;text-align:left;font-size:15px;cursor:pointer;background:#fbfdff}.turn-choice b{display:block;font-size:17px;margin-bottom:3px}.turn-choice span{color:#688198;font-size:13px}.turn-choice.selected{border:2px solid #2476b6;background:#e7f4ff;padding:11px 10px}.stage-svg-text{font-family:Arial,sans-serif;fill:#395976;font-weight:700}.stair{position:relative}.status{min-height:25px;font-size:15px;font-weight:700;color:#567084}.kbd{color:#a6cee9;font-size:12px}@media(max-width:1000px){main{padding:11px;height:calc(100vh - 133px)}.slide-body{grid-template-columns:minmax(0,1fr) 300px;gap:9px}.rightpanel{padding:16px}.bigquestion{font-size:23px}.explain{font-size:15px}.rowbtns button{padding:8px}.match-item{font-size:13px;padding:8px}}
+@media(max-width:770px){header{height:62px;padding:0 10px}header h1{font-size:17px}header .brand{font-size:10px}main{height:auto;min-height:calc(100vh - 127px);padding:10px}.slide-body{display:flex;flex-direction:column}.stage{min-height:400px}.scene-area{min-height:360px}.rightpanel{min-height:220px;padding:16px}.slide-title .time{font-size:12px}.slide-title h2{font-size:25px}.page-progress,.kbd{display:none}.present-bottom{padding:0 9px}.ink-help{display:none}.toolgrp button{font-size:12px;padding:8px 8px}.match-wrap{min-height:400px}}
+
+.stage-bottom:empty{display:none}
+button:disabled{cursor:not-allowed;opacity:.45}
+.takeaways{margin:10px 0 0;padding-left:23px;line-height:1.5}.takeaways li+li{margin-top:9px}
+.angle-slider-wrap{position:relative;padding:0 6px 34px;margin-top:5px;margin-bottom:9px}
+.angle-slider{margin:10px 0 0;height:23px}
+.angle-ticks{position:relative;height:25px;margin:1px 7px 0;pointer-events:none}
+.angle-ticks span{position:absolute;transform:translateX(-50%);display:flex;align-items:center;flex-direction:column;white-space:nowrap;color:#5d7892;font-size:12px;font-weight:650}
+.angle-ticks i{height:9px;width:2px;background:#6889a8;border-radius:2px;display:block;margin-bottom:3px}
+.angle-ticks span:first-child{transform:translateX(-5%)}.angle-ticks span:last-child{transform:translateX(-95%)}
+#rightPanel:has(#angle5){gap:9px;padding:16px 20px 12px}
+#rightPanel:has(#angle5) .rowbtns button{min-height:38px;padding:8px 10px}
+#rightPanel:has(#angle5) .bigquestion{font-size:25px}
+#rightPanel:has(#angle5) .explain{margin:2px 0;line-height:1.4}
+&lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;header&gt;
+&lt;div&gt;&lt;div class=&quot;brand&quot;&gt;S3 Mathematics · Lesson 1&lt;/div&gt;&lt;h1&gt;Rotational Symmetry&lt;/h1&gt;&lt;/div&gt;
+&lt;div class=&quot;right&quot;&gt;&lt;div class=&quot;page-progress&quot; id=&quot;progress&quot;&gt;&lt;/div&gt;&lt;button id=&quot;fullScreen&quot; type=&quot;button&quot;&gt;⛶ Full screen&lt;/button&gt;&lt;/div&gt;
+&lt;/header&gt;
+&lt;main&gt;
+&lt;div class=&quot;slide-title&quot;&gt;&lt;h2 id=&quot;slideTitle&quot;&gt;&lt;/h2&gt;&lt;span class=&quot;time&quot; id=&quot;slideTime&quot;&gt;&lt;/span&gt;&lt;/div&gt;
+&lt;section class=&quot;slide-body&quot;&gt;
+&lt;div class=&quot;stage&quot;&gt;&lt;div class=&quot;scene-area&quot; id=&quot;sceneArea&quot;&gt;&lt;/div&gt;&lt;div class=&quot;stage-bottom&quot; id=&quot;stageBottom&quot;&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;aside class=&quot;rightpanel&quot; id=&quot;rightPanel&quot;&gt;&lt;/aside&gt;
+&lt;/section&gt;
+&lt;/main&gt;
+&lt;footer class=&quot;present-bottom&quot;&gt;
+&lt;div class=&quot;toolgrp&quot;&gt;&lt;button id=&quot;penTool&quot; type=&quot;button&quot;&gt;✎ Pen&lt;/button&gt;&lt;button id=&quot;lineTool&quot; title=&quot;Draw a thin straight line&quot; type=&quot;button&quot;&gt;╱ Line&lt;/button&gt;&lt;button id=&quot;eraseTool&quot; type=&quot;button&quot;&gt;⌫ Eraser&lt;/button&gt;&lt;button id=&quot;undoTool&quot; type=&quot;button&quot;&gt;↶ Undo&lt;/button&gt;&lt;button id=&quot;clearTool&quot; type=&quot;button&quot;&gt;Clear drawing&lt;/button&gt;&lt;/div&gt;
+&lt;div class=&quot;navgrp&quot;&gt;&lt;button id=&quot;prevSlide&quot; type=&quot;button&quot;&gt;← Previous&lt;/button&gt;&lt;span class=&quot;counter&quot; id=&quot;slideCounter&quot;&gt;&lt;/span&gt;&lt;button class=&quot;primary&quot; id=&quot;nextSlide&quot; type=&quot;button&quot;&gt;Next →&lt;/button&gt;&lt;/div&gt;
+&lt;/footer&gt;
+&lt;script&gt;
+&#x27;use strict&#x27;;
+const NS=&#x27;http://www.w3.org/2000/svg&#x27;;
+const byId=id=&gt;document.getElementById(id);
+const clamp=(v,min,max)=&gt;Math.max(min,Math.min(max,v));
+const mod=(a,n)=&gt;((a%n)+n)%n;
+const esc=s=&gt;String(s).replace(/[&amp;&lt;&gt;\&quot;]/g,c=&gt;({&#x27;&amp;&#x27;:&#x27;&amp;amp;&#x27;,&#x27;&lt;&#x27;:&#x27;&amp;lt;&#x27;,&#x27;&gt;&#x27;:&#x27;&amp;gt;&#x27;,&#x27;&quot;&#x27;:&#x27;&amp;quot;&#x27;}[c]));
+const slides=[
+ {title:&#x27;Rotational symmetry around us&#x27;,time:&#x27;0–6 min&#x27;,question:&#x27;What do these objects have in common?&#x27;,lead:&#x27;Look at the turbine, fan and gear. Their parts repeat around a centre.&#x27;},
+ {title:&#x27;What is rotational symmetry?&#x27;,time:&#x27;6–14 min&#x27;,question:&#x27;Will the shape match itself after turning?&#x27;,lead:&#x27;Compare a square, a rectangle, an equilateral triangle and an asymmetric arrow.&#x27;},
+ {title:&#x27;Why does the centre matter?&#x27;,time:&#x27;14–24 min&#x27;,question:&#x27;Same rhombus. Same angle. Different centre. Will it still match?&#x27;,lead:&#x27;Rotate the rhombus by 180° about O. Then move O away from the crossing of the diagonals and test again.&#x27;},
+ {title:&#x27;Different turns&#x27;,time:&#x27;24–34 min&#x27;,question:&#x27;Which turns make the rhombus match itself?&#x27;,lead:&#x27;Follow vertex A as the rhombus turns. Return to the starting position before trying a different turn.&#x27;},
+ {title:&#x27;Order of rotational symmetry&#x27;,time:&#x27;34–44 min&#x27;,question:&#x27;How many times does it match during one full turn?&#x27;,lead:&#x27;Turn each shape, count the matching positions (include 360°, not the starting 0°), and discover the relationship.&#x27;},
+ {title:&#x27;Vocabulary matching&#x27;,time:&#x27;44–48 min&#x27;,question:&#x27;Can we match each mathematical term to its meaning?&#x27;,lead:&#x27;Discuss the terms together. Select one term, then its meaning.&#x27;},
+];
+const shapes={
+ square:{label:&#x27;Square&#x27;,order:4,points:[[-75,-75],[75,-75],[75,75],[-75,75]]},
+ rectangle:{label:&#x27;Rectangle&#x27;,order:2,points:[[-117,-61],[117,-61],[117,61],[-117,61]]},
+ triangle:{label:&#x27;Equilateral triangle&#x27;,order:3,points:[[0,-105],[91,52.5],[-91,52.5]]},
+ arrow:{label:&#x27;Asymmetric arrow&#x27;,order:1,points:[[-105,-32],[5,-32],[5,-73],[107,0],[5,73],[5,32],[-105,32]]},
+ rhombus:{label:&#x27;Rhombus&#x27;,order:2,points:[[0,-95],[148,0],[0,95],[-148,0]]},
+};
+const state={slide:0,tool:&#x27;none&#x27;,ink:{},drawing:null,s1:{turbine:0,fan:0,gear:0,gearPlaying:false,reveal:false,raf:null,playing:false},s2:{shape:&#x27;square&#x27;,angle:0,reveal:false,checked:null},s3:{cx:360,cy:250,ox:360,oy:250,angle:0,checked:null,drag:false,raf:null,playing:false},s4:{angle:0,turn:90,playing:false,raf:null},s5:{shape:&#x27;rectangle&#x27;,angle:0,checked:null,found:{rectangle:[],square:[],triangle:[],arrow:[]},table:false,formula:false,playing:false,raf:null},s6:{selected:null,matched:[],feedback:&#x27;&#x27;}};
+const pathOf=points=&gt;&#x27;M&#x27;+points.map(p=&gt;p.map(v=&gt;Number(v.toFixed(2))).join(&#x27;,&#x27;)).join(&#x27; L&#x27;)+&#x27; Z&#x27;;
+const svgStart=`&lt;svg xmlns=&quot;${NS}&quot; viewBox=&quot;0 0 720 500&quot; preserveAspectRatio=&quot;xMidYMid meet&quot; aria-label=&quot;interactive geometric diagram&quot;&gt;`;
+const svgEnd=&#x27;&lt;/svg&gt;&#x27;;
+function figure(shape, cx,cy,angle,opts={}){
+ const d=pathOf(shapes[shape].points),c=opts.centre||[cx,cy];
+ const transform=`translate(${c[0]} ${c[1]}) rotate(${angle}) translate(${cx-c[0]} ${cy-c[1]})`;
+ return `&lt;g transform=&quot;${transform}&quot;&gt;&lt;path d=&quot;${d}&quot; fill=&quot;${opts.fill||&#x27;#d2e7fa&#x27;}&quot; stroke=&quot;${opts.stroke||&#x27;#246aab&#x27;}&quot; stroke-width=&quot;${opts.width||4}&quot; stroke-linejoin=&quot;round&quot; ${opts.dash?&#x27;stroke-dasharray=&quot;8 6&quot;&#x27;:&#x27;&#x27;}/&gt;${opts.pointA?`&lt;circle cx=&quot;${shapes[shape].points[1][0]}&quot; cy=&quot;${shapes[shape].points[1][1]}&quot; r=&quot;6&quot; fill=&quot;#dc8224&quot; stroke=&quot;white&quot; stroke-width=&quot;2&quot;/&gt;`:&#x27;&#x27;}&lt;/g&gt;`;
+}
+function figureAt(shape,cx,cy,angle,opts={}){return `&lt;g transform=&quot;translate(${cx} ${cy})&quot;&gt;${figure(shape,0,0,angle,opts)}&lt;/g&gt;`}
+function centerDot(x,y,label=&#x27;O&#x27;,color=&#x27;#d78525&#x27;){return `&lt;circle cx=&quot;${x}&quot; cy=&quot;${y}&quot; r=&quot;7&quot; fill=&quot;${color}&quot; stroke=&quot;white&quot; stroke-width=&quot;2&quot;/&gt;&lt;text x=&quot;${x+13}&quot; y=&quot;${y+21}&quot; font-size=&quot;20&quot; font-weight=&quot;800&quot; fill=&quot;#b66c14&quot;&gt;${label}&lt;/text&gt;`}
+function ghost(shape,x,y){return figureAt(shape,x,y,0,{fill:&#x27;#f0f5f9&#x27;,stroke:&#x27;#a5b9ca&#x27;,width:2,dash:true})}
+function markedVertex(shape,cx,cy,angle){
+ if(![&#x27;square&#x27;,&#x27;rectangle&#x27;,&#x27;triangle&#x27;].includes(shape))return &#x27;&#x27;;
+ const p=shape===&#x27;triangle&#x27;?shapes[shape].points[0]:shapes[shape].points[1];
+ const [vx,vy]=angleFromPoint(p[0],p[1],angle);
+ const x=cx+vx,y=cy+vy;
+ const tx=x+(vx&gt;=0?13:-13),ty=y+(vy&gt;=0?20:-11);
+ return `&lt;circle cx=&quot;${x}&quot; cy=&quot;${y}&quot; r=&quot;7&quot; fill=&quot;#d88022&quot; stroke=&quot;white&quot; stroke-width=&quot;2&quot;/&gt;&lt;text x=&quot;${tx}&quot; y=&quot;${ty}&quot; text-anchor=&quot;${vx&gt;=0?&#x27;start&#x27;:&#x27;end&#x27;}&quot; font-size=&quot;23&quot; font-weight=&quot;800&quot; fill=&quot;#b76b19&quot;&gt;A&lt;/text&gt;`;
+}
+
+function getGeometryMatch(shape,angle){if(angle===0)return false;const o=shapes[shape].order;return mod(angle,360/o)===0}
+function angleFromPoint(x,y,a){const r=a*Math.PI/180;return [x*Math.cos(r)-y*Math.sin(r),x*Math.sin(r)+y*Math.cos(r)]}
+function scene1(){
+ const cards=[
+ {x:32,label:&#x27;Wind turbine&#x27;,sub:&#x27;3 evenly spaced blades&#x27;,kind:&#x27;turbine&#x27;,n:3},
+ {x:264,label:&#x27;Four-blade fan&#x27;,sub:&#x27;4 evenly spaced blades&#x27;,kind:&#x27;fan&#x27;,n:4},
+ {x:496,label:&#x27;Gear wheel&#x27;,sub:&#x27;repeating teeth&#x27;,kind:&#x27;gear&#x27;,n:12},
+ ];
+ let s=svgStart;
+ for (const v of cards){const x=v.x;
+ s+=`&lt;rect x=&quot;${x}&quot; y=&quot;42&quot; width=&quot;194&quot; height=&quot;362&quot; rx=&quot;19&quot; fill=&quot;white&quot; stroke=&quot;#d5e5f1&quot; stroke-width=&quot;2&quot;/&gt;&lt;rect x=&quot;${x+7}&quot; y=&quot;49&quot; width=&quot;180&quot; height=&quot;270&quot; rx=&quot;13&quot; fill=&quot;#eff8ff&quot;/&gt;`;
+ const cx=x+97,cy=185;
+ if(v.kind===&#x27;turbine&#x27;){
+ s+=`&lt;rect x=&quot;${x+7}&quot; y=&quot;49&quot; width=&quot;180&quot; height=&quot;270&quot; rx=&quot;13&quot; fill=&quot;#d9eeff&quot;/&gt;&lt;path d=&quot;M ${cx-11} 318 L${cx-4} 198 L${cx+4} 198 L${cx+15} 318 Z&quot; fill=&quot;#a4b9c9&quot;/&gt;&lt;g transform=&quot;translate(${cx} ${cy-20}) rotate(${state.s1.turbine})&quot;&gt;`;
+ for(let i=0;i&lt;3;i++)s+=`&lt;path d=&quot;M -13 -7 C -3 -34 14 -98 2 -112 Q -7 -114 -9 -88 L -15 -15 Z&quot; transform=&quot;rotate(${120*i})&quot; fill=&quot;#fff&quot; stroke=&quot;#93acbf&quot; stroke-width=&quot;1.6&quot;/&gt;`;
+ s+=`&lt;circle r=&quot;16&quot; fill=&quot;#f8fdff&quot; stroke=&quot;#83a5bc&quot; stroke-width=&quot;3&quot;/&gt;&lt;circle r=&quot;4&quot; fill=&quot;#467aa1&quot;/&gt;&lt;/g&gt;`;
+ }else if(v.kind===&#x27;fan&#x27;){
+ s+=`&lt;circle cx=&quot;${cx}&quot; cy=&quot;${cy}&quot; r=&quot;86&quot; fill=&quot;#e0f0f9&quot; stroke=&quot;#adc6d8&quot; stroke-width=&quot;5&quot;/&gt;&lt;g transform=&quot;rotate(${state.s1.fan} ${cx} ${cy})&quot;&gt;`;
+ for(let i=0;i&lt;4;i++)s+=`&lt;path d=&quot;M ${cx+4} ${cy-13} C ${cx+40} ${cy-86} ${cx-13} ${cy-89} ${cx-20} ${cy-59} C ${cx-25} ${cy-40} ${cx-15} ${cy-26} ${cx+4} ${cy-13} Z&quot; transform=&quot;rotate(${i*90} ${cx} ${cy})&quot; fill=&quot;#2d7c9e&quot; stroke=&quot;#1d5c79&quot; stroke-width=&quot;1.4&quot;/&gt;`;
+ for(let r of [47,68,84])s+=`&lt;circle cx=&quot;${cx}&quot; cy=&quot;${cy}&quot; r=&quot;${r}&quot; fill=&quot;none&quot; stroke=&quot;#6c8eaa&quot; stroke-opacity=&quot;.42&quot; stroke-width=&quot;1.2&quot;/&gt;`;
+ for(let i=0;i&lt;12;i++){const a=i*Math.PI/6;s+=`&lt;line x1=&quot;${cx}&quot; y1=&quot;${cy}&quot; x2=&quot;${cx+84*Math.cos(a)}&quot; y2=&quot;${cy+84*Math.sin(a)}&quot; stroke=&quot;#6c8eaa&quot; stroke-opacity=&quot;.35&quot;/&gt;`}
+ s+=`&lt;/g&gt;&lt;circle cx=&quot;${cx}&quot; cy=&quot;${cy}&quot; r=&quot;16&quot; fill=&quot;#b9d8e5&quot; stroke=&quot;#5e8cac&quot; stroke-width=&quot;3&quot;/&gt;`;
+ }else {
+ let p=[];for(let i=0;i&lt;48;i++){const a=Math.PI*2*i/48,r=i%4===0||i%4===1?87:72;p.push([cx+r*Math.cos(a),cy+r*Math.sin(a)])}
+ s+=`&lt;g transform=&quot;rotate(${state.s1.gear} ${cx} ${cy})&quot;&gt;&lt;path d=&quot;${pathOf(p)}&quot; fill=&quot;#829cac&quot; stroke=&quot;#476d85&quot; stroke-width=&quot;3&quot;/&gt;&lt;circle cx=&quot;${cx}&quot; cy=&quot;${cy}&quot; r=&quot;57&quot; fill=&quot;#c5d8e5&quot; stroke=&quot;#5a8297&quot; stroke-width=&quot;3&quot;/&gt;`;
+ for(let i=0;i&lt;6;i++){const a=i*Math.PI/3;s+=`&lt;path d=&quot;M${cx+20*Math.cos(a)} ${cy+20*Math.sin(a)} L${cx+54*Math.cos(a+.27)} ${cy+54*Math.sin(a+.27)} L${cx+54*Math.cos(a-.27)} ${cy+54*Math.sin(a-.27)} Z&quot; fill=&quot;#7398af&quot;/&gt;`}
+ s+=`&lt;circle cx=&quot;${cx}&quot; cy=&quot;${cy}&quot; r=&quot;22&quot; fill=&quot;#eff7fb&quot; stroke=&quot;#547992&quot; stroke-width=&quot;3&quot;/&gt;&lt;/g&gt;`;
+ }
+ s+=`&lt;text x=&quot;${cx}&quot; y=&quot;${352}&quot; fill=&quot;#173e60&quot; font-size=&quot;21&quot; text-anchor=&quot;middle&quot; font-weight=&quot;800&quot;&gt;${v.label}&lt;/text&gt;&lt;text x=&quot;${cx}&quot; y=&quot;${380}&quot; fill=&quot;#68839a&quot; font-size=&quot;14&quot; text-anchor=&quot;middle&quot;&gt;${v.sub}&lt;/text&gt;`;
+ }
+ s+=`&lt;text x=&quot;360&quot; y=&quot;456&quot; text-anchor=&quot;middle&quot; fill=&quot;#446983&quot; font-size=&quot;19&quot;&gt;What do they have in common?&lt;/text&gt;`;
+ return s+svgEnd;
+}
+function scene2(){const t=state.s2,cx=360,cy=253;
+ let s=svgStart+`&lt;circle cx=&quot;${cx}&quot; cy=&quot;${cy}&quot; r=&quot;161&quot; fill=&quot;none&quot; stroke=&quot;#dce9f3&quot; stroke-width=&quot;2&quot; stroke-dasharray=&quot;5 8&quot;/&gt;`;
+ s+=ghost(t.shape,cx,cy)+figureAt(t.shape,cx,cy,t.angle)+markedVertex(t.shape,cx,cy,t.angle)+centerDot(cx,cy,&#x27;&#x27;);
+ s+=`&lt;text x=&quot;360&quot; y=&quot;458&quot; text-anchor=&quot;middle&quot; font-size=&quot;17&quot; fill=&quot;#63819a&quot;&gt;Dashed outline: original position&lt;/text&gt;`;
+ return s+svgEnd;
+}
+function scene3(){const a=state.s3;let s=svgStart;
+ s+=`&lt;path d=&quot;M${a.cx-148} ${a.cy} L${a.cx+148} ${a.cy} M${a.cx} ${a.cy-95} L${a.cx} ${a.cy+95}&quot; stroke=&quot;#b9cee0&quot; stroke-dasharray=&quot;6 5&quot; stroke-width=&quot;2&quot;/&gt;`;
+ s+=ghost(&#x27;rhombus&#x27;,a.cx,a.cy);
+ s+=`&lt;g transform=&quot;translate(${a.ox} ${a.oy}) rotate(${a.angle}) translate(${a.cx-a.ox} ${a.cy-a.oy})&quot;&gt;&lt;path d=&quot;${pathOf(shapes.rhombus.points)}&quot; fill=&quot;#cbe3f9&quot; stroke=&quot;#2769a6&quot; stroke-width=&quot;4&quot; stroke-linejoin=&quot;round&quot;/&gt;&lt;/g&gt;`;
+ s+=`&lt;path d=&quot;M${a.cx-148} ${a.cy} L${a.cx+148} ${a.cy} M${a.cx} ${a.cy-95} L${a.cx} ${a.cy+95}&quot; stroke=&quot;#8ba9c1&quot; stroke-dasharray=&quot;7 6&quot; stroke-width=&quot;2&quot; opacity=&quot;.8&quot;/&gt;`;
+ s+=`&lt;circle cx=&quot;${a.ox}&quot; cy=&quot;${a.oy}&quot; r=&quot;25&quot; fill=&quot;#fce7ca&quot; fill-opacity=&quot;.65&quot;/&gt;&lt;circle class=&quot;draggable-centre&quot; cx=&quot;${a.ox}&quot; cy=&quot;${a.oy}&quot; r=&quot;11&quot; fill=&quot;#d57e22&quot; stroke=&quot;white&quot; stroke-width=&quot;3&quot;/&gt;&lt;text x=&quot;${a.ox+16}&quot; y=&quot;${a.oy+24}&quot; font-size=&quot;22&quot; font-weight=&quot;800&quot; fill=&quot;#ab681c&quot;&gt;O&lt;/text&gt;`;
+ s+=`&lt;path d=&quot;M${a.cx} ${a.cy} h0&quot;/&gt;`;
+ 
+ return s+svgEnd;
+}
+function scene4(){const a=state.s4,cx=360,cy=250;
+ let s=svgStart+`&lt;line x1=&quot;80&quot; y1=&quot;${cy}&quot; x2=&quot;640&quot; y2=&quot;${cy}&quot; stroke=&quot;#c4d7e7&quot; stroke-width=&quot;1.8&quot;/&gt;&lt;line x1=&quot;${cx}&quot; y1=&quot;35&quot; x2=&quot;${cx}&quot; y2=&quot;465&quot; stroke=&quot;#c4d7e7&quot; stroke-width=&quot;1.8&quot;/&gt;&lt;circle cx=&quot;${cx}&quot; cy=&quot;${cy}&quot; r=&quot;170&quot; stroke=&quot;#dcebf5&quot; stroke-dasharray=&quot;6 8&quot; fill=&quot;none&quot; stroke-width=&quot;2&quot;/&gt;`;
+ s+=figureAt(&#x27;rhombus&#x27;,cx,cy,90,{fill:&#x27;#f0f5f9&#x27;,stroke:&#x27;#a5b9ca&#x27;,width:2,dash:true})+figureAt(&#x27;rhombus&#x27;,cx,cy,90+a.angle);
+ const rad=a.angle*Math.PI/180,x=148*Math.sin(rad), y=-148*Math.cos(rad);
+ s+=`&lt;circle cx=&quot;${cx+x}&quot; cy=&quot;${cy+y}&quot; r=&quot;8&quot; fill=&quot;#dc832a&quot; stroke=&quot;white&quot; stroke-width=&quot;2&quot;/&gt;&lt;text x=&quot;${cx+x+12}&quot; y=&quot;${cy+y-12}&quot; fill=&quot;#b66c1d&quot; font-size=&quot;21&quot; font-weight=&quot;800&quot;&gt;A&lt;/text&gt;`;
+ s+=centerDot(cx,cy,&#x27;O&#x27;);
+ 
+ return s+svgEnd;
+}
+function scene5(){const a=state.s5,cx=360,cy=250;let s=svgStart+`&lt;circle cx=&quot;${cx}&quot; cy=&quot;${cy}&quot; r=&quot;155&quot; fill=&quot;none&quot; stroke=&quot;#dce9f3&quot; stroke-width=&quot;2&quot; stroke-dasharray=&quot;6 8&quot;/&gt;`;
+ s+=ghost(a.shape,cx,cy)+figureAt(a.shape,cx,cy,a.angle)+markedVertex(a.shape,cx,cy,a.angle)+centerDot(cx,cy,&#x27;&#x27;);
+ s+=`&lt;text x=&quot;360&quot; y=&quot;465&quot; text-anchor=&quot;middle&quot; fill=&quot;#5b7a91&quot; font-size=&quot;18&quot;&gt;Rotate, then press “Check this position”&lt;/text&gt;`;
+ return s+svgEnd;}
+function scene6(){return &#x27;&#x27;}
+function panel1(){const a=state.s1;return `&lt;div class=&quot;eyebrow&quot;&gt;Look and observe&lt;/div&gt;&lt;p class=&quot;bigquestion&quot;&gt;Look at the turbine, fan and gear.&lt;/p&gt;&lt;p class=&quot;explain&quot;&gt;What do you notice when they turn?&lt;/p&gt;&lt;button id=&quot;reveal1&quot; class=&quot;${a.reveal?&#x27;success&#x27;:&#x27;primary&#x27;}&quot;&gt;${a.reveal?&#x27;Hide what we discovered&#x27;:&#x27;Show what we discovered&#x27;}&lt;/button&gt;${a.reveal?`&lt;div class=&quot;note&quot;&gt;&lt;b&gt;What we discovered&lt;/b&gt;&lt;ul class=&quot;takeaways&quot;&gt;&lt;li&gt;Each object has parts arranged around a centre.&lt;/li&gt;&lt;li&gt;Its parts repeat in a regular pattern.&lt;/li&gt;&lt;li&gt;After a suitable turn, the whole shape looks the same.&lt;/li&gt;&lt;/ul&gt;&lt;/div&gt;`:&#x27;&#x27;}`;}
+function panel2(){const a=state.s2;return `&lt;div class=&quot;eyebrow&quot;&gt;Investigate&lt;/div&gt;&lt;p class=&quot;bigquestion&quot;&gt;${slides[1].question}&lt;/p&gt;&lt;p class=&quot;explain&quot;&gt;Choose a shape, select an angle, then check whether it matches the original outline.&lt;/p&gt;&lt;div class=&quot;rowbtns&quot;&gt;${Object.keys(shapes).filter(s=&gt;s!==&#x27;rhombus&#x27;).map(k=&gt;`&lt;button data-shape2=&quot;${k}&quot; class=&quot;${a.shape===k?&#x27;active&#x27;:&#x27;&#x27;}&quot;&gt;${shapes[k].label}&lt;/button&gt;`).join(&#x27;&#x27;)}&lt;/div&gt;&lt;label class=&quot;controls-label&quot; for=&quot;angle2&quot;&gt;Angle of rotation: &lt;strong&gt;${a.angle}°&lt;/strong&gt;&lt;/label&gt;&lt;input id=&quot;angle2&quot; class=&quot;range&quot; type=&quot;range&quot; min=&quot;0&quot; max=&quot;360&quot; step=&quot;15&quot; value=&quot;${a.angle}&quot;&gt;&lt;div class=&quot;rowbtns&quot;&gt;${[90,120,180,360].map(n=&gt;`&lt;button data-rot2=&quot;${n}&quot;&gt;${n}°&lt;/button&gt;`).join(&#x27;&#x27;)}&lt;/div&gt;&lt;div class=&quot;rowbtns&quot;&gt;&lt;button data-check2 class=&quot;primary&quot;&gt;Check match&lt;/button&gt;&lt;button data-reset2&gt;Reset&lt;/button&gt;&lt;/div&gt;${a.checked===null?&#x27;&#x27;:a.checked===&#x27;start&#x27;?`&lt;div class=&quot;note&quot;&gt;0° is the starting position. Try a turn to check symmetry.&lt;/div&gt;`:`&lt;div class=&quot;${a.checked?&#x27;answer&#x27;:&#x27;warning&#x27;}&quot;&gt;${a.checked?&#x27;Yes — the shape matches its original outline.&#x27;:&#x27;No — it does not match at this angle.&#x27;}&lt;/div&gt;`}&lt;button id=&quot;revealDef&quot; class=&quot;${a.reveal?&#x27;success&#x27;:&#x27;&#x27;}&quot;&gt;${a.reveal?&#x27;Hide definition&#x27;:&#x27;Reveal definition&#x27;}&lt;/button&gt;${a.reveal?`&lt;div class=&quot;note&quot;&gt;&lt;b&gt;Rotational symmetry:&lt;/b&gt; A shape matches itself after a rotation of less than 360° about a fixed centre.&lt;/div&gt;`:&#x27;&#x27;}`}
+function labelledAngleSlider(id, angle, ticks=[0,90,180,270,360]){
+ return `&lt;div class=&quot;angle-slider-wrap&quot;&gt;&lt;input id=&quot;${id}&quot; class=&quot;range angle-slider&quot; type=&quot;range&quot; min=&quot;0&quot; max=&quot;360&quot; step=&quot;5&quot; value=&quot;${Math.abs(angle)}&quot; aria-label=&quot;Rotation angle&quot;&gt;&lt;div class=&quot;angle-ticks&quot;&gt;${ticks.map(n=&gt;`&lt;span style=&quot;left:${n/360*100}%&quot;&gt;&lt;i&gt;&lt;/i&gt;&lt;b&gt;${n}°&lt;/b&gt;&lt;/span&gt;`).join(&#x27;&#x27;)}&lt;/div&gt;&lt;/div&gt;`;
+}
+function panel3(){const a=state.s3;const movable=a.angle===0&amp;&amp;!a.playing;return `&lt;div class=&quot;eyebrow&quot;&gt;Investigate the centre&lt;/div&gt;&lt;p class=&quot;bigquestion&quot;&gt;${slides[2].question}&lt;/p&gt;&lt;p class=&quot;explain&quot;&gt;Try a 180° turn. Return to 0°, move O, and try the turn again.&lt;/p&gt;&lt;div class=&quot;rowbtns&quot;&gt;&lt;button data-centre=&quot;correct&quot; ${!movable?&#x27;disabled&#x27;:&#x27;&#x27;}&gt;O at intersection&lt;/button&gt;&lt;button data-centre=&quot;above&quot; ${!movable?&#x27;disabled&#x27;:&#x27;&#x27;}&gt;Move O above&lt;/button&gt;&lt;/div&gt;&lt;label class=&quot;controls-label&quot; for=&quot;angle3&quot;&gt;Rotation angle: &lt;b&gt;${Math.abs(a.angle)}°&lt;/b&gt;&lt;/label&gt;${labelledAngleSlider(&#x27;angle3&#x27;,a.angle,[0,90,180,270,360])}${!movable?`&lt;div class=&quot;subtle&quot;&gt;Return the angle to 0° to move O.&lt;/div&gt;`:&#x27;&#x27;}&lt;div class=&quot;rowbtns&quot;&gt;&lt;button data-direction3=&quot;clockwise&quot;&gt;↻ Clockwise 180°&lt;/button&gt;&lt;button data-direction3=&quot;anticlockwise&quot;&gt;↺ Anticlockwise 180°&lt;/button&gt;&lt;/div&gt;&lt;div class=&quot;rowbtns&quot;&gt;&lt;button data-check3 class=&quot;primary&quot;&gt;Does it match?&lt;/button&gt;&lt;button data-reset3&gt;Reset&lt;/button&gt;&lt;/div&gt;${a.checked===null?&#x27;&#x27;:a.checked===&#x27;start&#x27;?`&lt;div class=&quot;note&quot;&gt;Start from a turn greater than 0°.&lt;/div&gt;`:`&lt;div class=&quot;${a.checked?&#x27;answer&#x27;:&#x27;warning&#x27;}&quot;&gt;${a.checked?&#x27;Yes. With this centre and angle, the rhombus matches.&#x27;:&#x27;No. The rhombus does not match its original position.&#x27;}&lt;/div&gt;`}&lt;button data-reveal3 class=&quot;${a.reveal?&#x27;success&#x27;:&#x27;&#x27;}&quot;&gt;${a.reveal?&#x27;Hide key idea&#x27;:&#x27;Show key idea&#x27;}&lt;/button&gt;${a.reveal?`&lt;div class=&quot;note&quot;&gt;&lt;b&gt;Centre of rotation&lt;/b&gt; — the fixed point around which a shape turns.&lt;p style=&quot;margin:9px 0 0&quot;&gt;For this rhombus, the centre of rotational symmetry is where its diagonals intersect.&lt;/p&gt;&lt;/div&gt;`:&#x27;&#x27;}`;}
+function fraction(a,b){return `&lt;span class=&quot;fancy-fraction&quot;&gt;&lt;span&gt;${a}&lt;/span&gt;&lt;span&gt;${b}&lt;/span&gt;&lt;/span&gt;`}
+function panel4(){const a=state.s4;const t={90:[&#x27;Quarter turn&#x27;,1,4],120:[&#x27;Third turn&#x27;,1,3],180:[&#x27;Half turn&#x27;,1,2],360:[&#x27;Full turn&#x27;,1,1]}[a.turn];const matches=a.angle&gt;0&amp;&amp;mod(a.angle,180)===0;
+ return `&lt;div class=&quot;eyebrow&quot;&gt;Explore the turns&lt;/div&gt;&lt;p class=&quot;bigquestion&quot;&gt;${slides[3].question}&lt;/p&gt;&lt;p class=&quot;explain&quot;&gt;Watch vertex A. Select a turn, predict whether the rhombus matches, then play the rotation.&lt;/p&gt;&lt;div class=&quot;turn-four&quot;&gt;${[90,120,180,360].map(n=&gt;{const x={90:[&#x27;Quarter turn&#x27;,&#x27;90°&#x27;],120:[&#x27;Third turn&#x27;,&#x27;120°&#x27;],180:[&#x27;Half turn&#x27;,&#x27;180°&#x27;],360:[&#x27;Full turn&#x27;,&#x27;360°&#x27;]}[n];return `&lt;button class=&quot;turn-choice ${a.turn===n?&#x27;selected&#x27;:&#x27;&#x27;}&quot; data-turn4=&quot;${n}&quot;&gt;&lt;b&gt;${x[0]}&lt;/b&gt;&lt;span&gt;${x[1]}&lt;/span&gt;&lt;/button&gt;`}).join(&#x27;&#x27;)}&lt;/div&gt;&lt;div class=&quot;note&quot;&gt;&lt;div class=&quot;math-key&quot;&gt;${t[0]}: ${fraction(t[1],t[2])} of a full turn = &lt;strong&gt;${a.turn}°&lt;/strong&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class=&quot;rowbtns&quot;&gt;&lt;button data-play4 class=&quot;primary&quot;&gt;${a.playing?&#x27;Pause&#x27;:&#x27;▶ Play turn&#x27;}&lt;/button&gt;&lt;button data-reset4&gt;Reset&lt;/button&gt;&lt;/div&gt;&lt;div class=&quot;status&quot;&gt;Angle: ${Math.round(a.angle)}° ${a.angle===0?&#x27;· Starting position&#x27;:`· ${matches?&#x27;Shape matches&#x27;:&#x27;Shape does not match&#x27;}`}&lt;/div&gt;`}
+function panel5(){const a=state.s5;const matches=a.found[a.shape];return `&lt;div class=&quot;eyebrow&quot;&gt;Count the matches&lt;/div&gt;&lt;p class=&quot;bigquestion&quot;&gt;${slides[4].question}&lt;/p&gt;&lt;p class=&quot;explain&quot;&gt;Turn a shape from 0° to 360°. At each matching position, press &lt;b&gt;Check this position&lt;/b&gt;.&lt;/p&gt;&lt;div class=&quot;rowbtns&quot;&gt;${[&#x27;rectangle&#x27;,&#x27;square&#x27;,&#x27;triangle&#x27;,&#x27;arrow&#x27;].map(k=&gt;`&lt;button data-shape5=&quot;${k}&quot; class=&quot;${a.shape===k?&#x27;active&#x27;:&#x27;&#x27;}&quot;&gt;${shapes[k].label}&lt;/button&gt;`).join(&#x27;&#x27;)}&lt;/div&gt;&lt;label class=&quot;controls-label&quot; for=&quot;angle5&quot;&gt;Angle: &lt;b&gt;${a.angle}°&lt;/b&gt;&lt;/label&gt;&lt;input class=&quot;range&quot; id=&quot;angle5&quot; type=&quot;range&quot; min=&quot;0&quot; max=&quot;360&quot; step=&quot;15&quot; value=&quot;${a.angle}&quot;&gt;&lt;div class=&quot;rowbtns&quot;&gt;&lt;button data-reset5&gt;Back to 0°&lt;/button&gt;&lt;/div&gt;&lt;div class=&quot;rowbtns&quot;&gt;&lt;button class=&quot;primary&quot; data-check5&gt;Check this position&lt;/button&gt;&lt;button data-play5&gt;${a.playing?&#x27;Pause&#x27;:&#x27;▶ Rotate slowly&#x27;}&lt;/button&gt;&lt;/div&gt;${a.checked===null?&#x27;&#x27;:`&lt;div class=&quot;${a.checked?&#x27;answer&#x27;:&#x27;warning&#x27;}&quot;&gt;${a.checked?&#x27;Match recorded.&#x27;:&#x27;Not a matching position (or still at the start).&#x27;} &lt;/div&gt;`}&lt;p class=&quot;subtle&quot;&gt;Matching angles found: ${matches.length?matches.slice().sort((x,y)=&gt;x-y).join(&#x27;°, &#x27;)+&#x27;°&#x27;:&#x27;none yet&#x27;}&lt;/p&gt;&lt;div class=&quot;rowbtns&quot;&gt;&lt;button data-table5&gt;${a.table?&#x27;Hide summary&#x27;:&#x27;Reveal summary&#x27;}&lt;/button&gt;&lt;button data-formula5&gt;${a.formula?&#x27;Hide rule&#x27;:&#x27;Reveal rule&#x27;}&lt;/button&gt;&lt;/div&gt;${a.table?`&lt;table class=&quot;table-mini&quot;&gt;&lt;tr&gt;&lt;th&gt;Shape&lt;/th&gt;&lt;th&gt;Order&lt;/th&gt;&lt;th&gt;Smallest angle&lt;/th&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;Rectangle&lt;/td&gt;&lt;td&gt;2&lt;/td&gt;&lt;td&gt;180°&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;Square&lt;/td&gt;&lt;td&gt;4&lt;/td&gt;&lt;td&gt;90°&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;Equilateral triangle&lt;/td&gt;&lt;td&gt;3&lt;/td&gt;&lt;td&gt;120°&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;Arrow&lt;/td&gt;&lt;td&gt;1&lt;/td&gt;&lt;td&gt;360°&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;`:&#x27;&#x27;}${a.formula?`&lt;div class=&quot;note&quot;&gt;&lt;b&gt;Smallest matching angle = 360° ÷ order&lt;/b&gt;&lt;p style=&quot;margin:8px 0 0&quot;&gt;So if we know the order of rotational symmetry, we also know the smallest angle of rotation.&lt;/p&gt;&lt;/div&gt;`:&#x27;&#x27;}`}
+const terms=[
+ [&#x27;Rotation&#x27;,&#x27;Turning a shape about a fixed point&#x27;],
+ [&#x27;Rotational symmetry&#x27;,&#x27;A shape matching itself after a turn of less than 360°&#x27;],
+ [&#x27;Centre of rotation&#x27;,&#x27;The fixed point around which a shape rotates&#x27;],
+ [&#x27;Half turn&#x27;,&#x27;A rotation through 180°&#x27;],
+ [&#x27;Quarter turn&#x27;,&#x27;A rotation through 90°&#x27;],
+ [&#x27;Third turn&#x27;,&#x27;A rotation through 120°&#x27;],
+ [&#x27;Order of rotational symmetry&#x27;,&#x27;Number of matching positions during a full turn&#x27;]
+];
+const defOrder=[2,4,0,6,3,1,5];
+function panel6(){const a=state.s6;return `&lt;div class=&quot;eyebrow&quot;&gt;Let’s discuss together&lt;/div&gt;&lt;p class=&quot;bigquestion&quot;&gt;${slides[5].question}&lt;/p&gt;&lt;p class=&quot;explain&quot;&gt;Choose a term in the left column, then choose its meaning in the right column.&lt;/p&gt;&lt;div class=&quot;metric&quot;&gt;&lt;strong&gt;${a.matched.length} / ${terms.length}&lt;/strong&gt;&lt;span&gt;correct matches&lt;/span&gt;&lt;/div&gt;&lt;p class=&quot;${a.feedback.includes(&#x27;Try&#x27;)?&#x27;warning&#x27;:a.feedback.includes(&#x27;Correct&#x27;)||a.feedback.includes(&#x27;completed&#x27;)?&#x27;answer&#x27;:&#x27;status&#x27;}&quot;&gt;${a.feedback||&#x27;Select a term to begin.&#x27;}&lt;/p&gt;&lt;button data-reset6&gt;Reset matching&lt;/button&gt;&lt;div class=&quot;note&quot;&gt;Next: &lt;b&gt;Booklet Exercise 1&lt;/b&gt; — find the order of rotational symmetry.&lt;/div&gt;`;}
+function matchScene6(){const a=state.s6;return `&lt;div class=&quot;match-wrap&quot;&gt;&lt;div class=&quot;match-list&quot;&gt;&lt;h3&gt;Mathematical term&lt;/h3&gt;${terms.map((v,i)=&gt;`&lt;button class=&quot;match-item ${a.matched.includes(i)?&#x27;correct&#x27;:a.selected===i?&#x27;selected&#x27;:&#x27;&#x27;}&quot; data-term=&quot;${i}&quot; ${a.matched.includes(i)?&#x27;disabled&#x27;:&#x27;&#x27;}&gt;${a.matched.includes(i)?&#x27;✓ &#x27;:&#x27;&#x27;}${esc(v[0])}&lt;/button&gt;`).join(&#x27;&#x27;)}&lt;/div&gt;&lt;div class=&quot;match-list&quot;&gt;&lt;h3&gt;Meaning&lt;/h3&gt;${defOrder.map(i=&gt;`&lt;button class=&quot;match-item ${a.matched.includes(i)?&#x27;correct&#x27;:&#x27;&#x27;}&quot; data-def=&quot;${i}&quot; ${a.matched.includes(i)?&#x27;disabled&#x27;:&#x27;&#x27;}&gt;${a.matched.includes(i)?&#x27;✓ &#x27;:&#x27;&#x27;}${esc(terms[i][1])}&lt;/button&gt;`).join(&#x27;&#x27;)}&lt;/div&gt;&lt;/div&gt;`}
+function controls1(){return `&lt;div class=&quot;control-group&quot;&gt;&lt;button data-rotor=&quot;turbine&quot; class=&quot;primary&quot;&gt;↻ Turn turbine 120°&lt;/button&gt;&lt;button data-rotor=&quot;fan&quot;&gt;↻ Turn fan 90°&lt;/button&gt;&lt;button data-rotor=&quot;gear&quot;&gt;${state.s1.gearPlaying?&quot;■ Stop gear&quot;:&quot;▶ Spin gear&quot;}&lt;/button&gt;&lt;button data-rotor=&quot;reset&quot;&gt;Reset&lt;/button&gt;&lt;/div&gt;`}
+function controls2(){return `&lt;span class=&quot;subtle&quot;&gt;Predict → Turn → Check&lt;/span&gt;`}
+function controls3(){return ``}
+function controls4(){return `&lt;span class=&quot;subtle&quot;&gt;Select a turn, then press ▶ Play.&lt;/span&gt;`}
+function controls5(){return `&lt;span class=&quot;subtle&quot;&gt;Turn the shape and count its matching positions.&lt;/span&gt;&lt;span class=&quot;subtle&quot;&gt;Count 360°, not 0°.&lt;/span&gt;`}
+function controls6(){return `&lt;span class=&quot;subtle&quot;&gt;Discuss each pair, then select the matching definition.&lt;/span&gt;`}
+const scenes=[scene1,scene2,scene3,scene4,scene5,scene6];
+const panels=[panel1,panel2,panel3,panel4,panel5,panel6];
+const controls=[controls1,controls2,controls3,controls4,controls5,controls6];
+function stopAnimation(){if(state.s1.raf)cancelAnimationFrame(state.s1.raf);state.s1.raf=null;state.s1.playing=false;state.s1.gearPlaying=false;if(state.s3.raf)cancelAnimationFrame(state.s3.raf);if(state.s4.raf)cancelAnimationFrame(state.s4.raf);if(state.s5.raf)cancelAnimationFrame(state.s5.raf);state.s3.raf=null;state.s4.raf=null;state.s5.raf=null;state.s3.playing=false;state.s4.playing=false;state.s5.playing=false;}
+function slideNav(n){stopAnimation();state.slide=clamp(n,0,slides.length-1);state.tool=&#x27;none&#x27;;render();}
+
+// Distance from a pointer to a segment; lets Eraser remove a long straight line at any point.
+function inkDistanceToSegment(p,a,b){
+ const dx=b[0]-a[0],dy=b[1]-a[1],lengthSquared=dx*dx+dy*dy;
+ const t=lengthSquared?Math.max(0,Math.min(1,((p[0]-a[0])*dx+(p[1]-a[1])*dy)/lengthSquared)):0;
+ return Math.hypot(p[0]-a[0]-t*dx,p[1]-a[1]-t*dy);
+}
+function inkDistanceToStroke(p,stroke){
+ if(!stroke?.length)return Infinity;
+ if(stroke.length===1)return Math.hypot(p[0]-stroke[0][0],p[1]-stroke[0][1]);
+ let best=Infinity;
+ for(let i=1;i&lt;stroke.length;i++)best=Math.min(best,inkDistanceToSegment(p,stroke[i-1],stroke[i]));
+ return best;
+}
+// Hold briefly at matching positions, rather than jumping straight from 0 to 360.
+function stagedFullTurn(t){
+ const quarter=Math.min(3,Math.floor(t*4));
+ const within=Math.min(1,t*4-quarter);
+ return 90*(quarter+Math.min(1,within/0.64));
+}
+
+function updateInk(){const layer=byId(&#x27;inkSvg&#x27;);if(!layer)return;let s=&#x27;&#x27;;const all=state.ink[state.slide]||[];for(const stroke of all){if(stroke.length===0)continue;const d=stroke.map((p,i)=&gt;(i?&#x27;L&#x27;:&#x27;M&#x27;)+p[0].toFixed(1)+&#x27; &#x27;+p[1].toFixed(1)).join(&#x27; &#x27;);s+=`&lt;path d=&quot;${d}&quot; stroke=&quot;${stroke.kind===&#x27;line&#x27;?&#x27;#607c94&#x27;:&#x27;#d96814&#x27;}&quot; fill=&quot;none&quot; stroke-width=&quot;${stroke.kind===&#x27;line&#x27;?1.8:4}&quot; stroke-linecap=&quot;round&quot; stroke-linejoin=&quot;round&quot;/&gt;`;}if(state.drawing){const d=state.drawing.map((p,i)=&gt;(i?&#x27;L&#x27;:&#x27;M&#x27;)+p[0].toFixed(1)+&#x27; &#x27;+p[1].toFixed(1)).join(&#x27; &#x27;);s+=`&lt;path d=&quot;${d}&quot; stroke=&quot;${state.drawing.kind===&#x27;line&#x27;?&#x27;#607c94&#x27;:&#x27;#d96814&#x27;}&quot; fill=&quot;none&quot; stroke-width=&quot;${state.drawing.kind===&#x27;line&#x27;?1.8:4}&quot; stroke-linecap=&quot;round&quot; stroke-linejoin=&quot;round&quot;/&gt;`;}layer.innerHTML=s;}
+function render(){const n=state.slide;byId(&#x27;slideTitle&#x27;).textContent=slides[n].title;byId(&#x27;slideTime&#x27;).textContent=slides[n].time;const scene=byId(&#x27;sceneArea&#x27;);scene.innerHTML=n===5?matchScene6()+`&lt;svg id=&quot;inkSvg&quot; class=&quot;ink-layer ${state.tool!==&#x27;none&#x27;?&#x27;enabled&#x27;:&#x27;&#x27;}&quot; viewBox=&quot;0 0 720 500&quot; preserveAspectRatio=&quot;xMidYMid meet&quot;&gt;&lt;/svg&gt;`:`&lt;div class=&quot;scene-caption&quot;&gt;${n===0?&#x27;OBSERVE&#x27;:n===1?&#x27;ORIGINAL &amp; ROTATED SHAPE&#x27;:n===2?&#x27;MOVE THE CENTRE&#x27;:n===3?&#x27;DIFFERENT TURNS&#x27;:&#x27;COUNT THE MATCHES&#x27;}&lt;/div&gt;${scenes[n]()}&lt;svg id=&quot;inkSvg&quot; class=&quot;ink-layer ${state.tool!==&#x27;none&#x27;?&#x27;enabled&#x27;:&#x27;&#x27;}&quot; viewBox=&quot;0 0 720 500&quot; preserveAspectRatio=&quot;xMidYMid meet&quot;&gt;&lt;/svg&gt;`;byId(&#x27;rightPanel&#x27;).innerHTML=panels[n]();byId(&#x27;stageBottom&#x27;).innerHTML=controls[n]();byId(&#x27;slideCounter&#x27;).textContent=`${n+1} / ${slides.length}`;byId(&#x27;prevSlide&#x27;).disabled=n===0;byId(&#x27;nextSlide&#x27;).disabled=n===slides.length-1;byId(&#x27;progress&#x27;).innerHTML=slides.map((_,i)=&gt;`&lt;i class=&quot;${i&lt;=n?&#x27;done&#x27;:&#x27;&#x27;}&quot;&gt;&lt;/i&gt;`).join(&#x27;&#x27;);byId(&#x27;penTool&#x27;).classList.toggle(&#x27;active&#x27;,state.tool===&#x27;pen&#x27;);byId(&#x27;lineTool&#x27;).classList.toggle(&#x27;active&#x27;,state.tool===&#x27;line&#x27;);byId(&#x27;eraseTool&#x27;).classList.toggle(&#x27;active&#x27;,state.tool===&#x27;eraser&#x27;);updateInk();bindInkAndDrag();}
+function renderSoft(){render();}
+function updateGeometryOnly(){const n=state.slide;if(n&gt;4)return;const svgs=byId(&#x27;sceneArea&#x27;).querySelectorAll(&#x27;svg&#x27;);if(svgs.length){svgs[0].outerHTML=scenes[n]();if(n===2)bindCentreDrag();}}
+function bindCentreDrag(){if(state.slide!==2||state.tool!==&#x27;none&#x27;||state.s3.angle!==0||state.s3.playing)return;const root=byId(&#x27;sceneArea&#x27;).querySelector(&#x27;svg:first-of-type&#x27;),knob=root?.querySelector(&#x27;.draggable-centre&#x27;);if(!knob)return;knob.style.cursor=&#x27;grab&#x27;;knob.style.touchAction=&#x27;none&#x27;;knob.addEventListener(&#x27;pointerdown&#x27;,e=&gt;{e.preventDefault();state.s3.drag=true;/* pointer moves are tracked on window to keep dragging after SVG updates */});}
+window.addEventListener(&#x27;pointermove&#x27;,e=&gt;{if(!state.s3.drag||state.slide!==2||state.s3.angle!==0||state.s3.playing)return;const root=byId(&#x27;sceneArea&#x27;).querySelector(&#x27;svg:first-of-type&#x27;);if(!root)return;const p=svgCoords(e,root);state.s3.ox=clamp(p[0],140,580);state.s3.oy=clamp(p[1],90,405);state.s3.checked=null;updateGeometryOnly();});window.addEventListener(&#x27;pointerup&#x27;,()=&gt;state.s3.drag=false);window.addEventListener(&#x27;pointercancel&#x27;,()=&gt;state.s3.drag=false);
+function svgCoords(e,svg){let point=svg.createSVGPoint();point.x=e.clientX;point.y=e.clientY;const ctm=svg.getScreenCTM();if(!ctm)return [0,0];point=point.matrixTransform(ctm.inverse());return [point.x,point.y];}
+function bindInkAndDrag(){
+ const ink=byId(&#x27;inkSvg&#x27;);if(!ink)return;
+ ink.addEventListener(&#x27;pointerdown&#x27;,e=&gt;{
+  if(state.tool===&#x27;none&#x27;)return;
+  e.preventDefault();ink.setPointerCapture(e.pointerId);
+  const p=svgCoords(e,ink);
+  if(state.tool===&#x27;eraser&#x27;){
+   const strokes=state.ink[state.slide]||[];
+   let best=-1, distance=20;
+   strokes.forEach((stroke,i)=&gt;{const d=inkDistanceToStroke(p,stroke);if(d&lt;distance){distance=d;best=i}});
+   if(best!==-1){strokes.splice(best,1);updateInk()}return;
+  }
+  state.drawing=[p];state.drawing.kind=state.tool===&#x27;line&#x27;?&#x27;line&#x27;:&#x27;pen&#x27;;
+  if(state.tool===&#x27;line&#x27;)state.drawing.push(p);
+  updateInk();
+ });
+ ink.addEventListener(&#x27;pointermove&#x27;,e=&gt;{
+  if(!state.drawing)return;
+  const p=svgCoords(e,ink);
+  if(state.drawing.kind===&#x27;line&#x27;)state.drawing[1]=p;
+  else state.drawing.push(p);
+  updateInk();
+ });
+ const finish=()=&gt;{
+  if(!state.drawing)return;
+  if(state.drawing.kind!==&#x27;line&#x27;||Math.hypot(state.drawing[1][0]-state.drawing[0][0],state.drawing[1][1]-state.drawing[0][1])&gt;2){
+   (state.ink[state.slide]??=[]).push(state.drawing);
+  }
+  state.drawing=null;updateInk();
+ };
+ ink.addEventListener(&#x27;pointerup&#x27;,finish);ink.addEventListener(&#x27;pointercancel&#x27;,finish);
+ if(state.slide===2)bindCentreDrag();
+}
+function startRealRotation(kind,delta){stopAnimation();const s=state.s1;s.playing=true;let first=0;const from=s[kind],to=from+delta;function frame(ts){if(!s.playing)return;if(!first)first=ts;const t=clamp((ts-first)/1500,0,1);s[kind]=from+(to-from)*t;updateGeometryOnly();if(t&lt;1)s.raf=requestAnimationFrame(frame);else{stopAnimation();}}s.raf=requestAnimationFrame(frame);}
+function startGearSpin(){
+ stopAnimation();const a=state.s1;a.gearPlaying=true;a.playing=true;let prev=0;
+ function frame(ts){if(!a.gearPlaying||state.slide!==0)return;if(prev)a.gear=mod(a.gear+(ts-prev)*0.055,360);prev=ts;updateGeometryOnly();a.raf=requestAnimationFrame(frame);}
+ a.raf=requestAnimationFrame(frame);render();
+}
+function startTurn3(direction){stopAnimation();const s=state.s3;s.angle=0;s.checked=null;s.playing=true;let start=0;const dest=direction===&#x27;clockwise&#x27;?180:-180;function frame(ts){if(!s.playing)return;if(!start)start=ts;const t=clamp((ts-start)/1300,0,1);s.angle=Math.round(dest*(1-(1-t)**2));updateGeometryOnly();if(t&lt;1)s.raf=requestAnimationFrame(frame);else{stopAnimation();render();}}s.raf=requestAnimationFrame(frame);render();}
+function startTurn4(){stopAnimation();const s=state.s4;s.angle=0;s.playing=true;let started=0;const dest=s.turn;function step(ts){if(!s.playing)return;if(!started)started=ts;const t=clamp((ts-started)/1250,0,1);s.angle=Math.round(dest*(1-(1-t)**2));updateGeometryOnly();const msg=byId(&#x27;rightPanel&#x27;).querySelector(&#x27;.status&#x27;);if(msg)msg.textContent=`Angle: ${s.angle}° · ${s.angle===0?&#x27;Starting position&#x27;:s.angle===dest?(dest%180===0?&#x27;Shape matches&#x27;:&#x27;Shape does not match&#x27;):&#x27;Turning…&#x27;}`;if(t&lt;1)s.raf=requestAnimationFrame(step);else{stopAnimation();const btn=byId(&#x27;rightPanel&#x27;).querySelector(&#x27;[data-play4]&#x27;);if(btn)btn.textContent=&#x27;▶ Play turn&#x27;;}}s.raf=requestAnimationFrame(step);render();}
+function startTurn5(){stopAnimation();const s=state.s5;s.angle=0;s.checked=null;s.playing=true;let started=0;function step(ts){if(!s.playing)return;if(!started)started=ts;let t=clamp((ts-started)/6500,0,1);s.angle=Math.round(360*t/15)*15;updateGeometryOnly();const range=byId(&#x27;angle5&#x27;);if(range)range.value=s.angle;const label=byId(&#x27;rightPanel&#x27;).querySelector(&#x27;label[for=&quot;angle5&quot;] b&#x27;);if(label)label.textContent=s.angle+&#x27;°&#x27;;if(t&lt;1)s.raf=requestAnimationFrame(step);else{stopAnimation();render();}}s.raf=requestAnimationFrame(step);render();}
+byId(&#x27;prevSlide&#x27;).addEventListener(&#x27;click&#x27;,()=&gt;slideNav(state.slide-1));byId(&#x27;nextSlide&#x27;).addEventListener(&#x27;click&#x27;,()=&gt;slideNav(state.slide+1));byId(&#x27;fullScreen&#x27;).addEventListener(&#x27;click&#x27;,()=&gt;{if(!document.fullscreenElement){document.documentElement.requestFullscreen?.().catch(()=&gt;{});}else document.exitFullscreen?.()});
+byId(&#x27;penTool&#x27;).addEventListener(&#x27;click&#x27;,()=&gt;{state.tool=state.tool===&#x27;pen&#x27;?&#x27;none&#x27;:&#x27;pen&#x27;;render()});byId(&#x27;lineTool&#x27;).addEventListener(&#x27;click&#x27;,()=&gt;{state.tool=state.tool===&#x27;line&#x27;?&#x27;none&#x27;:&#x27;line&#x27;;render()});byId(&#x27;eraseTool&#x27;).addEventListener(&#x27;click&#x27;,()=&gt;{state.tool=state.tool===&#x27;eraser&#x27;?&#x27;none&#x27;:&#x27;eraser&#x27;;render()});byId(&#x27;undoTool&#x27;).addEventListener(&#x27;click&#x27;,()=&gt;{let all=state.ink[state.slide]||[];all.pop();updateInk()});byId(&#x27;clearTool&#x27;).addEventListener(&#x27;click&#x27;,()=&gt;{state.ink[state.slide]=[];updateInk()});
+byId(&#x27;stageBottom&#x27;).addEventListener(&#x27;click&#x27;,e=&gt;{const b=e.target.closest(&#x27;button[data-rotor]&#x27;);if(!b)return;const k=b.dataset.rotor;if(k===&#x27;reset&#x27;){stopAnimation();state.s1.turbine=0;state.s1.fan=0;state.s1.gear=0;render();}else if(k===&#x27;gear&#x27;){if(state.s1.gearPlaying){stopAnimation();render();}else startGearSpin();}else startRealRotation(k,k===&#x27;turbine&#x27;?120:90);});
+byId(&#x27;rightPanel&#x27;).addEventListener(&#x27;click&#x27;,e=&gt;{const b=e.target.closest(&#x27;button&#x27;);if(!b)return;const d=b.dataset;
+ if(b.id===&#x27;reveal1&#x27;){state.s1.reveal=!state.s1.reveal;render();return}
+ if(d.shape2){state.s2.shape=d.shape2;state.s2.angle=0;state.s2.checked=null;render();return}
+ if(d.rot2){state.s2.angle=+d.rot2;state.s2.checked=null;render();return}
+ if(&#x27;check2&#x27; in d){state.s2.checked=state.s2.angle===0?&#x27;start&#x27;:getGeometryMatch(state.s2.shape,state.s2.angle);render();return}
+ if(&#x27;reset2&#x27; in d){state.s2.angle=0;state.s2.checked=null;render();return}
+ if(b.id===&#x27;revealDef&#x27;){state.s2.reveal=!state.s2.reveal;render();return}
+ if(d.centre){if(state.s3.angle!==0||state.s3.playing)return;state.s3.ox=state.s3.cx;state.s3.oy=state.s3.cy+(d.centre===&#x27;above&#x27;?-48:0);state.s3.checked=null;render();return}
+ if(d.direction3){startTurn3(d.direction3);return}
+ if(&#x27;reveal3&#x27; in d){state.s3.reveal=!state.s3.reveal;render();return}
+ if(&#x27;check3&#x27; in d){const s=state.s3;state.s3.checked=s.angle===0?&#x27;start&#x27;:(Math.abs(s.angle)===360||(Math.abs(s.ox-s.cx)&lt;1&amp;&amp;Math.abs(s.oy-s.cy)&lt;1&amp;&amp;mod(s.angle,180)===0));render();return}
+ if(&#x27;reset3&#x27; in d){Object.assign(state.s3,{ox:state.s3.cx,oy:state.s3.cy,angle:0,checked:null,drag:false});render();return}
+ if(d.turn4){stopAnimation();state.s4.turn=+d.turn4;state.s4.angle=0;render();return}
+ if(&#x27;play4&#x27; in d){if(state.s4.playing){stopAnimation();render()}else startTurn4();return}
+ if(&#x27;reset4&#x27; in d){stopAnimation();state.s4.angle=0;render();return}
+ if(d.shape5){stopAnimation();state.s5.shape=d.shape5;state.s5.angle=0;state.s5.checked=null;render();return}
+ if(d.step5){stopAnimation();state.s5.angle=Math.min(360,state.s5.angle+(+d.step5));state.s5.checked=null;render();return}
+ if(&#x27;reset5&#x27; in d){stopAnimation();state.s5.angle=0;state.s5.checked=null;render();return}
+ if(&#x27;check5&#x27; in d){const a=state.s5,ok=getGeometryMatch(a.shape,a.angle);a.checked=ok;if(ok&amp;&amp;!a.found[a.shape].includes(a.angle))a.found[a.shape].push(a.angle);render();return}
+ if(&#x27;play5&#x27; in d){if(state.s5.playing){stopAnimation();render()}else startTurn5();return}
+ if(&#x27;table5&#x27; in d){state.s5.table=!state.s5.table;render();return}
+ if(&#x27;formula5&#x27; in d){state.s5.formula=!state.s5.formula;render();return}
+ if(&#x27;reset6&#x27; in d){Object.assign(state.s6,{selected:null,matched:[],feedback:&#x27;&#x27;});render();return}
+});
+byId(&#x27;rightPanel&#x27;).addEventListener(&#x27;input&#x27;,e=&gt;{if(e.target.id===&#x27;angle2&#x27;){state.s2.angle=+e.target.value;state.s2.checked=null;updateGeometryOnly();const label=byId(&#x27;rightPanel&#x27;).querySelector(&#x27;label[for=&quot;angle2&quot;] strong&#x27;);if(label)label.textContent=state.s2.angle+&#x27;°&#x27;;byId(&#x27;rightPanel&#x27;).querySelectorAll(&#x27;.answer,.warning&#x27;).forEach(x=&gt;x.remove())}else if(e.target.id===&#x27;angle3&#x27;){stopAnimation();state.s3.angle=+e.target.value;state.s3.checked=null;state.s3.drag=false;updateGeometryOnly();const label=byId(&#x27;rightPanel&#x27;).querySelector(&#x27;label[for=&quot;angle3&quot;] b&#x27;);if(label)label.textContent=Math.abs(state.s3.angle)+&#x27;°&#x27;;byId(&#x27;rightPanel&#x27;).querySelectorAll(&#x27;.answer,.warning&#x27;).forEach(x=&gt;x.remove());byId(&#x27;rightPanel&#x27;).querySelectorAll(&#x27;button[data-centre]&#x27;).forEach(b=&gt;b.disabled=state.s3.angle!==0);}else if(e.target.id===&#x27;angle5&#x27;){stopAnimation();state.s5.angle=+e.target.value;state.s5.checked=null;updateGeometryOnly();const label=byId(&#x27;rightPanel&#x27;).querySelector(&#x27;label[for=&quot;angle5&quot;] b&#x27;);if(label)label.textContent=state.s5.angle+&#x27;°&#x27;;byId(&#x27;rightPanel&#x27;).querySelectorAll(&#x27;.answer,.warning&#x27;).forEach(x=&gt;x.remove())}});
+byId(&#x27;rightPanel&#x27;).addEventListener(&#x27;change&#x27;,e=&gt;{if(e.target.id===&#x27;angle2&#x27;||e.target.id===&#x27;angle3&#x27;||e.target.id===&#x27;angle5&#x27;)render()});
+byId(&#x27;sceneArea&#x27;).addEventListener(&#x27;click&#x27;,e=&gt;{const b=e.target.closest(&#x27;button&#x27;);if(!b||state.slide!==5)return;const d=b.dataset,a=state.s6;if(&#x27;term&#x27; in d){a.selected=+d.term;a.feedback=&#x27;Now choose the matching definition.&#x27;;render();return;}if(&#x27;def&#x27; in d){const id=+d.def;if(a.selected===null){a.feedback=&#x27;Select a term first.&#x27;;render();return;}if(id===a.selected){a.matched.push(id);a.selected=null;a.feedback=a.matched.length===terms.length?&#x27;All seven pairs completed.&#x27;:&#x27;Correct match.&#x27;;}else{a.feedback=&#x27;Try again — that definition does not match.&#x27;;}render();return;}});
+document.addEventListener(&#x27;keydown&#x27;,e=&gt;{if([&#x27;INPUT&#x27;,&#x27;TEXTAREA&#x27;,&#x27;SELECT&#x27;].includes(document.activeElement?.tagName))return;if(e.key===&#x27;ArrowRight&#x27;&amp;&amp;state.slide&lt;5){e.preventDefault();slideNav(state.slide+1)}else if(e.key===&#x27;ArrowLeft&#x27;&amp;&amp;state.slide&gt;0){e.preventDefault();slideNav(state.slide-1)}else if(e.key===&#x27;Escape&#x27;&amp;&amp;state.tool!==&#x27;none&#x27;){state.tool=&#x27;none&#x27;;render()}});
+render();
+&lt;/script&gt;
+&lt;script&gt;
+(function(){
+ const deckNo=0,offset=0,globalTotal=18,finalIndex=5;
+ const oldRender=render;
+ render=function(){
+   oldRender();
+   document.getElementById(&#x27;slideCounter&#x27;).textContent=(offset+state.slide+1)+&#x27; / &#x27;+globalTotal;
+   document.querySelector(&#x27;header .brand&#x27;).textContent=&#x27;S3 MATHEMATICS · ROTATIONAL SYMMETRY&#x27;;
+   const p=document.getElementById(&#x27;progress&#x27;);
+   p.innerHTML=Array.from({length:globalTotal},(_,j)=&gt;&#x27;&lt;i class=&quot;&#x27;+(j&lt;=offset+state.slide?&#x27;done&#x27;:&#x27;&#x27;)+&#x27;&quot;&gt;&lt;/i&gt;&#x27;).join(&#x27;&#x27;);
+   for(const dot of p.children){dot.style.width=&#x27;10px&#x27;;}
+   if(deckNo===0 &amp;&amp; state.slide===finalIndex)document.getElementById(&#x27;nextSlide&#x27;).disabled=false;
+   if(deckNo===1 &amp;&amp; state.slide===0)document.getElementById(&#x27;prevSlide&#x27;).disabled=false;
+   parent.postMessage({type:&#x27;rotation-slide&#x27;,deck:deckNo,index:state.slide},&#x27;*&#x27;);
+ };
+ const switchDeck=(to)=&gt;parent.postMessage({type:&#x27;rotation-switch&#x27;,to},&#x27;*&#x27;);
+ document.getElementById(&#x27;nextSlide&#x27;).addEventListener(&#x27;click&#x27;,function(e){
+    if(deckNo===0 &amp;&amp; state.slide===finalIndex){e.preventDefault();e.stopImmediatePropagation();switchDeck(1)}
+ },true);
+ document.getElementById(&#x27;prevSlide&#x27;).addEventListener(&#x27;click&#x27;,function(e){
+    if(deckNo===1 &amp;&amp; state.slide===0){e.preventDefault();e.stopImmediatePropagation();switchDeck(0)}
+ },true);
+ document.addEventListener(&#x27;keydown&#x27;,function(e){
+   if([&#x27;INPUT&#x27;,&#x27;TEXTAREA&#x27;,&#x27;SELECT&#x27;].includes(document.activeElement?.tagName))return;
+   if(deckNo===0 &amp;&amp; state.slide===finalIndex &amp;&amp; e.key===&#x27;ArrowRight&#x27;){e.preventDefault();e.stopImmediatePropagation();switchDeck(1)}
+   if(deckNo===1 &amp;&amp; state.slide===0 &amp;&amp; e.key===&#x27;ArrowLeft&#x27;){e.preventDefault();e.stopImmediatePropagation();switchDeck(0)}
+ },true);
+ window.addEventListener(&#x27;message&#x27;,function(e){
+  if(!e.data||e.data.type!==&#x27;rotation-goto&#x27;)return;
+  if(deckNo===0)slideNav(e.data.index);else go(e.data.index);
+ });
+ render();
+})();
+&lt;/script&gt;
+&lt;script&gt;(function(){
+  &#x27;use strict&#x27;;
+  var btn = document.getElementById(&#x27;fullScreen&#x27;);
+  if (!btn) return;
+  function showFullscreenHelp(){
+    var box=document.getElementById(&#x27;rotationFullscreenHelp&#x27;);
+    if (!box) {
+      box=document.createElement(&#x27;div&#x27;);
+      box.id=&#x27;rotationFullscreenHelp&#x27;;
+      box.setAttribute(&#x27;role&#x27;,&#x27;status&#x27;);
+      box.style.cssText=&#x27;position:fixed;z-index:99999;right:16px;bottom:70px;max-width:430px;padding:13px 17px;border:1px solid #b7cfe3;border-radius:10px;background:#fff;color:#17324b;box-shadow:0 5px 20px #17324b22;font:15px/1.45 Arial,sans-serif;&#x27;;
+      document.body.appendChild(box);
+    }
+    box.textContent=&#x27;Full screen is blocked in this preview. Open the downloaded HTML file in Chrome or Edge, or press F11 for browser full screen.&#x27;;
+    clearTimeout(showFullscreenHelp.timer);
+    showFullscreenHelp.timer=setTimeout(function(){box.remove();},9000);
+  }
+  btn.addEventListener(&#x27;click&#x27;,function(event){
+    event.preventDefault();
+    event.stopImmediatePropagation();
+    var result;
+    try {
+      // A srcdoc iframe shares its origin with this presentation wrapper.
+      // Request fullscreen synchronously during the actual button click.
+      if (parent &amp;&amp; parent !== window &amp;&amp; typeof parent.rotationToggleFullscreen === &#x27;function&#x27;) {
+        result=parent.rotationToggleFullscreen();
+      } else if (document.fullscreenElement &amp;&amp; document.exitFullscreen) {
+        result=Promise.resolve(document.exitFullscreen()).then(function(){return true;});
+      } else if (document.documentElement.requestFullscreen) {
+        result=Promise.resolve(document.documentElement.requestFullscreen()).then(function(){return true;});
+      } else result=Promise.resolve(false);
+    } catch(err) {result=Promise.resolve(false);}
+    Promise.resolve(result).then(function(ok){if(!ok) showFullscreenHelp();},showFullscreenHelp);
+  },true);
+})();&lt;/script&gt;&lt;/body&gt;
+&lt;/html&gt;
+" title="Rotational Symmetry — Introduction"></iframe>
+<iframe allow="fullscreen" allowfullscreen="" hidden="" id="deck2" srcdoc="&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;&lt;head&gt;&lt;meta charset=&quot;utf-8&quot;/&gt;&lt;meta content=&quot;width=device-width, initial-scale=1&quot; name=&quot;viewport&quot;/&gt;&lt;meta content=&quot;#142f4d&quot; name=&quot;theme-color&quot;/&gt;&lt;title&gt;Rotational Symmetry — Construction&lt;/title&gt;&lt;style&gt;
+:root{--navy:#142f4d;--blue:#205c9f;--blue2:#0f78b9;--sky:#e8f4ff;--ink:#17324b;--muted:#627a91;--line:#d8e5ee;--panel:#fff;--orange:#c9791c;--green:#147b67;--red:#b63f47;--bg:#f4f8fc;--shadow:0 12px 38px rgba(20,47,77,.09)}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font-family:Arial,Helvetica,sans-serif;overscroll-behavior:none}button,input{font:inherit}button{border-radius:10px;border:1px solid #c7d8e7;background:white;color:#1c4368;padding:11px 15px;font-weight:700;cursor:pointer;min-height:44px;touch-action:manipulation}button:hover{background:#e9f4fc}button:focus-visible,.match-item:focus-visible{outline:3px solid #f0a13e;outline-offset:2px}.primary{background:#1769ac;color:#fff;border-color:#1769ac}.primary:hover{background:#0b538e}.active{background:#174e86;color:white;border-color:#174e86}.success{background:#e0f4ee;border-color:#a8ddc9;color:#146956}.pill{border-radius:999px}.icon-btn{min-width:43px;padding:10px 12px}header{height:68px;background:var(--navy);color:white;display:flex;align-items:center;gap:20px;padding:0 24px}header .brand{font-size:13px;letter-spacing:.16em;text-transform:uppercase;color:#a9d1ef;font-weight:800}header h1{margin:3px 0 0;font-size:22px;letter-spacing:-.025em}header .right{margin-left:auto;display:flex;gap:9px;align-items:center}header button{background:#234565;color:#fff;border:1px solid #45627e;font-size:13px;min-height:36px;padding:8px 11px}header button:hover{background:#365c7f}.page-progress{display:flex;gap:5px;align-items:center}.page-progress i{display:inline-block;height:5px;width:26px;border-radius:4px;background:#55708d}.page-progress i.done{background:#74c9f8}main{padding:20px 25px 12px;height:calc(100vh - 133px);min-height:580px;max-height:1200px;display:flex;flex-direction:column;gap:14px}.slide-title{display:flex;align-items:baseline;justify-content:space-between;gap:15px}.slide-title h2{margin:0;font-size:clamp(23px,2.4vw,36px);letter-spacing:-.045em;color:var(--navy)}.slide-title .time{font-size:15px;color:var(--muted);white-space:nowrap}.slide-body{display:grid;grid-template-columns:minmax(0,1fr) minmax(330px,30%);gap:17px;flex:1;min-height:0}.stage{border:1px solid var(--line);background:white;border-radius:16px;overflow:hidden;box-shadow:var(--shadow);display:flex;flex-direction:column;min-height:0}.scene-area{position:relative;flex:1;min-height:290px;background:linear-gradient(180deg,#fff 0%,#f7fbff 100%);overflow:hidden}.scene-area&gt;svg{position:absolute;inset:0;width:100%;height:100%;display:block}.ink-layer{z-index:10;pointer-events:none;touch-action:none}.ink-layer.enabled{pointer-events:all;cursor:crosshair}.stage-bottom{padding:11px 14px;border-top:1px solid var(--line);background:#fcfeff;display:flex;align-items:center;justify-content:space-between;gap:10px;min-height:70px;flex-wrap:wrap}.control-group{display:flex;gap:7px;align-items:center;flex-wrap:wrap}.control-group button{font-size:14px;padding:9px 12px;min-height:38px}.rightpanel{background:white;border-radius:16px;border:1px solid var(--line);box-shadow:var(--shadow);padding:24px 24px 20px;display:flex;flex-direction:column;gap:15px;overflow:auto}.eyebrow{color:#2b76b1;font-size:12px;font-weight:800;letter-spacing:.13em;text-transform:uppercase}.bigquestion{font-size:clamp(21px,2vw,28px);font-weight:800;line-height:1.27;letter-spacing:-.035em;margin:0}.explain{font-size:17px;line-height:1.5;color:#3e5870}.note{padding:13px 15px;background:#f0f7ff;border-left:4px solid #60a5d8;border-radius:8px;font-size:16px;line-height:1.4}.subtle{color:var(--muted);font-size:14px}.scene-caption{font-size:16px;color:#496b89;font-weight:650;position:absolute;left:21px;top:16px;z-index:2;pointer-events:none}.rowbtns{display:flex;gap:8px;flex-wrap:wrap}.rowbtns button{flex:1;white-space:nowrap}.answer{padding:13px 15px;background:#e8f5ed;border:1px solid #a4d4b7;border-radius:10px;color:#176143;font-size:17px}.warning{padding:12px;background:#fff3dd;border:1px solid #f0d18c;border-radius:10px;color:#78510d}.controls-label{font-weight:700;font-size:14px;color:#607c93}.range{width:100%;accent-color:#2277ae;cursor:pointer}.fancy-fraction{display:inline-flex;flex-direction:column;vertical-align:middle;align-items:center;line-height:1.1;margin:0 5px;font-weight:800}.fancy-fraction span:first-child{padding:0 7px 3px;border-bottom:2px solid currentColor}.fancy-fraction span:last-child{padding-top:3px}.fraction-row{display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid #e8eff5;padding:9px 0;font-size:17px}.fraction-row:last-child{border-bottom:0}.a-small{font-size:14px;color:var(--muted)}.present-bottom{height:65px;background:white;border-top:1px solid var(--line);display:flex;justify-content:space-between;align-items:center;padding:0 22px;gap:10px}.present-bottom button{min-height:39px;font-size:14px}.navgrp,.toolgrp{display:flex;align-items:center;gap:7px}.counter{color:#627b93;font-size:14px;min-width:65px;text-align:center}.match-item{width:100%;border:1px solid #d7e3ed;text-align:left;font-size:15px;line-height:1.3;padding:12px 15px;min-height:49px;background:#fff;border-radius:10px;transition:background .12s}.match-item.selected{background:#d9edff;border-color:#3288c4;box-shadow:inset 0 0 0 1px #3288c4}.match-item.correct{background:#e7f4ee;border-color:#add8c3;color:#23644e}.match-item:disabled{opacity:1;cursor:default}.match-wrap{display:grid;grid-template-columns:1fr 1fr;gap:16px;height:100%;padding:15px;overflow:auto}.match-list{display:flex;flex-direction:column;gap:8px}.match-list h3{margin:0 0 6px;font-size:17px}.match-list .match-item{flex:1}.math-key{display:flex;align-items:center;gap:9px}.math-key strong{font-size:20px}.metric{border:1px solid #d6e6f4;border-radius:10px;padding:13px;text-align:center;background:#f8fcff}.metric strong{font-size:24px;display:block}.metric span{font-size:12px;color:#627a91}.table-mini{border-collapse:collapse;font-size:15px;width:100%}.table-mini td,.table-mini th{padding:9px;border-bottom:1px solid var(--line);text-align:left}.table-mini th{color:#4b6a83}.turn-four{display:grid;grid-template-columns:1fr 1fr;gap:9px}.turn-choice{border:1px solid var(--line);border-radius:10px;padding:12px 11px;text-align:left;font-size:15px;cursor:pointer;background:#fbfdff}.turn-choice b{display:block;font-size:17px;margin-bottom:3px}.turn-choice span{color:#688198;font-size:13px}.turn-choice.selected{border:2px solid #2476b6;background:#e7f4ff;padding:11px 10px}.stage-svg-text{font-family:Arial,sans-serif;fill:#395976;font-weight:700}.stair{position:relative}.status{min-height:25px;font-size:15px;font-weight:700;color:#567084}.kbd{color:#a6cee9;font-size:12px}@media(max-width:1000px){main{padding:11px;height:calc(100vh - 133px)}.slide-body{grid-template-columns:minmax(0,1fr) 300px;gap:9px}.rightpanel{padding:16px}.bigquestion{font-size:23px}.explain{font-size:15px}.rowbtns button{padding:8px}.match-item{font-size:13px;padding:8px}}
+@media(max-width:770px){header{height:62px;padding:0 10px}header h1{font-size:17px}header .brand{font-size:10px}main{height:auto;min-height:calc(100vh - 127px);padding:10px}.slide-body{display:flex;flex-direction:column}.stage{min-height:400px}.scene-area{min-height:360px}.rightpanel{min-height:220px;padding:16px}.slide-title .time{font-size:12px}.slide-title h2{font-size:25px}.page-progress,.kbd{display:none}.present-bottom{padding:0 9px}.ink-help{display:none}.toolgrp button{font-size:12px;padding:8px 8px}.match-wrap{min-height:400px}}
+
+.stage-bottom:empty{display:none}
+button:disabled{cursor:not-allowed;opacity:.45}
+.takeaways{margin:10px 0 0;padding-left:23px;line-height:1.5}.takeaways li+li{margin-top:9px}
+.angle-slider-wrap{position:relative;padding:0 6px 34px;margin-top:5px;margin-bottom:9px}
+.angle-slider{margin:10px 0 0;height:23px}
+.angle-ticks{position:relative;height:25px;margin:1px 7px 0;pointer-events:none}
+.angle-ticks span{position:absolute;transform:translateX(-50%);display:flex;align-items:center;flex-direction:column;white-space:nowrap;color:#5d7892;font-size:12px;font-weight:650}
+.angle-ticks i{height:9px;width:2px;background:#6889a8;border-radius:2px;display:block;margin-bottom:3px}
+.angle-ticks span:first-child{transform:translateX(-5%)}.angle-ticks span:last-child{transform:translateX(-95%)}
+#rightPanel:has(#angle5){gap:9px;padding:16px 20px 12px}
+#rightPanel:has(#angle5) .rowbtns button{min-height:38px;padding:8px 10px}
+#rightPanel:has(#angle5) .bigquestion{font-size:25px}
+#rightPanel:has(#angle5) .explain{margin:2px 0;line-height:1.4}
+
+/* Lesson 2 additions */
+#rightPanel .method-list{margin:4px 0 0;padding-left:24px;font-size:16px;line-height:1.55}
+#rightPanel .method-list li{margin-bottom:8px}
+#rightPanel .method-list li::marker{font-weight:800;color:#2876ad}
+#rightPanel .fine{font-size:14px;line-height:1.5;color:#5d7790}
+#rightPanel .conclusion{border-radius:12px;padding:15px 15px;background:#e9f5ff;border:1px solid #9fceec;font-size:17px;line-height:1.45}
+#rightPanel .conclusion strong{color:#164e7a}
+#rightPanel .step-meta{font-size:14px;color:#637c93;font-weight:700}
+#rightPanel .step-pill{padding:11px 14px;border-radius:8px;background:#e8f4ff;color:#18476e;font-weight:750;font-size:16px}
+#rightPanel .question-box{border:1px solid #d4e3f2;border-radius:12px;background:#f4f9ff;padding:12px 14px;line-height:1.45;font-size:17px}
+#rightPanel .question-box b{color:#225e94}
+#rightPanel .task-quote{border-left:4px solid #3682b8;background:#f2f8fe;padding:14px 16px;font-size:18px;line-height:1.45;font-weight:700}
+#rightPanel .btnstrip{display:flex;gap:8px;flex-wrap:wrap}
+#rightPanel .btnstrip button{flex:1}
+#rightPanel .btnstrip button:disabled{opacity:.43}
+#rightPanel .answer-line{font-size:17px;line-height:1.5;color:#274e70}
+#rightPanel .answer-line b{color:#175e9b}
+.scene-area .face{cursor:default}
+#rightPanel .exercise-card{border:1px solid #d8e7f1;border-radius:11px;padding:13px;background:#f9fcff;font-size:16px;line-height:1.45}
+#rightPanel .exercise-card b{color:#215f96}
+#rightPanel .exercise-card + .exercise-card{margin-top:5px}
+#rightPanel .practice-hint{background:#e7f3fc;border:1px solid #b1d4ec;border-radius:10px;padding:14px;font-size:16px;line-height:1.55}
+@media(max-width:1000px){#rightPanel .task-quote{font-size:16px}#rightPanel .method-list{font-size:14px}}
+
+/* revised standalone lessons */
+.panel-intro{font-size:16px;line-height:1.48;color:#38566f;margin:0}
+.operation{padding:13px 14px;border:1px solid #b9d5e8;background:#f0f8ff;border-radius:10px;font-size:17px;line-height:1.42}
+.operation strong{color:#174e77}
+.control-note{color:#526f89;font-size:14px;line-height:1.5}
+.stepbar{display:flex;gap:6px;flex-wrap:wrap;font-size:13px;color:#51718c;font-weight:bold}
+.stepbar .stepdot{padding:7px 9px;border-radius:8px;background:#edf4f9}
+.stepbar .stepdot.current{color:#fff;background:#2068a5}
+.stepbar .stepdot.passed{color:#155f50;background:#dff5ed}
+.actionrow{display:flex;gap:8px;flex-wrap:wrap}.actionrow button{flex:1;min-width:125px}
+.side-small{font-size:15px;color:#577087;line-height:1.45}
+.hint-label{font-size:12px;text-transform:uppercase;letter-spacing:.09em;font-weight:800;color:#2873ab}
+.reveal-panel{padding:14px 15px;background:#eef8f5;border:1px solid #b1d9d0;border-radius:10px;line-height:1.48;font-size:16px;color:#1d5c52}
+.reveal-panel p{margin:6px 0}.reveal-panel ul{margin:6px 0 0;padding-left:21px}
+.exercise-card{border-radius:12px;border:1px solid #bbd6e9;background:#f0f7fd;padding:13px 14px;font-size:16px;line-height:1.45}
+.exercise-card b{color:#185b91}
+.angle-ticks2{display:flex;justify-content:space-between;color:#607e96;font-size:12px;font-weight:700}
+.timer-readout{text-align:center;font-weight:800;font-size:34px;color:#1c5383;letter-spacing:.04em}
+#sceneArea.edit-mode {cursor:crosshair}
+#sceneArea.edit-mode #baseSvg{cursor:crosshair}
+#sceneArea .student-message{pointer-events:none}
+#rightPanel{scrollbar-width:thin}
+@media(max-width:950px){.actionrow button{min-width:105px}.operation{font-size:15px}.stage-bottom .control-note{font-size:12px}}
+
+#rightPanel ol li {margin:7px 0;} .angle-ticks2{display:flex;justify-content:space-between;color:#607e96;font-size:12px;font-weight:700}
+@media(max-width:1000px){#rightPanel ol li{margin:4px 0}}
+&lt;/style&gt;&lt;/head&gt;&lt;body&gt;
+&lt;header&gt;&lt;div&gt;&lt;div class=&quot;brand&quot;&gt;S3 MATHEMATICS · ROTATIONAL SYMMETRY&lt;/div&gt;&lt;h1&gt;Constructing Rotational Symmetry&lt;/h1&gt;&lt;/div&gt;&lt;div class=&quot;right&quot;&gt;&lt;div class=&quot;page-progress&quot; id=&quot;progress&quot;&gt;&lt;/div&gt;&lt;button id=&quot;fullScreen&quot; type=&quot;button&quot;&gt;⛶ Full screen&lt;/button&gt;&lt;/div&gt;&lt;/header&gt;
+&lt;main&gt;&lt;div class=&quot;slide-title&quot;&gt;&lt;h2 id=&quot;slideTitle&quot;&gt;&lt;/h2&gt;&lt;span class=&quot;time&quot; id=&quot;slideTime&quot;&gt;&lt;/span&gt;&lt;/div&gt;&lt;section class=&quot;slide-body&quot;&gt;&lt;div class=&quot;stage&quot;&gt;&lt;div class=&quot;scene-area&quot; id=&quot;sceneArea&quot;&gt;&lt;/div&gt;&lt;div class=&quot;stage-bottom&quot; id=&quot;stageBottom&quot;&gt;&lt;/div&gt;&lt;/div&gt;&lt;aside class=&quot;rightpanel&quot; id=&quot;rightPanel&quot;&gt;&lt;/aside&gt;&lt;/section&gt;&lt;/main&gt;
+&lt;footer class=&quot;present-bottom&quot;&gt;&lt;div class=&quot;toolgrp&quot;&gt;&lt;button id=&quot;penTool&quot; type=&quot;button&quot;&gt;✎ Pen&lt;/button&gt;&lt;button id=&quot;lineTool&quot; title=&quot;Draw a thin straight line&quot; type=&quot;button&quot;&gt;╱ Line&lt;/button&gt;&lt;button id=&quot;eraseTool&quot; type=&quot;button&quot;&gt;⌫ Eraser&lt;/button&gt;&lt;button id=&quot;undoTool&quot; type=&quot;button&quot;&gt;↶ Undo&lt;/button&gt;&lt;button id=&quot;clearTool&quot; type=&quot;button&quot;&gt;Clear drawing&lt;/button&gt;&lt;/div&gt;&lt;div class=&quot;navgrp&quot;&gt;&lt;button id=&quot;prevSlide&quot; type=&quot;button&quot;&gt;← Previous&lt;/button&gt;&lt;span class=&quot;counter&quot; id=&quot;slideCounter&quot;&gt;&lt;/span&gt;&lt;button class=&quot;primary&quot; id=&quot;nextSlide&quot; type=&quot;button&quot;&gt;Next →&lt;/button&gt;&lt;/div&gt;&lt;/footer&gt;
+&lt;script&gt;const LESSON=23;
+&#x27;use strict&#x27;;
+const NS=&#x27;http://www.w3.org/2000/svg&#x27;;
+const $=id=&gt;document.getElementById(id);
+const clamp=(x,min,max)=&gt;Math.max(min,Math.min(max,x));
+const lerp=(a,b,t)=&gt;a+(b-a)*t;
+const round=n=&gt;Math.round(n*100)/100;
+const rad=a=&gt;a*Math.PI/180;
+const deg=a=&gt;a*180/Math.PI;
+const C=[360,250];
+const CT=[350,250];
+const AX=25, GRID_X=35, GRID_Y=25;
+const TRI=40, TRI_H=TRI*Math.sqrt(3)/2;
+const PLACEHOLDER=&#x27;&#x27;;
+const lessons={
+ 2:[
+  {title:&#x27;Why construct rotational symmetry?&#x27;,time:&#x27;0–6 min&#x27;,cap:&#x27;ENGINEERING EXAMPLE&#x27;},
+  {title:&#x27;A half turn with tracing paper&#x27;,time:&#x27;6–19 min&#x27;,cap:&#x27;PLACE · FIX · TRACE · TURN · TRANSFER&#x27;},
+  {title:&#x27;Without tracing paper — One point&#x27;,time:&#x27;19–29 min&#x27;,cap:&#x27;A POINT AND ITS IMAGE&#x27;},
+  {title:&#x27;Complete a whole element — Half turn&#x27;,time:&#x27;29–50 min&#x27;,cap:&#x27;CONSTRUCT · CHECK · EXERCISE 2&#x27;}
+ ],
+ 3:[
+  {title:&#x27;Starter — What do we remember?&#x27;,time:&#x27;0–5 min&#x27;,cap:&#x27;MINI-WHITEBOARDS&#x27;},
+  {title:&#x27;Quarter turn — One point&#x27;,time:&#x27;5–8 min&#x27;,cap:&#x27;90° · PERPENDICULAR LINES&#x27;},
+  {title:&#x27;Quarter turn — Whole element&#x27;,time:&#x27;8–13 min&#x27;,cap:&#x27;ORDER 4 · FOUR MATCHING POSITIONS&#x27;},
+  {title:&#x27;Third turn — One point&#x27;,time:&#x27;13–17 min&#x27;,cap:&#x27;120° · TRIANGULAR DOT PAPER&#x27;},
+  {title:&#x27;Third turn — Whole element&#x27;,time:&#x27;17–23 min&#x27;,cap:&#x27;ORDER 3 · THREE MATCHING POSITIONS&#x27;},
+  {title:&#x27;Exam-style practice&#x27;,time:&#x27;23–50 min&#x27;,cap:&#x27;READ · FIND CENTRE · ANGLE · CONSTRUCT · CHECK&#x27;}
+ ]
+};
+const slides=[];
+const state={
+ slide:0,tool:&#x27;none&#x27;,drawing:null,ink:{},
+ l2:{
+  gear:{n:1,angle:0,animating:false,conclusion:false},
+  trace:{step:0,angle:0,animating:false,stampProgress:0,showRule:false},
+  point:{step:0,showRule:false},
+  whole:{mode:&#x27;preset&#x27;,pts:[[460,175],[535,175],[535,250],[485,250]],editing:false,showCount:0,joined:false,checkAngle:0,animating:false,booklet:false,method:false}
+ },
+ l3:{
+  starter:{revealed:0},
+  qPoint:{step:0,showRule:false},
+  qWhole:{count:1,rot:0,animating:false,explain:false,checkAngle:0,checking:false},
+  tPoint:{step:0,showRule:false},
+  tWhole:{count:1,rot:0,animating:false,explain:false},
+  exam:{words:0,timer:23*60,running:false,stamp:0}
+ }
+};
+let raf=0,timerInt=0;
+function stopAnimation(){if(raf){cancelAnimationFrame(raf);raf=0;}for(let s of Object.values(state.l2))if(s&amp;&amp;typeof s===&#x27;object&#x27;)s.animating=false;for(let s of Object.values(state.l3))if(s&amp;&amp;typeof s===&#x27;object&#x27;){s.animating=false;if(&#x27;checking&#x27; in s)s.checking=false}}
+function tween(duration,update,finish){if(raf)cancelAnimationFrame(raf);let t0=null;function frame(t){if(t0===null)t0=t;let p=clamp((t-t0)/duration,0,1);update(p);refreshScene();if(p&lt;1){raf=requestAnimationFrame(frame)}else{raf=0;finish?.();render()}}raf=requestAnimationFrame(frame)}
+function rotate(p,degAngle,c=C){let t=rad(degAngle),dx=p[0]-c[0],dy=p[1]-c[1];return [c[0]+dx*Math.cos(t)-dy*Math.sin(t),c[1]+dx*Math.sin(t)+dy*Math.cos(t)]}
+function rotPts(pts,degAngle,c=C){return pts.map(p=&gt;rotate(p,degAngle,c))}
+function ps(pts,closed=false){return pts.map((p,i)=&gt;(i?&#x27;L&#x27;:&#x27;M&#x27;)+round(p[0])+&#x27; &#x27;+round(p[1])).join(&#x27; &#x27;)+(closed?&#x27; Z&#x27;:&#x27;&#x27;)}
+function svgStart(){return `&lt;svg id=&quot;baseSvg&quot; xmlns=&quot;${NS}&quot; viewBox=&quot;0 0 720 500&quot; preserveAspectRatio=&quot;xMidYMid meet&quot; role=&quot;img&quot; aria-label=&quot;Interactive rotational symmetry diagram&quot;&gt;`}
+const end=&#x27;&lt;/svg&gt;&#x27;;
+function line(a,b,color=&#x27;#718fa8&#x27;,w=2,dash=&#x27;&#x27;){return `&lt;line x1=&quot;${round(a[0])}&quot; y1=&quot;${round(a[1])}&quot; x2=&quot;${round(b[0])}&quot; y2=&quot;${round(b[1])}&quot; stroke=&quot;${color}&quot; stroke-width=&quot;${w}&quot; ${dash?`stroke-dasharray=&quot;${dash}&quot;`:&#x27;&#x27;} stroke-linecap=&quot;round&quot;/&gt;`}
+function path(pts,color=&#x27;#266eac&#x27;,w=5,dash=&#x27;&#x27;,opacity=1){if(pts.length&lt;2)return &#x27;&#x27;;return `&lt;path d=&quot;${ps(pts)}&quot; fill=&quot;none&quot; stroke=&quot;${color}&quot; stroke-width=&quot;${w}&quot; stroke-linecap=&quot;round&quot; stroke-linejoin=&quot;round&quot; ${dash?`stroke-dasharray=&quot;${dash}&quot;`:&#x27;&#x27;} opacity=&quot;${opacity}&quot;/&gt;`}
+function pt(p,label=&#x27;&#x27;,color=&#x27;#246da8&#x27;,radius=6,shift=[11,-11]){return `&lt;circle cx=&quot;${round(p[0])}&quot; cy=&quot;${round(p[1])}&quot; r=&quot;${radius}&quot; fill=&quot;${color}&quot; stroke=&quot;white&quot; stroke-width=&quot;2&quot;/&gt;${label?`&lt;text x=&quot;${round(p[0]+shift[0])}&quot; y=&quot;${round(p[1]+shift[1])}&quot; fill=&quot;${color}&quot; font-size=&quot;19&quot; font-weight=&quot;800&quot;&gt;${label}&lt;/text&gt;`:&#x27;&#x27;}`}
+function center(p=C,label=&#x27;O&#x27;){return `&lt;circle cx=&quot;${p[0]}&quot; cy=&quot;${p[1]}&quot; r=&quot;7&quot; fill=&quot;#d47b1e&quot; stroke=&quot;white&quot; stroke-width=&quot;2&quot;/&gt;&lt;text x=&quot;${p[0]-25}&quot; y=&quot;${p[1]+21}&quot; fill=&quot;#bb741e&quot; font-size=&quot;20&quot; font-weight=&quot;800&quot;&gt;${label}&lt;/text&gt;`}
+function bgGrid(){let out=&#x27;&lt;g stroke=&quot;#e0ecf4&quot; stroke-width=&quot;.8&quot;&gt;&#x27;;for(let x=35;x&lt;=685;x+=25)out+=line([x,25],[x,475],&#x27;#e0eaf3&#x27;,.8);for(let y=25;y&lt;=475;y+=25)out+=line([35,y],[685,y],&#x27;#e0eaf3&#x27;,.8);out+=&#x27;&lt;/g&gt;&lt;g fill=&quot;#abc7db&quot;&gt;&#x27;;for(let x=35;x&lt;=685;x+=25)for(let y=25;y&lt;=475;y+=25)out+=`&lt;circle cx=&quot;${x}&quot; cy=&quot;${y}&quot; r=&quot;2.15&quot;/&gt;`;return out+&#x27;&lt;/g&gt;&#x27;}
+function triXY(u,v){return [CT[0]+TRI*u+TRI*v/2,CT[1]+TRI_H*v]}
+function bgTriGrid(){let out=&#x27;&lt;g stroke=&quot;#e5edf4&quot; stroke-width=&quot;.8&quot;&gt;&#x27;;for(let u=-14;u&lt;=14;u++){let a=triXY(u,-16),b=triXY(u,16);out+=line(a,b,&#x27;#e0eaf3&#x27;,.7)}for(let v=-12;v&lt;=12;v++){let a=triXY(-16,v),b=triXY(16,v);out+=line(a,b,&#x27;#e0eaf3&#x27;,.7)}for(let k=-15;k&lt;=15;k++){let a=triXY(-16,k+16),b=triXY(16,k-16);out+=line(a,b,&#x27;#e0eaf3&#x27;,.7)}out+=&#x27;&lt;/g&gt;&lt;g fill=&quot;#9ebdd2&quot;&gt;&#x27;;for(let u=-16;u&lt;=16;u++)for(let v=-14;v&lt;=14;v++){let [x,y]=triXY(u,v);if(x&gt;35&amp;&amp;x&lt;685&amp;&amp;y&gt;25&amp;&amp;y&lt;475)out+=`&lt;circle cx=&quot;${round(x)}&quot; cy=&quot;${round(y)}&quot; r=&quot;2.2&quot;/&gt;`}return out+&#x27;&lt;/g&gt;&#x27;}
+function drawNodes(pts,accent=&#x27;#256ca8&#x27;,im=false){return pts.map((p,i)=&gt;pt(p,`${String.fromCharCode(65+i)}${im?&#x27;′&#x27;:&#x27;&#x27;}`,accent,5.3,im?[9,20]:[10,-9])).join(&#x27;&#x27;)}
+function infoText(x,y,value,color=&#x27;#50718b&#x27;,size=19){return `&lt;text x=&quot;${x}&quot; y=&quot;${y}&quot; fill=&quot;${color}&quot; font-size=&quot;${size}&quot; font-weight=&quot;700&quot;&gt;${value}&lt;/text&gt;`}
+function smallArc(c,r,from,to,color=&#x27;#d38528&#x27;){let a=rotate([c[0]+r,c[1]],from,c),b=rotate([c[0]+r,c[1]],to,c);return `&lt;path d=&quot;M ${round(a[0])} ${round(a[1])} A ${r} ${r} 0 ${Math.abs(to-from)&gt;180?1:0} ${to&gt;from?1:0} ${round(b[0])} ${round(b[1])}&quot; fill=&quot;none&quot; stroke=&quot;${color}&quot; stroke-width=&quot;3&quot;/&gt;`}
+function gearOutline(cx,cy){let p=[];let n=16;for(let i=0;i&lt;n;i++){const base=i*360/n-90;for(let [offset,r] of [[0,151],[3,151],[4.5,166],[17,166],[18.5,151],[22.5,151]]){let a=rad(base+offset);p.push([cx+r*Math.cos(a),cy+r*Math.sin(a)])}}return `&lt;path d=&quot;${ps(p,true)}&quot; fill=&quot;url(#steel)&quot; stroke=&quot;#607789&quot; stroke-width=&quot;3&quot; stroke-linejoin=&quot;round&quot;/&gt;`}
+function circleHole(pos,emphasis=false){let [x,y]=pos;return `&lt;circle cx=&quot;${round(x)}&quot; cy=&quot;${round(y)}&quot; r=&quot;17&quot; fill=&quot;#496779&quot; stroke=&quot;#233b4d&quot; stroke-width=&quot;3&quot;/&gt;&lt;circle cx=&quot;${round(x)}&quot; cy=&quot;${round(y)}&quot; r=&quot;9.5&quot; fill=&quot;#f7fbff&quot; stroke=&quot;${emphasis?&#x27;#d78822&#x27;:&#x27;#b9cdd9&#x27;}&quot; stroke-width=&quot;${emphasis?4:2}&quot;/&gt;`}
+function gearPos(angle){return rotate([355,146],angle,[355,246])}
+function sceneGear(){let a=state.l2.gear,s=svgStart()+`&lt;defs&gt;&lt;radialGradient id=&quot;steel&quot; cx=&quot;.33&quot; cy=&quot;.25&quot; r=&quot;.8&quot;&gt;&lt;stop stop-color=&quot;#dae6ed&quot;/&gt;&lt;stop offset=&quot;.58&quot; stop-color=&quot;#aebfc9&quot;/&gt;&lt;stop offset=&quot;1&quot; stop-color=&quot;#8196a6&quot;/&gt;&lt;/radialGradient&gt;&lt;/defs&gt;`;s+=`&lt;circle cx=&quot;355&quot; cy=&quot;246&quot; r=&quot;194&quot; fill=&quot;#e8f1f8&quot; opacity=&quot;.65&quot;/&gt;`;s+=gearOutline(355,246);s+=`&lt;circle cx=&quot;355&quot; cy=&quot;246&quot; r=&quot;140&quot; fill=&quot;#d7e3ec&quot; stroke=&quot;#839aaa&quot; stroke-width=&quot;2&quot;/&gt;&lt;circle cx=&quot;355&quot; cy=&quot;246&quot; r=&quot;116&quot; fill=&quot;url(#steel)&quot; stroke=&quot;#879bac&quot; stroke-width=&quot;3&quot;/&gt;&lt;circle cx=&quot;355&quot; cy=&quot;246&quot; r=&quot;101&quot; fill=&quot;none&quot; stroke=&quot;#537e9b&quot; stroke-width=&quot;2&quot; stroke-dasharray=&quot;5 7&quot;/&gt;`;for(let i=0;i&lt;4;i++){if(i&lt;a.n)s+=circleHole(gearPos(90*i));}if(a.animating)s+=circleHole(gearPos(a.angle),true);s+=`&lt;circle cx=&quot;355&quot; cy=&quot;246&quot; r=&quot;37&quot; fill=&quot;#637e91&quot; stroke=&quot;#334e65&quot; stroke-width=&quot;4&quot;/&gt;&lt;circle cx=&quot;355&quot; cy=&quot;246&quot; r=&quot;20&quot; fill=&quot;#eff5f9&quot; stroke=&quot;#536b81&quot; stroke-width=&quot;4&quot;/&gt;`+center([355,246],&#x27;C&#x27;);return s+end}
+function panelGear(){let a=state.l2.gear;return `&lt;div class=&quot;eyebrow&quot;&gt;Why do we need constructions?&lt;/div&gt;&lt;p class=&quot;bigquestion&quot;&gt;Four bolt holes in a machine part&lt;/p&gt;&lt;p class=&quot;panel-intro&quot;&gt;An engineer is designing a metal part. It needs &lt;b&gt;four identical holes&lt;/b&gt;, equally spaced around the fixed centre C.&lt;/p&gt;&lt;div class=&quot;operation&quot;&gt;&lt;strong&gt;Task:&lt;/strong&gt; One hole is already in place. How can we find the exact positions of the other three?&lt;/div&gt;&lt;div class=&quot;actionrow&quot;&gt;&lt;button class=&quot;primary&quot; data-action=&quot;gear-next&quot; ${a.n&gt;=4||a.animating?&#x27;disabled&#x27;:&#x27;&#x27;}&gt;${a.n===4?&#x27;Four holes complete&#x27;:&#x27;Add next hole · 90°&#x27;}&lt;/button&gt;&lt;button data-action=&quot;gear-reset&quot;&gt;Reset&lt;/button&gt;&lt;/div&gt;${a.n&gt;=4?`&lt;button data-action=&quot;gear-conclusion&quot;&gt;${a.conclusion?&#x27;Hide conclusion&#x27;:&#x27;Show what this means&#x27;}&lt;/button&gt;`:&#x27;&#x27;}${a.conclusion?`&lt;div class=&quot;reveal-panel&quot;&gt;&lt;strong&gt;Rotation allows us to work out exactly where each part should go.&lt;/strong&gt;&lt;p&gt;Each hole is the same distance from C. The holes are spaced by quarter turns (90°), giving rotational symmetry of order 4.&lt;/p&gt;&lt;/div&gt;`:&#x27;&#x27;}`}
+function sceneTrace(){let a=state.l2.trace,src=[[460,250],[460,175],[535,175],[535,225]],endpoints=rotPts(src,180);let s=svgStart()+bgGrid();
+ if(a.step&gt;=3){s+=line([45,250],[680,250],&#x27;#8aa4b9&#x27;,2.1,&#x27;10 7&#x27;)+line([360,30],[360,470],&#x27;#8aa4b9&#x27;,2.1,&#x27;10 7&#x27;);}
+ if(a.step&gt;=1&amp;&amp;a.step!==7){s+=`&lt;g transform=&quot;rotate(${round(a.angle)} ${C[0]} ${C[1]})&quot;&gt;&lt;rect x=&quot;153&quot; y=&quot;75&quot; width=&quot;414&quot; height=&quot;350&quot; rx=&quot;10&quot; fill=&quot;#e7f7ff&quot; fill-opacity=&quot;.50&quot; stroke=&quot;#66a9d2&quot; stroke-width=&quot;3&quot; stroke-dasharray=&quot;10 5&quot;/&gt;&lt;path d=&quot;M 535 75 L 567 108 L 535 108 Z&quot; fill=&quot;#a8d5ec&quot; fill-opacity=&quot;.5&quot; stroke=&quot;#66a9d2&quot; stroke-width=&quot;1.5&quot;/&gt;&lt;text x=&quot;179&quot; y=&quot;101&quot; fill=&quot;#628caf&quot; font-size=&quot;15&quot; font-weight=&quot;800&quot;&gt;TRACING PAPER&lt;/text&gt;`;if(a.step&gt;=4)s+=path(src,&#x27;#8459af&#x27;,5);s+=&#x27;&lt;/g&gt;&#x27;}
+ // permanent original is the drawing underneath the tracing paper
+ s+=path(src,&#x27;#246dab&#x27;,5);
+ if(a.step&gt;=2&amp;&amp;a.step!==7){s+=`&lt;circle cx=&quot;360&quot; cy=&quot;250&quot; r=&quot;14&quot; fill=&quot;none&quot; stroke=&quot;#dd921e&quot; stroke-width=&quot;3.3&quot;/&gt;&lt;circle cx=&quot;360&quot; cy=&quot;250&quot; r=&quot;5&quot; fill=&quot;#d68321&quot;/&gt;`}
+ if(a.step&gt;=6){let total=endpoints.slice(1).reduce((sum,p,i)=&gt;sum+Math.hypot(p[0]-endpoints[i][0],p[1]-endpoints[i][1]),0);let partial=Math.max(0.01,total*a.stampProgress);s+=`&lt;path d=&quot;${ps(endpoints)}&quot; fill=&quot;none&quot; stroke=&quot;#15846d&quot; stroke-width=&quot;6&quot; stroke-linecap=&quot;round&quot; stroke-linejoin=&quot;round&quot; stroke-dasharray=&quot;${round(partial)} ${round(total+10)}&quot;/&gt;`}
+ s+=pt(src[0],&#x27;P&#x27;,&#x27;#246dab&#x27;,5,[9,22])+center(C,&#x27;C&#x27;);
+ if(a.step&gt;=7)s+=`&lt;g opacity=&quot;.9&quot;&gt;${endpoints.map((p,i)=&gt;pt(p,i===0?&#x27;P′&#x27;:&#x27;&#x27;,&#x27;#15846d&#x27;,4,[9,22])).join(&#x27;&#x27;)}&lt;/g&gt;`;
+ return s+end}
+const TRACE_LABEL=[&#x27;Place tracing paper&#x27;,&#x27;Fix the centre C&#x27;,&#x27;Draw guide lines&#x27;,&#x27;Trace the given shape&#x27;,&#x27;Turn through 180°&#x27;,&#x27;Press through to transfer&#x27;,&#x27;Lift tracing paper&#x27;];
+function panelTrace(){let a=state.l2.trace,stage=a.step;let next=stage&lt;4?TRACE_LABEL[stage]:&#x27;&#x27;;return `&lt;div class=&quot;eyebrow&quot;&gt;Half-turn symmetry · 180°&lt;/div&gt;&lt;p class=&quot;bigquestion&quot;&gt;How do we complete the diagram using tracing paper?&lt;/p&gt;&lt;div class=&quot;operation&quot;&gt;Keep &lt;strong&gt;C fixed&lt;/strong&gt;. Trace the given piece, turn the paper through 180°, then transfer the missing piece onto the grid.&lt;/div&gt;&lt;div class=&quot;stepbar&quot;&gt;${[&#x27;Place&#x27;,&#x27;Pin C&#x27;,&#x27;Guides&#x27;,&#x27;Trace&#x27;,&#x27;Turn&#x27;,&#x27;Transfer&#x27;].map((x,i)=&gt;`&lt;span class=&quot;stepdot ${stage&gt;i?&#x27;passed&#x27;:stage===i?&#x27;current&#x27;:&#x27;&#x27;}&quot;&gt;${x}&lt;/span&gt;`).join(&#x27;&#x27;)}&lt;/div&gt;${stage&lt;4?`&lt;div class=&quot;actionrow&quot;&gt;&lt;button class=&quot;primary&quot; data-action=&quot;trace-next&quot;&gt;${next}&lt;/button&gt;&lt;button data-action=&quot;trace-reset&quot;&gt;Reset&lt;/button&gt;&lt;/div&gt;`:&#x27;&#x27;}${stage&gt;=4&amp;&amp;stage&lt;6?`&lt;div class=&quot;controls-label&quot;&gt;Turn the tracing paper: &lt;span id=&quot;traceValue&quot;&gt;${Math.round(a.angle)}°&lt;/span&gt;&lt;/div&gt;&lt;input id=&quot;traceSlider&quot; class=&quot;range&quot; type=&quot;range&quot; min=&quot;0&quot; max=&quot;180&quot; step=&quot;1&quot; value=&quot;${round(a.angle)}&quot; aria-label=&quot;Rotate tracing paper&quot;&gt;&lt;div class=&quot;angle-ticks2&quot;&gt;&lt;span&gt;0°&lt;/span&gt;&lt;span&gt;90°&lt;/span&gt;&lt;span&gt;180°&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;actionrow&quot;&gt;&lt;button class=&quot;primary&quot; data-action=&quot;trace-animate&quot;&gt;Play 180° turn&lt;/button&gt;&lt;button data-action=&quot;trace-reset&quot;&gt;Reset&lt;/button&gt;&lt;/div&gt;${a.angle&gt;=179.5?`&lt;button data-action=&quot;trace-stamp&quot; ${a.step&gt;=6?&#x27;disabled&#x27;:&#x27;&#x27;}&gt;Press through — transfer the image&lt;/button&gt;`:&#x27;&#x27;}`:&#x27;&#x27;}${stage&gt;=6?`&lt;div class=&quot;actionrow&quot;&gt;&lt;button data-action=&quot;trace-lift&quot; class=&quot;primary&quot; ${stage&gt;=7?&#x27;disabled&#x27;:&#x27;&#x27;}&gt;${stage&gt;=7?&#x27;Tracing paper lifted&#x27;:&#x27;Lift tracing paper&#x27;}&lt;/button&gt;&lt;button data-action=&quot;trace-reset&quot;&gt;Reset&lt;/button&gt;&lt;/div&gt;${stage&gt;=7?`&lt;button data-action=&quot;trace-rule&quot;&gt;${a.showRule?&#x27;Hide conclusion&#x27;:&#x27;Show conclusion&#x27;}&lt;/button&gt;`:&#x27;&#x27;}`:&#x27;&#x27;}${a.showRule&amp;&amp;stage&gt;=7?`&lt;div class=&quot;reveal-panel&quot;&gt;After a &lt;b&gt;half turn (180°)&lt;/b&gt;, the missing part is on the opposite side of C, at the same distance from the centre.&lt;/div&gt;`:&#x27;&#x27;}`}
+function sceneHalfPoint(){let a=state.l2.point,A=[485,175],Ap=rotPts([A],180,C)[0];let s=svgStart()+bgGrid();if(a.step&gt;=1){const v=[A[0]-C[0],A[1]-C[1]];s+=line([C[0]+1.6*v[0],C[1]+1.6*v[1]],[C[0]-1.6*v[0],C[1]-1.6*v[1]],&#x27;#7895ab&#x27;,2.8,&#x27;10 6&#x27;);}if(a.step&gt;=2){s+=line(C,A,&#x27;#2c75ad&#x27;,4)+line(C,Ap,&#x27;#159079&#x27;,4);s+=pt(Ap,&#x27;A′&#x27;,&#x27;#19866d&#x27;,7,[11,20]);s+=`&lt;text x=&quot;390&quot; y=&quot;193&quot; fill=&quot;#275c8e&quot; font-size=&quot;17&quot; font-weight=&quot;700&quot;&gt;AO&lt;/text&gt;&lt;text x=&quot;260&quot; y=&quot;324&quot; fill=&quot;#16856a&quot; font-size=&quot;17&quot; font-weight=&quot;700&quot;&gt;OA′&lt;/text&gt;`;}if(a.step&gt;=3){s+=`&lt;path d=&quot;M360 235 v-12&quot; stroke=&quot;#d58c28&quot; stroke-width=&quot;2&quot;/&gt;`;s+=infoText(270,405,&#x27;O is the midpoint of AA′&#x27;,&#x27;#147c68&#x27;,21)}s+=pt(A,&#x27;A&#x27;)+center(C,&#x27;O&#x27;);return s+end}
+function panelHalfPoint(){let a=state.l2.point;return `&lt;div class=&quot;eyebrow&quot;&gt;Without tracing paper&lt;/div&gt;&lt;p class=&quot;bigquestion&quot;&gt;Where does point A go after a half turn?&lt;/p&gt;&lt;p class=&quot;panel-intro&quot;&gt;We can construct the image of A using a &lt;b&gt;straight line through A and O&lt;/b&gt;.&lt;/p&gt;&lt;div class=&quot;actionrow&quot;&gt;&lt;button data-action=&quot;point-next&quot; class=&quot;primary&quot; ${a.step&gt;=3?&#x27;disabled&#x27;:&#x27;&#x27;}&gt;${[&#x27;Draw line through A and O&#x27;,&#x27;Mark A′ at the same distance&#x27;,&#x27;Identify the midpoint&#x27;,&#x27;Completed&#x27;][a.step]}&lt;/button&gt;&lt;button data-action=&quot;point-reset&quot;&gt;Reset&lt;/button&gt;&lt;/div&gt;${a.step&gt;=3?`&lt;button data-action=&quot;point-rule&quot;&gt;${a.showRule?&#x27;Hide rule&#x27;:&#x27;Show the rule&#x27;}&lt;/button&gt;`:&#x27;&#x27;}${a.showRule?`&lt;div class=&quot;reveal-panel&quot;&gt;&lt;b&gt;A, O and A′ lie on one straight line.&lt;/b&gt;&lt;p&gt;AO = OA′, so O is the midpoint of AA′.&lt;/p&gt;&lt;/div&gt;`:&#x27;&#x27;}`}
+const exampleLine=[[460,175],[535,175],[535,250],[485,250]];
+function sceneHalfWhole(){let a=state.l2.whole,p=a.pts,im=rotPts(p,180,C);let s=svgStart()+bgGrid();if(p.length&gt;=2)s+=path(p,&#x27;#246cab&#x27;,5);else if(p.length===1)s+=pt(p[0],&#x27;A&#x27;);if(p.length&gt;=2){s+=p.map((v,i)=&gt;pt(v,String.fromCharCode(65+i),&#x27;#246cab&#x27;,5,[9,-10])).join(&#x27;&#x27;);let shown=Math.min(a.showCount,p.length);if(shown){let last=shown-1;s+=line(p[last],im[last],&#x27;#85a2b9&#x27;,2,&#x27;9 7&#x27;);for(let i=0;i&lt;shown;i++)s+=pt(im[i],`${String.fromCharCode(65+i)}′`,&#x27;#17856b&#x27;,5,[11,20]);}if(a.joined&amp;&amp;shown===p.length)s+=path(im,&#x27;#18876b&#x27;,5);if(a.animating||a.checkAngle&gt;0){s+=`&lt;g transform=&quot;rotate(${round(a.checkAngle)} ${C[0]} ${C[1]})&quot; opacity=&quot;.9&quot;&gt;${path(p,&#x27;#d78329&#x27;,5.8)}&lt;/g&gt;`;}}
+ s+=center(C,&#x27;O&#x27;);if(a.editing)s+=infoText(64,445,&#x27;Tap grid dots to create your own broken line.&#x27;,&#x27;#477b9d&#x27;,17);return s+end}
+function panelHalfWhole(){let a=state.l2.whole,p=a.pts,can=p.length&gt;=2;let nextLabel=a.showCount&lt;p.length?`Find ${String.fromCharCode(65+a.showCount)}′`:&#x27;All images found&#x27;;return `&lt;div class=&quot;eyebrow&quot;&gt;Half-turn construction · Whole element&lt;/div&gt;&lt;p class=&quot;bigquestion&quot;&gt;Complete the drawing with half-turn symmetry about O.&lt;/p&gt;&lt;div class=&quot;operation&quot;&gt;Find the image of &lt;b&gt;each vertex&lt;/b&gt; on the opposite side of O, at the same distance. Then join the images.&lt;/div&gt;&lt;div class=&quot;actionrow&quot;&gt;&lt;button data-action=&quot;whole-example&quot; ${a.mode===&#x27;preset&#x27;?&#x27;disabled&#x27;:&#x27;&#x27;}&gt;Use example&lt;/button&gt;&lt;button data-action=&quot;whole-custom&quot; class=&quot;${a.mode===&#x27;custom&#x27;?&#x27;active&#x27;:&#x27;&#x27;}&quot;&gt;${a.mode===&#x27;custom&#x27;?&#x27;Restart your own&#x27;:&#x27;Draw your own element&#x27;}&lt;/button&gt;&lt;/div&gt;${a.editing?`&lt;div class=&quot;exercise-card&quot;&gt;Tap &lt;b&gt;grid intersections&lt;/b&gt; to add vertices. Then finish your original element.&lt;/div&gt;&lt;div class=&quot;actionrow&quot;&gt;&lt;button data-action=&quot;whole-undo&quot; ${!p.length?&#x27;disabled&#x27;:&#x27;&#x27;}&gt;Undo vertex&lt;/button&gt;&lt;button data-action=&quot;whole-done&quot; class=&quot;primary&quot; ${!can?&#x27;disabled&#x27;:&#x27;&#x27;}&gt;Finish original&lt;/button&gt;&lt;/div&gt;`:`&lt;div class=&quot;actionrow&quot;&gt;&lt;button class=&quot;primary&quot; data-action=&quot;whole-next&quot; ${!can||a.showCount&gt;=p.length||a.animating?&#x27;disabled&#x27;:&#x27;&#x27;}&gt;${nextLabel}&lt;/button&gt;&lt;button data-action=&quot;whole-join&quot; ${!can||a.showCount&lt;p.length||a.joined?&#x27;disabled&#x27;:&#x27;&#x27;}&gt;${a.joined?&#x27;Points joined&#x27;:&#x27;Join image points&#x27;}&lt;/button&gt;&lt;/div&gt;&lt;div class=&quot;actionrow&quot;&gt;&lt;button data-action=&quot;whole-check&quot; ${!a.joined||a.animating?&#x27;disabled&#x27;:&#x27;&#x27;}&gt;Check by rotating ▶&lt;/button&gt;&lt;button data-action=&quot;whole-reset&quot;&gt;Reset construction&lt;/button&gt;&lt;/div&gt;${a.joined?`&lt;button data-action=&quot;whole-booklet&quot;&gt;${a.booklet?&#x27;Hide booklet task&#x27;:&#x27;Now try Booklet Exercise 2&#x27;}&lt;/button&gt;`:&#x27;&#x27;}${a.booklet?`&lt;div class=&quot;exercise-card&quot;&gt;&lt;b&gt;Booklet — Exercise 2&lt;/b&gt;&lt;p&gt;Complete each diagram to give it &lt;b&gt;half-turn symmetry about C&lt;/b&gt;.&lt;/p&gt;&lt;div&gt;Use the same method: centre → line → equal distance → join → check.&lt;/div&gt;&lt;/div&gt;`:&#x27;&#x27;}`}${a.joined?`&lt;button data-action=&quot;whole-method&quot;&gt;${a.method?&#x27;Hide method&#x27;:&#x27;Show method&#x27;}&lt;/button&gt;`:&#x27;&#x27;}${a.method?`&lt;div class=&quot;reveal-panel&quot;&gt;For each vertex: draw a straight line through O, mark its image on the other side at the same distance, then join the images in order.&lt;/div&gt;`:&#x27;&#x27;}`}
+const thirdSource=[[470,250],[450,250-TRI_H],[490,250-TRI_H],[510,250]];
+const quarterSource=[[435,150],[510,150],[510,200],[460,200]];
+function sceneStarter(){let a=state.l3.starter;let questions=[[&#x27;What do we call the fixed point around which a shape rotates?&#x27;,&#x27;Centre of rotation&#x27;],[&#x27;How many degrees are there in a half turn?&#x27;,&#x27;180°&#x27;],[&#x27;What does the order of rotational symmetry tell us?&#x27;,&#x27;Number of matches in one full turn&#x27;],[&#x27;Order 4: what is the smallest matching angle?&#x27;,&#x27;90°&#x27;],[&#x27;What stays the same when we rotate a point?&#x27;,&#x27;Distance from the centre&#x27;]];let s=svgStart();for(let i=0;i&lt;5;i++){let y=54+i*91;s+=`&lt;rect x=&quot;34&quot; y=&quot;${y-26}&quot; width=&quot;650&quot; height=&quot;81&quot; rx=&quot;12&quot; fill=&quot;${i%2?&#x27;#f4f9fd&#x27;:&#x27;#eaf4fb&#x27;}&quot; stroke=&quot;#d6e5f0&quot;/&gt;`;s+=`&lt;text x=&quot;57&quot; y=&quot;${y+4}&quot; fill=&quot;#235c90&quot; font-size=&quot;19&quot; font-weight=&quot;800&quot;&gt;${i+1}.&lt;/text&gt;&lt;text x=&quot;89&quot; y=&quot;${y+4}&quot; fill=&quot;#173b59&quot; font-size=&quot;17.5&quot; font-weight=&quot;700&quot;&gt;${questions[i][0]}&lt;/text&gt;`;if(i&lt;a.revealed)s+=`&lt;text x=&quot;89&quot; y=&quot;${y+32}&quot; fill=&quot;#16745d&quot; font-size=&quot;17&quot; font-weight=&quot;800&quot;&gt;${questions[i][1]}&lt;/text&gt;`;}return s+end}
+function panelStarter(){let a=state.l3.starter;return `&lt;div class=&quot;eyebrow&quot;&gt;Retrieval practice&lt;/div&gt;&lt;p class=&quot;bigquestion&quot;&gt;What do you remember?&lt;/p&gt;&lt;p class=&quot;panel-intro&quot;&gt;Answer the five questions on your mini-whiteboard.&lt;/p&gt;&lt;p class=&quot;panel-intro&quot;&gt;&lt;b&gt;Three, two, one — boards up!&lt;/b&gt;&lt;/p&gt;&lt;div class=&quot;actionrow&quot;&gt;&lt;button class=&quot;primary&quot; data-action=&quot;starter-next&quot; ${a.revealed&gt;=5?&#x27;disabled&#x27;:&#x27;&#x27;}&gt;${a.revealed&gt;=5?&#x27;All answers shown&#x27;:&#x27;Reveal next answer&#x27;}&lt;/button&gt;&lt;button data-action=&quot;starter-reset&quot;&gt;Hide answers&lt;/button&gt;&lt;/div&gt;&lt;div class=&quot;side-small&quot;&gt;Explain your answer if asked. Think about the centre, angle and order.&lt;/div&gt;`}
+function sceneQuarterPoint(){let a=state.l3.qPoint,O=C,A=[485,200],Ap=rotate(A,90,C),d=[Ap[0]-C[0],Ap[1]-C[1]],s=svgStart()+bgGrid();if(a.step&gt;=1)s+=line(O,A,&#x27;#2a6fa8&#x27;,3.5);if(a.step&gt;=2)s+=line([O[0]-d[0]*1.4,O[1]-d[1]*1.4],[O[0]+d[0]*1.4,O[1]+d[1]*1.4],&#x27;#7c9db6&#x27;,2.8,&#x27;8 6&#x27;);if(a.step&gt;=3){s+=line(O,Ap,&#x27;#118b75&#x27;,4)+pt(Ap,&#x27;A′&#x27;,&#x27;#118b75&#x27;,6,[12,19]);let start=deg(Math.atan2(A[1]-O[1],A[0]-O[0]));s+=smallArc(O,56,start,start+90,&#x27;#d78523&#x27;);s+=infoText(418,325,&#x27;90°&#x27;,&#x27;#c77820&#x27;,20)}s+=pt(A,&#x27;A&#x27;)+center(C,&#x27;C&#x27;);return s+end}
+function panelQuarterPoint(){let a=state.l3.qPoint;return `&lt;div class=&quot;eyebrow&quot;&gt;Quarter turn · 90°&lt;/div&gt;&lt;p class=&quot;bigquestion&quot;&gt;Where will A′ be after a 90° clockwise turn about C?&lt;/p&gt;&lt;div class=&quot;operation&quot;&gt;Draw CA. Through C, draw a perpendicular line. The image A′ lies on that line, at the &lt;b&gt;same distance&lt;/b&gt; from C.&lt;/div&gt;&lt;div class=&quot;actionrow&quot;&gt;&lt;button data-action=&quot;qp-next&quot; class=&quot;primary&quot; ${a.step&gt;=3?&#x27;disabled&#x27;:&#x27;&#x27;}&gt;${[&#x27;Draw CA&#x27;,&#x27;Draw perpendicular through C&#x27;,&#x27;Find A′&#x27;,&#x27;Completed&#x27;][a.step]}&lt;/button&gt;&lt;button data-action=&quot;qp-reset&quot;&gt;Reset&lt;/button&gt;&lt;/div&gt;${a.step&gt;=3?`&lt;button data-action=&quot;qp-rule&quot;&gt;${a.showRule?&#x27;Hide rule&#x27;:&#x27;Show conclusion&#x27;}&lt;/button&gt;`:&#x27;&#x27;}${a.showRule?`&lt;div class=&quot;reveal-panel&quot;&gt;CA and CA′ are perpendicular, and CA = CA′. The centre C stays fixed.&lt;/div&gt;`:&#x27;&#x27;}`}
+function sceneQuarterWhole(){let a=state.l3.qWhole,p=quarterSource,s=svgStart()+bgGrid();for(let i=0;i&lt;a.count;i++)s+=path(rotPts(p,90*i),&#x27;#2473ac&#x27;,5);if(a.animating)s+=`&lt;g transform=&quot;rotate(${round(a.rot)} ${C[0]} ${C[1]})&quot;&gt;${path(p,&#x27;#d48325&#x27;,6)}&lt;/g&gt;`;if(a.checking||a.checkAngle&gt;0){s+=`&lt;g transform=&quot;rotate(${round(a.checkAngle)} ${C[0]} ${C[1]})&quot; opacity=&quot;.67&quot;&gt;`;for(let i=0;i&lt;4;i++)s+=path(rotPts(p,i*90),&#x27;#159377&#x27;,4);s+=&#x27;&lt;/g&gt;&#x27;;}s+=center(C,&#x27;C&#x27;);return s+end}
+function panelQuarterWhole(){let a=state.l3.qWhole;return `&lt;div class=&quot;eyebrow&quot;&gt;Constructing order 4&lt;/div&gt;&lt;p class=&quot;bigquestion&quot;&gt;Complete the pattern with rotational symmetry of order 4 about C.&lt;/p&gt;&lt;div class=&quot;operation&quot;&gt;&lt;b&gt;Order 4&lt;/b&gt; means a &lt;b&gt;quarter turn (90°)&lt;/b&gt; between matching positions. The centre stays fixed; we need three more positions.&lt;/div&gt;&lt;div class=&quot;actionrow&quot;&gt;&lt;button class=&quot;primary&quot; data-action=&quot;qw-next&quot; ${a.count&gt;=4||a.animating||a.checking?&#x27;disabled&#x27;:&#x27;&#x27;}&gt;${a.count&lt;4?&#x27;Show next quarter turn ▶&#x27;:&#x27;Four positions complete&#x27;}&lt;/button&gt;&lt;button data-action=&quot;qw-reset&quot;&gt;Reset&lt;/button&gt;&lt;/div&gt;${a.count&gt;=4?`&lt;button data-action=&quot;qw-check&quot; ${a.checking?&#x27;disabled&#x27;:&#x27;&#x27;}&gt;Check: rotate the full pattern ▶&lt;/button&gt;&lt;button data-action=&quot;qw-conclusion&quot;&gt;${a.explain?&#x27;Hide rule&#x27;:&#x27;Show order and angle&#x27;}&lt;/button&gt;`:&#x27;&#x27;}${a.explain?`&lt;div class=&quot;reveal-panel&quot;&gt;Order 4 → quarter turn → 90°. The complete pattern matches after 90°, 180°, 270° and 360°.&lt;/div&gt;`:&#x27;&#x27;}&lt;div class=&quot;side-small&quot;&gt;Use the pen to mark predicted vertices before the next copy appears.&lt;/div&gt;`}
+function sceneThirdPoint(){let a=state.l3.tPoint,O=CT,A=triXY(3,0),Ap=rotate(A,-120,O),App=rotate(A,-240,O);let s=svgStart()+bgTriGrid();if(a.step&gt;=1)s+=line(O,A,&#x27;#3074af&#x27;,3.6);if(a.step&gt;=2)s+=line(O,Ap,&#x27;#13967b&#x27;,3.5)+pt(Ap,&#x27;A′&#x27;,&#x27;#13967b&#x27;,6);if(a.step&gt;=3)s+=line(O,App,&#x27;#ce7f25&#x27;,3.5)+pt(App,&#x27;A″&#x27;,&#x27;#ce7f25&#x27;,6,[12,17]);if(a.step&gt;=2)s+=smallArc(O,48,0,-120,&#x27;#ce8a27&#x27;);s+=pt(A,&#x27;A&#x27;)+center(O,&#x27;C&#x27;);return s+end}
+function panelThirdPoint(){let a=state.l3.tPoint;return `&lt;div class=&quot;eyebrow&quot;&gt;Third turn · 120°&lt;/div&gt;&lt;p class=&quot;bigquestion&quot;&gt;Where will A move after a third turn about C?&lt;/p&gt;&lt;div class=&quot;operation&quot;&gt;A &lt;b&gt;third turn&lt;/b&gt; is 120°. Use the triangular grid to find the new direction. Keep the same distance from C.&lt;/div&gt;&lt;div class=&quot;actionrow&quot;&gt;&lt;button class=&quot;primary&quot; data-action=&quot;tp-next&quot; ${a.step&gt;=3?&#x27;disabled&#x27;:&#x27;&#x27;}&gt;${[&#x27;Draw CA&#x27;,&#x27;Find A′ (120°)&#x27;,&#x27;Find A″ (240°)&#x27;,&#x27;Completed&#x27;][a.step]}&lt;/button&gt;&lt;button data-action=&quot;tp-reset&quot;&gt;Reset&lt;/button&gt;&lt;/div&gt;${a.step&gt;=3?`&lt;button data-action=&quot;tp-rule&quot;&gt;${a.showRule?&#x27;Hide explanation&#x27;:&#x27;Show conclusion&#x27;}&lt;/button&gt;`:&#x27;&#x27;}${a.showRule?`&lt;div class=&quot;reveal-panel&quot;&gt;Three equal turns of 120° make one full turn. CA = CA′ = CA″.&lt;/div&gt;`:&#x27;&#x27;}`}
+function sceneThirdWhole(){let a=state.l3.tWhole,p=thirdSource,s=svgStart()+bgTriGrid();for(let i=0;i&lt;a.count;i++)s+=path(rotPts(p,-120*i,CT),&#x27;#2b70ab&#x27;,5);if(a.animating)s+=`&lt;g transform=&quot;rotate(${round(a.rot)} ${CT[0]} ${CT[1]})&quot;&gt;${path(p,&#x27;#d58a22&#x27;,5.7)}&lt;/g&gt;`;s+=center(CT,&#x27;C&#x27;);return s+end}
+function panelThirdWhole(){let a=state.l3.tWhole;return `&lt;div class=&quot;eyebrow&quot;&gt;Constructing order 3&lt;/div&gt;&lt;p class=&quot;bigquestion&quot;&gt;Complete the diagram with rotational symmetry of order 3 about C.&lt;/p&gt;&lt;div class=&quot;operation&quot;&gt;Order 3 → &lt;b&gt;third turn (120°)&lt;/b&gt;. We have one element, so we need &lt;b&gt;two more&lt;/b&gt;. Use the triangular grid.&lt;/div&gt;&lt;div class=&quot;actionrow&quot;&gt;&lt;button data-action=&quot;tw-next&quot; class=&quot;primary&quot; ${a.count&gt;=3||a.animating?&#x27;disabled&#x27;:&#x27;&#x27;}&gt;${a.count&lt;3?&#x27;Show next third turn ▶&#x27;:&#x27;Three positions complete&#x27;}&lt;/button&gt;&lt;button data-action=&quot;tw-reset&quot;&gt;Reset&lt;/button&gt;&lt;/div&gt;${a.count&gt;=3?`&lt;button data-action=&quot;tw-conclusion&quot;&gt;${a.explain?&#x27;Hide rule&#x27;:&#x27;Show conclusion&#x27;}&lt;/button&gt;`:&#x27;&#x27;}${a.explain?`&lt;div class=&quot;reveal-panel&quot;&gt;The complete figure matches after 120°, 240° and 360°. Every rotated point remains the same distance from C.&lt;/div&gt;`:&#x27;&#x27;}&lt;div class=&quot;side-small&quot;&gt;All vertices and their rotated positions lie on grid intersections.&lt;/div&gt;`}
+const examQuestion=&#x27;Copy and complete the diagram so that it has rotational symmetry of order 4 about point C.&#x27;;
+function sceneExam(){let a=state.l3.exam,s=svgStart();s+=`&lt;rect x=&quot;38&quot; y=&quot;42&quot; width=&quot;644&quot; height=&quot;121&quot; rx=&quot;14&quot; fill=&quot;#ebf5fc&quot; stroke=&quot;#c6dfed&quot;/&gt;&lt;text x=&quot;62&quot; y=&quot;72&quot; fill=&quot;#356e9c&quot; font-size=&quot;17&quot; font-weight=&quot;800&quot;&gt;EXAM-STYLE QUESTION&lt;/text&gt;`;let phrases=[[&#x27;Copy and complete&#x27;,&#x27;the diagram so that it has&#x27;],[&#x27;rotational symmetry of order 4&#x27;,&#x27;&#x27;],[&#x27;about point C.&#x27;,&#x27;&#x27;]];let ys=[105,130,154];for(let i=0;i&lt;phrases.length;i++){let active=a.words&gt;i;s+=`&lt;text x=&quot;63&quot; y=&quot;${ys[i]+4}&quot; font-size=&quot;21&quot; font-weight=&quot;800&quot; fill=&quot;${active?&#x27;#126a5b&#x27;:&#x27;#173b59&#x27;}&quot; ${active?&#x27;text-decoration=&quot;underline&quot;&#x27;:&#x27;&#x27;}&gt;${phrases[i][0]}&lt;/text&gt;`;if(i===0)s+=`&lt;text x=&quot;280&quot; y=&quot;${ys[i]+4}&quot; font-size=&quot;20&quot; fill=&quot;#45627b&quot;&gt;${phrases[i][1]}&lt;/text&gt;`;}let steps=[[&#x27;1. READ&#x27;,&#x27;Copy and complete&#x27;],[&#x27;2. CENTRE&#x27;,&#x27;About C · C stays fixed&#x27;],[&#x27;3. ANGLE&#x27;,&#x27;Order 4 → 90°&#x27;],[&#x27;4. CONSTRUCT&#x27;,&#x27;Rotate each vertex; keep distance&#x27;],[&#x27;5. CHECK&#x27;,&#x27;Does the complete figure match?&#x27;]];for(let i=0;i&lt;steps.length;i++){let y=201+i*51;s+=`&lt;rect x=&quot;49&quot; y=&quot;${y-29}&quot; width=&quot;620&quot; height=&quot;43&quot; rx=&quot;9&quot; fill=&quot;${i%2?&#x27;#f6fafe&#x27;:&#x27;#eaf4fb&#x27;}&quot; stroke=&quot;#d9e7f1&quot;/&gt;&lt;text x=&quot;67&quot; y=&quot;${y-2}&quot; fill=&quot;#235f91&quot; font-size=&quot;19&quot; font-weight=&quot;800&quot;&gt;${steps[i][0]}&lt;/text&gt;&lt;text x=&quot;235&quot; y=&quot;${y-2}&quot; fill=&quot;#365872&quot; font-size=&quot;18&quot;&gt;${steps[i][1]}&lt;/text&gt;`;}return s+end}
+function timeText(n){let m=Math.floor(n/60),s=n%60;return `${String(m).padStart(2,&#x27;0&#x27;)}:${String(s).padStart(2,&#x27;0&#x27;)}`}
+function panelExam(){let a=state.l3.exam;return `&lt;div class=&quot;eyebrow&quot;&gt;Exam-style independent practice&lt;/div&gt;&lt;p class=&quot;bigquestion&quot;&gt;Read the instruction before drawing.&lt;/p&gt;&lt;p class=&quot;panel-intro&quot;&gt;Find the key words: &lt;b&gt;copy and complete&lt;/b&gt;, &lt;b&gt;order&lt;/b&gt; and &lt;b&gt;about point C&lt;/b&gt;.&lt;/p&gt;&lt;div class=&quot;actionrow&quot;&gt;&lt;button data-action=&quot;exam-words&quot; class=&quot;primary&quot; ${a.words&gt;=3?&#x27;disabled&#x27;:&#x27;&#x27;}&gt;${a.words&gt;=3?&#x27;Key words identified&#x27;:&#x27;Highlight next key phrase&#x27;}&lt;/button&gt;&lt;button data-action=&quot;exam-reset-words&quot;&gt;Clear highlights&lt;/button&gt;&lt;/div&gt;&lt;div class=&quot;exercise-card&quot;&gt;&lt;b&gt;Booklet: exam questions&lt;/b&gt;&lt;p&gt;Choose questions on half-turn symmetry, order 4 and order 3. Work independently using the five-step method.&lt;/p&gt;&lt;/div&gt;&lt;div class=&quot;hint-label&quot;&gt;Independent practice · 23 minutes&lt;/div&gt;&lt;div class=&quot;timer-readout&quot; id=&quot;timerReadout&quot;&gt;${timeText(a.timer)}&lt;/div&gt;&lt;div class=&quot;actionrow&quot;&gt;&lt;button data-action=&quot;timer-toggle&quot; class=&quot;primary&quot;&gt;${a.running?&#x27;Pause timer&#x27;:&#x27;Start timer&#x27;}&lt;/button&gt;&lt;button data-action=&quot;timer-reset&quot;&gt;Reset timer&lt;/button&gt;&lt;/div&gt;&lt;div class=&quot;side-small&quot;&gt;Allow approximately two minutes for reading the method and two minutes for final checking.&lt;/div&gt;`}
+
+function nextGear(){let a=state.l2.gear;if(a.animating||a.n&gt;=4)return;a.animating=true;let from=(a.n-1)*90,to=a.n*90;tween(780,p=&gt;a.angle=lerp(from,to,p),()=&gt;{a.n++;a.animating=false})}
+function rotateTrace(){let a=state.l2.trace;if(a.animating)return;a.step=5;a.animating=true;a.angle=0;render();tween(1650,p=&gt;a.angle=180*(1-(1-p)*(1-p)),()=&gt;{a.angle=180;a.animating=false})}
+function stampTrace(){let a=state.l2.trace;if(a.step&lt;4||a.angle&lt;179.5||a.animating)return;a.step=6;a.stampProgress=0;a.animating=true;render();tween(880,p=&gt;a.stampProgress=p,()=&gt;{a.stampProgress=1;a.animating=false})}
+/* unified construction deck: half turn -&gt; quarter turn -&gt; third turn -&gt; exam -&gt; optional recap */
+const DEMOS=[
+ {key:&#x27;half&#x27;,angle:180,steps:2,center:C,source:[[460,175],[535,175],[535,250],[485,250]],booklet:&#x27;Exercise 2 — questions 3 and 4&#x27;,extra:&#x27;Extra practice: Exercise 2 — questions 1 and 2&#x27;,color:&#x27;#17876c&#x27;},
+ {key:&#x27;quarter&#x27;,angle:90,steps:4,center:C,source:[[435,150],[510,150],[510,200],[460,200]],booklet:&#x27;Exercise 6&#x27;,extra:&#x27;&#x27;,color:&#x27;#17876c&#x27;},
+ {key:&#x27;third&#x27;,angle:120,steps:3,center:CT,source:[triXY(3,0),triXY(3,-1),triXY(4,-1),triXY(4,0)],booklet:&#x27;Exercise 5&#x27;,extra:&#x27;&#x27;,color:&#x27;#17876c&#x27;}
+];
+function makeWhole(d){return {manual:false,mode:&#x27;preset&#x27;,pts:d.source.map(p=&gt;p.slice()),editing:false,turn:1,showCount:0,joined:false,completed:0,checkAngle:0,checking:false,booklet:false,method:false}}
+function makePoint(){return {step:0,showRule:false,angle:0,animating:false}}
+state.l2.whole=makeWhole(DEMOS[0]);state.l3.qWhole=makeWhole(DEMOS[1]);state.l3.tWhole=makeWhole(DEMOS[2]);
+state.l2.point=makePoint();state.l3.qPoint=makePoint();state.l3.tPoint=makePoint();
+state.l3.exam={copies:0,animating:false,animAngle:0,checking:false,checkAngle:0,method:false};
+state.extraDesign={
+ tile:{corrected:false,checking:false,angle:0,showGuide:false},
+ logo:{paper:&#x27;plain&#x27;,hint:false,preview:false}
+};
+const slidesUnified=[
+ {title:&#x27;Why construct rotational symmetry?&#x27;,time:&#x27;Lesson 2&#x27;,cap:&#x27;ENGINEERING EXAMPLE&#x27;},
+ {title:&#x27;A half turn with tracing paper&#x27;,time:&#x27;Lesson 2&#x27;,cap:&#x27;PLACE · FIX · GUIDES · TRACE · ROTATE · TRANSFER&#x27;},
+ {title:&#x27;Half turn — One point&#x27;,time:&#x27;180°&#x27;,cap:&#x27;CONSTRUCTING A POINT&#x27;},
+ {title:&#x27;Half turn — Whole element&#x27;,time:&#x27;Booklet · Exercise 2&#x27;,cap:&#x27;CONSTRUCT · JOIN · ROTATE TO CHECK&#x27;},
+ {title:&#x27;Quarter turn — One point&#x27;,time:&#x27;90°&#x27;,cap:&#x27;CONSTRUCTING A POINT&#x27;},
+ {title:&#x27;Quarter turn — Whole element&#x27;,time:&#x27;Booklet · Exercise 6&#x27;,cap:&#x27;CONSTRUCT · JOIN · ROTATE TO CHECK&#x27;},
+ {title:&#x27;Third turn — One point&#x27;,time:&#x27;120°&#x27;,cap:&#x27;CONSTRUCTING A POINT&#x27;},
+ {title:&#x27;Third turn — Whole element&#x27;,time:&#x27;Booklet · Exercise 5&#x27;,cap:&#x27;CONSTRUCT · JOIN · ROTATE TO CHECK&#x27;},
+ {title:&#x27;Exam-style question — Work through it together&#x27;,time:&#x27;Guided practice&#x27;,cap:&#x27;EXAM-STYLE PROBLEM · ANNOTATE THE QUESTION&#x27;},
+ {title:&#x27;What do we remember?&#x27;,time:&#x27;Quick recall&#x27;,cap:&#x27;MINI-WHITEBOARD QUESTIONS&#x27;},
+ {title:&#x27;Spot the designer’s mistake&#x27;,time:&#x27;Optional · Lesson 4&#x27;,cap:&#x27;DESIGN CHALLENGE · ORDER 4&#x27;},
+ {title:&#x27;Create your own logo&#x27;,time:&#x27;Optional · Lesson 4&#x27;,cap:&#x27;DESIGN CHALLENGE · ORDER 3&#x27;}
+];
+const pointState=[state.l2.point,state.l3.qPoint,state.l3.tPoint];
+const wholeState=[state.l2.whole,state.l3.qWhole,state.l3.tWhole];
+function sPoint(k){return pointState[k]}
+function sWhole(k){return wholeState[k]}
+function tickPad(angle){let n=Math.round(angle/90);return `&lt;div class=&quot;angle-ticks2&quot;&gt;&lt;span&gt;0°&lt;/span&gt;${angle===180?&#x27;&lt;span&gt;90°&lt;/span&gt;&#x27;:angle===90?&#x27;&lt;span&gt;45°&lt;/span&gt;&#x27;:&#x27;&lt;span&gt;120°&lt;/span&gt;&#x27;}&lt;span&gt;${angle}°&lt;/span&gt;&lt;/div&gt;`}
+function scenePoint(k){
+ let d=DEMOS[k],a=sPoint(k),O=d.center,A=k===2?triXY(3,0):k===1?[485,200]:[485,175];
+ let s=svgStart()+(k===2?bgTriGrid():bgGrid());
+ let Ap=rotate(A,d.angle,O),App=rotate(A,2*d.angle,O);
+ if(k===0){
+  if(a.step&gt;=1){let v=[A[0]-O[0],A[1]-O[1]];s+=line([O[0]+1.7*v[0],O[1]+1.7*v[1]],[O[0]-1.7*v[0],O[1]-1.7*v[1]],&#x27;#7898b0&#x27;,2.9,&#x27;9 6&#x27;)}
+  if(a.step&gt;=2)s+=line(O,A,&#x27;#286fa7&#x27;,3.8)+line(O,Ap,&#x27;#168675&#x27;,3.8)+pt(Ap,&#x27;A′&#x27;,&#x27;#168675&#x27;,6,[10,21]);
+  if(a.step&gt;=3)s+=infoText(245,405,&#x27;O is the midpoint of AA′&#x27;,&#x27;#15816f&#x27;,21)
+ }else if(k===1){
+  if(a.step&gt;=1)s+=line(O,A,&#x27;#256ca8&#x27;,3.8);
+  if(a.step&gt;=2){let dx=Ap[0]-O[0],dy=Ap[1]-O[1];s+=line([O[0]-dx*1.65,O[1]-dy*1.65],[O[0]+dx*1.65,O[1]+dy*1.65],&#x27;#7898b0&#x27;,2.9,&#x27;8 6&#x27;)}
+  if(a.step&gt;=3){s+=line(O,Ap,&#x27;#168675&#x27;,3.8)+pt(Ap,&#x27;A′&#x27;,&#x27;#168675&#x27;,6,[10,20]);let t=deg(Math.atan2(A[1]-O[1],A[0]-O[0]));s+=smallArc(O,49,t,t+90,&#x27;#d58a28&#x27;)}
+ }else{
+  if(a.step&gt;=1)s+=line(O,A,&#x27;#256ca8&#x27;,3.8);
+  if(a.step&gt;=2){s+=line(O,Ap,&#x27;#168675&#x27;,3.8)+pt(Ap,&#x27;A′&#x27;,&#x27;#168675&#x27;,6,[10,20]);s+=smallArc(O,43,0,120,&#x27;#d58a28&#x27;)}
+  if(a.step&gt;=3)s+=line(O,App,&#x27;#bc8125&#x27;,3.8)+pt(App,&#x27;A″&#x27;,&#x27;#bc8125&#x27;,6,[10,20]);
+ }
+ s+=pt(A,&#x27;A&#x27;)+center(O,k===0?&#x27;O&#x27;:&#x27;C&#x27;);
+ if(a.angle&gt;0.05){let pos=rotate(A,a.angle,O);s+=`&lt;circle cx=&quot;${round(pos[0])}&quot; cy=&quot;${round(pos[1])}&quot; r=&quot;11&quot; fill=&quot;#d98d2f&quot; stroke=&quot;white&quot; stroke-width=&quot;3&quot; opacity=&quot;.93&quot;/&gt;`;}
+ return s+end
+}
+function panelPoint(k){
+ let d=DEMOS[k],a=sPoint(k),final=a.step&gt;=3;
+ let phrases=k===0?[&#x27;Draw a straight line through A and O&#x27;,&#x27;Mark A′ at the same distance&#x27;,&#x27;Identify the midpoint&#x27;,&#x27;Construction complete&#x27;]:
+     k===1?[&#x27;Draw CA&#x27;,&#x27;Draw the perpendicular through C&#x27;,&#x27;Mark A′ at the same distance&#x27;,&#x27;Construction complete&#x27;]:
+     [&#x27;Draw CA&#x27;,&#x27;Find A′ after 120°&#x27;,&#x27;Find A″ after 240°&#x27;,&#x27;Construction complete&#x27;];
+ let question=k===0?&#x27;Where does A go after a half turn?&#x27;:k===1?&#x27;Where does A go after a quarter turn?&#x27;:&#x27;Where does A go after a third turn?&#x27;;
+ let body=k===0?&#x27;Draw a line through A and O and extend it past O. The image lies the same distance beyond O.&#x27;:k===1?&#x27;Start with CA, then use a perpendicular through C. Turn 90° clockwise and keep the same distance.&#x27;:&#x27;Use the triangular dot grid. Turn through 120° to A′ and another 120° to A″, always keeping the same distance from C.&#x27;;
+ let rule=k===0?&#x27;A, O and A′ are collinear. AO = OA′. O is the midpoint of AA′.&#x27;:k===1?&#x27;CA = CA′ and the lines CA and CA′ are perpendicular. C stays fixed.&#x27;:&#x27;CA = CA′ = CA″. The three points are 120° apart about C.&#x27;;
+ let max=k===2?240:d.angle;
+ return `&lt;div class=&quot;eyebrow&quot;&gt;${[&#x27;HALF TURN · 180°&#x27;,&#x27;QUARTER TURN · 90°&#x27;,&#x27;THIRD TURN · 120°&#x27;][k]}&lt;/div&gt;&lt;p class=&quot;bigquestion&quot;&gt;${question}&lt;/p&gt;&lt;p class=&quot;panel-intro&quot;&gt;${body}&lt;/p&gt;`+
+ `&lt;div class=&quot;actionrow&quot;&gt;&lt;button class=&quot;primary&quot; data-action=&quot;point-next&quot; ${final?&#x27;disabled&#x27;:&#x27;&#x27;}&gt;${phrases[a.step]}&lt;/button&gt;&lt;button data-action=&quot;point-reset&quot;&gt;Reset&lt;/button&gt;&lt;/div&gt;`+
+ (final?`&lt;button data-action=&quot;point-rule&quot;&gt;${a.showRule?&#x27;Hide conclusion&#x27;:&#x27;Show conclusion&#x27;}&lt;/button&gt;${a.showRule?`&lt;div class=&quot;reveal-panel&quot;&gt;${rule}&lt;/div&gt;`:&#x27;&#x27;}&lt;div class=&quot;controls-label&quot;&gt;Rotate the point: &lt;span id=&quot;pointAngle&quot;&gt;${Math.round(a.angle)}°&lt;/span&gt;&lt;/div&gt;&lt;input id=&quot;pointSlider&quot; class=&quot;range&quot; type=&quot;range&quot; min=&quot;0&quot; max=&quot;${max}&quot; step=&quot;1&quot; value=&quot;${Math.round(a.angle)}&quot;&gt;&lt;div class=&quot;angle-ticks2&quot;&gt;&lt;span&gt;0°&lt;/span&gt;&lt;span&gt;${k===2?&#x27;120°&#x27;:k===0?&#x27;90°&#x27;:&#x27;45°&#x27;}&lt;/span&gt;&lt;span&gt;${max}°&lt;/span&gt;&lt;/div&gt;&lt;button class=&quot;primary&quot; data-action=&quot;point-animate&quot; ${a.animating?&#x27;disabled&#x27;:&#x27;&#x27;}&gt;Play the rotation ▶&lt;/button&gt;`:&#x27;&#x27;)
+}
+function nodeLetter(i,suffix=&#x27;&#x27;){return String.fromCharCode(65+i)+suffix}
+function imSuffix(k){return &#x27;′&#x27;.repeat(k)}
+function showNode(p,label,col,isImage=false){let labelpos=isImage?[10,20]:[10,-11];return pt(p,label,col,5.1,labelpos)}
+function sceneWhole(k){
+ let d=DEMOS[k],a=sWhole(k),O=d.center,p=a.pts,n=d.steps,step=d.angle,s=svgStart()+(k===2?bgTriGrid():bgGrid());
+ if(p.length&gt;1)s+=path(p,&#x27;#266eac&#x27;,5.2);
+ if(!a.manual)for(let j=1;j&lt;n;j++){
+   if(j&lt;a.turn || (j===a.turn &amp;&amp; a.joined)){
+    let img=rotPts(p,step*j,O);s+=path(img,&#x27;#18876b&#x27;,4.8);
+    for(let i=0;i&lt;img.length;i++){
+      let onCentre=Math.hypot(img[i][0]-O[0],img[i][1]-O[1])&lt;1;
+      if(!onCentre)s+=showNode(img[i],nodeLetter(i,imSuffix(j)),&#x27;#16856c&#x27;,true);
+    }
+   }else if(j===a.turn){
+    let im=rotPts(p,step*j,O);
+    for(let i=0;i&lt;a.showCount;i++){
+      s+=line(O,p[i],&#x27;#91a8ba&#x27;,1.6,&#x27;8 7&#x27;)+line(O,im[i],&#x27;#7ab4a5&#x27;,1.6,&#x27;8 7&#x27;);
+      if(Math.hypot(im[i][0]-O[0],im[i][1]-O[1])&gt;=1)s+=showNode(im[i],nodeLetter(i,imSuffix(j)),&#x27;#16856c&#x27;,true)
+    }
+    if(a.joined)s+=path(im,&#x27;#18876b&#x27;,4.8);
+   }
+ }
+ for(let i=0;i&lt;p.length;i++){
+   let onCentre=Math.hypot(p[i][0]-O[0],p[i][1]-O[1])&lt;1;
+   s+=showNode(p[i],nodeLetter(i),&#x27;#246dab&#x27;,onCentre);
+ }
+ if(a.manual &amp;&amp; (a.checking || a.checkAngle&gt;0.1)){
+   s+=`&lt;g opacity=&quot;.95&quot;&gt;${path(rotPts(p,a.checkAngle,O),&#x27;#d58026&#x27;,6.4)}&lt;/g&gt;`;
+   if(a.checking)s+=infoText(52,466,`Rotation: ${Math.round(a.checkAngle)}°`,&#x27;#86521f&#x27;,18);
+ }else if(!a.manual &amp;&amp; (a.checking || a.checkAngle&gt;0.1)){let ang=a.checkAngle;if(k===1){s+=`&lt;g transform=&quot;rotate(${round(ang)} ${O[0]} ${O[1]})&quot; opacity=&quot;.85&quot;&gt;`;for(let turn=0;turn&lt;4;turn++)s+=path(rotPts(p,90*turn,O),&#x27;#d58026&#x27;,3.6);s+=&#x27;&lt;/g&gt;&#x27;;if(a.checking)s+=infoText(52,466,`Rotation: ${Math.round(ang)}°`,&#x27;#86521f&#x27;,18)}else{s+=`&lt;g opacity=&quot;.92&quot;&gt;${path(rotPts(p,ang,O),&#x27;#d58026&#x27;,6.4)}&lt;/g&gt;`}}
+ s+=center(O,k===0?&#x27;O&#x27;:&#x27;C&#x27;);
+ if(a.editing)s+=infoText(67,454,&#x27;Choose vertices on the grid — including the centre.&#x27;,&#x27;#507e9f&#x27;,17);
+ return s+end
+}
+function panelWhole(k){
+ let d=DEMOS[k],a=sWhole(k),p=a.pts,n=d.steps;let task=[&#x27;half-turn symmetry&#x27;,&#x27;rotational symmetry of order 4&#x27;,&#x27;rotational symmetry of order 3&#x27;][k];
+ let suffix=imSuffix(a.turn),has=p.length&gt;=2,allDone=a.completed===n-1,finishedCurrent=a.joined;
+ let nextName=`Find ${nodeLetter(a.showCount,suffix)}`;
+ return `&lt;div class=&quot;eyebrow&quot;&gt;${[&#x27;HALF TURN&#x27;,&#x27;QUARTER TURN&#x27;,&#x27;THIRD TURN&#x27;][k]} · WHOLE ELEMENT&lt;/div&gt;&lt;p class=&quot;bigquestion&quot;&gt;Complete the element with ${task}.&lt;/p&gt;`+
+ `&lt;div class=&quot;operation&quot;&gt;${[&#x27;180°: each vertex goes to the opposite side of O.&#x27;,&#x27;90°: construct each vertex at the same distance after a quarter turn.&#x27;,&#x27;120°: use the triangular grid to turn each vertex through a third turn.&#x27;][k]} &lt;strong&gt;Join the images in order.&lt;/strong&gt;&lt;/div&gt;`+
+ `&lt;div class=&quot;actionrow&quot;&gt;&lt;button data-action=&quot;whole-auto&quot; class=&quot;${!a.manual?&#x27;active&#x27;:&#x27;&#x27;}&quot;&gt;Build by clicks&lt;/button&gt;&lt;button data-action=&quot;whole-manual&quot; class=&quot;${a.manual?&#x27;active&#x27;:&#x27;&#x27;}&quot;&gt;Draw on board&lt;/button&gt;&lt;/div&gt;`+
+ (a.manual?
+ `&lt;div class=&quot;exercise-card&quot;&gt;Use &lt;b&gt;Pen&lt;/b&gt; or &lt;b&gt;Line&lt;/b&gt; to construct the missing image${n&gt;2?&#x27;s&#x27;:&#x27;&#x27;} yourself. Draw guides and mark the points on the grid. Then rotate the &lt;b&gt;blue original&lt;/b&gt; to check your drawing.&lt;/div&gt;`+
+ `&lt;div class=&quot;actionrow&quot;&gt;&lt;button class=&quot;primary&quot; data-action=&quot;whole-check&quot; ${p.length&lt;2||a.checking?&#x27;disabled&#x27;:&#x27;&#x27;}&gt;Rotate to check ▶&lt;/button&gt;&lt;button data-action=&quot;whole-booklet&quot;&gt;${a.booklet?&#x27;Hide booklet task&#x27;:&#x27;Booklet practice&#x27;}&lt;/button&gt;&lt;/div&gt;`+
+ (a.booklet?`&lt;div class=&quot;exercise-card&quot;&gt;&lt;b&gt;Booklet · ${d.booklet}&lt;/b&gt;${d.extra?`&lt;p&gt;${d.extra}&lt;/p&gt;`:&#x27;&#x27;}&lt;/div&gt;`:&#x27;&#x27;)
+ :
+ `&lt;div class=&quot;actionrow&quot;&gt;&lt;button data-action=&quot;whole-example&quot; ${a.mode===&#x27;preset&#x27;?&#x27;disabled&#x27;:&#x27;&#x27;}&gt;Use example&lt;/button&gt;&lt;button data-action=&quot;whole-custom&quot; class=&quot;${a.mode===&#x27;custom&#x27;?&#x27;active&#x27;:&#x27;&#x27;}&quot;&gt;${a.mode===&#x27;custom&#x27;?&#x27;Start a new element&#x27;:&#x27;Draw your own element&#x27;}&lt;/button&gt;&lt;/div&gt;`+
+ (a.editing?`&lt;div class=&quot;exercise-card&quot;&gt;Tap grid intersections to add vertices. You &lt;b&gt;can start at the centre&lt;/b&gt;. Then press &lt;b&gt;Finish original&lt;/b&gt;.&lt;/div&gt;&lt;div class=&quot;actionrow&quot;&gt;&lt;button data-action=&quot;whole-undo&quot; ${p.length===0?&#x27;disabled&#x27;:&#x27;&#x27;}&gt;Undo vertex&lt;/button&gt;&lt;button class=&quot;primary&quot; data-action=&quot;whole-done&quot; ${!has?&#x27;disabled&#x27;:&#x27;&#x27;}&gt;Finish original&lt;/button&gt;&lt;/div&gt;`:
+ `&lt;div class=&quot;exercise-card&quot;&gt;${allDone?&#x27;&lt;b&gt;All positions constructed.&lt;/b&gt;&#x27;:`&lt;b&gt;Turn ${a.turn}:&lt;/b&gt; ${Math.round(a.turn*d.angle)}° — find the image of every vertex.`}&lt;/div&gt;`+
+ (!allDone?`&lt;div class=&quot;actionrow&quot;&gt;&lt;button class=&quot;primary&quot; data-action=&quot;whole-next&quot; ${a.showCount&gt;=p.length || a.checking?&#x27;disabled&#x27;:&#x27;&#x27;}&gt;${a.showCount&lt;p.length?nextName:&#x27;All points found&#x27;}&lt;/button&gt;&lt;button data-action=&quot;whole-join&quot; ${a.showCount&lt;p.length||finishedCurrent?&#x27;disabled&#x27;:&#x27;&#x27;}&gt;Join image points&lt;/button&gt;&lt;/div&gt;${finishedCurrent?`&lt;button class=&quot;primary&quot; data-action=&quot;whole-next-turn&quot;&gt;${a.turn&lt;n-1?&#x27;Continue to the next turn&#x27;:&#x27;Finish the construction&#x27;}&lt;/button&gt;`:&#x27;&#x27;}`:&#x27;&#x27;)+
+ `&lt;div class=&quot;actionrow&quot;&gt;&lt;button data-action=&quot;whole-check&quot; ${!allDone||a.checking?&#x27;disabled&#x27;:&#x27;&#x27;}&gt;Check by rotating ▶&lt;/button&gt;&lt;button data-action=&quot;whole-reset&quot;&gt;Reset construction&lt;/button&gt;&lt;/div&gt;`+
+ (allDone?`&lt;button data-action=&quot;whole-booklet&quot;&gt;${a.booklet?&#x27;Hide booklet task&#x27;:&#x27;Now try the booklet&#x27;}&lt;/button&gt;`:&#x27;&#x27;)+
+ (a.booklet?`&lt;div class=&quot;exercise-card&quot;&gt;&lt;b&gt;Booklet · ${d.booklet}&lt;/b&gt;${d.extra?`&lt;p&gt;${d.extra}&lt;/p&gt;`:&#x27;&#x27;}&lt;p&gt;Construct the missing image(s) of the element. Check the fixed centre and equal distances.&lt;/p&gt;&lt;/div&gt;`:&#x27;&#x27;)+
+ (allDone?`&lt;button data-action=&quot;whole-method&quot;&gt;${a.method?&#x27;Hide method&#x27;:&#x27;Show construction method&#x27;}&lt;/button&gt;`:&#x27;&#x27;)+
+ (a.method?`&lt;div class=&quot;reveal-panel&quot;&gt;Identify the centre and the turn angle. Find each vertex image at the same distance from the centre, join in order, then rotate to check.&lt;/div&gt;`:&#x27;&#x27;)))
+}
+function sceneExamUnified(){
+ let e=state.l3.exam,O=[360,300],p=[[360,300],[385,250],[435,225],[410,275]],s=svgStart()+bgGrid();
+ s+=`&lt;rect x=&quot;40&quot; y=&quot;34&quot; width=&quot;638&quot; height=&quot;107&quot; rx=&quot;10&quot; fill=&quot;#f5f9fd&quot; stroke=&quot;#c8dceb&quot; stroke-width=&quot;1.8&quot;/&gt;`;
+ s+=`&lt;text x=&quot;58&quot; y=&quot;65&quot; font-size=&quot;16&quot; fill=&quot;#3d6687&quot; font-weight=&quot;800&quot;&gt;EXAM-STYLE QUESTION&lt;/text&gt;`;
+ s+=`&lt;text x=&quot;58&quot; y=&quot;94&quot; font-size=&quot;20&quot; fill=&quot;#173b59&quot; font-weight=&quot;650&quot;&gt;Copy and complete the diagram so that it has&lt;/text&gt;`;
+ s+=`&lt;text x=&quot;58&quot; y=&quot;122&quot; font-size=&quot;20&quot; fill=&quot;#173b59&quot; font-weight=&quot;650&quot;&gt;rotational symmetry of order 4 about C.&lt;/text&gt;`;
+ for(let k=1;k&lt;=e.copies;k++){let q=rotPts(p,90*k,O);s+=path([...q,q[0]],&#x27;#17866e&#x27;,5);for(let i=1;i&lt;q.length;i++)s+=showNode(q[i],[&#x27;&#x27;,&#x27;P&#x27;,&#x27;Q&#x27;,&#x27;R&#x27;][i]+imSuffix(k),&#x27;#16876d&#x27;,true)}
+ s+=path([...p,p[0]],&#x27;#246eab&#x27;,5.5);for(let i=1;i&lt;p.length;i++)s+=showNode(p[i],[&#x27;&#x27;,&#x27;P&#x27;,&#x27;Q&#x27;,&#x27;R&#x27;][i],&#x27;#246eab&#x27;);
+ if(e.animating||e.animAngle&gt;0){s+=path([...rotPts(p,e.animAngle,O),O],&#x27;#da8727&#x27;,6.2)}if(e.checking){s+=`&lt;g transform=&quot;rotate(${round(e.checkAngle)} ${O[0]} ${O[1]})&quot; opacity=&quot;.86&quot;&gt;`;for(let turn=0;turn&lt;4;turn++)s+=path([...rotPts(p,90*turn,O),O],&#x27;#da8727&#x27;,3.6);s+=&#x27;&lt;/g&gt;&#x27;}
+ s+=center(O,&#x27;C&#x27;);return s+end;
+}
+function panelExamUnified(){let e=state.l3.exam;return `&lt;div class=&quot;eyebrow&quot;&gt;EXAM-STYLE QUESTION · WORK TOGETHER&lt;/div&gt;&lt;p class=&quot;bigquestion&quot;&gt;How do we complete this diagram?&lt;/p&gt;&lt;p class=&quot;panel-intro&quot;&gt;Read the question aloud. You can underline the important words using the &lt;b&gt;Pen&lt;/b&gt; tool.&lt;/p&gt;`+
+ `&lt;div class=&quot;operation&quot;&gt;&lt;strong&gt;Discuss and construct:&lt;/strong&gt;&lt;ol style=&quot;padding-left:23px;margin:9px 0 0&quot;&gt;&lt;li&gt;Identify the required rotational symmetry: order 4 means a 90° turn.&lt;/li&gt;&lt;li&gt;Find the fixed centre C. Add guide lines if they help.&lt;/li&gt;&lt;li&gt;Find each vertex after a 90° turn and join the image.&lt;/li&gt;&lt;li&gt;Repeat for 180° and 270°.&lt;/li&gt;&lt;li&gt;Rotate the finished design to check it.&lt;/li&gt;&lt;/ol&gt;&lt;/div&gt;`+
+ `&lt;div class=&quot;actionrow&quot;&gt;&lt;button class=&quot;primary&quot; data-action=&quot;exam-next&quot; ${e.copies&gt;=3||e.animating||e.checking?&#x27;disabled&#x27;:&#x27;&#x27;}&gt;${e.copies===0?&#x27;Construct the 90° image&#x27;:e.copies===1?&#x27;Construct the 180° image&#x27;:e.copies===2?&#x27;Construct the 270° image&#x27;:&#x27;All positions complete&#x27;}&lt;/button&gt;&lt;button data-action=&quot;exam-reset&quot;&gt;Reset&lt;/button&gt;&lt;/div&gt;`+
+ (e.copies&gt;=3?`&lt;button class=&quot;primary&quot; data-action=&quot;exam-check&quot; ${e.checking?&#x27;disabled&#x27;:&#x27;&#x27;}&gt;Check all turns ▶&lt;/button&gt;${e.checking?`&lt;div class=&quot;side-small&quot;&gt;Rotation: &lt;strong id=&quot;examCheckAngle&quot;&gt;0°&lt;/strong&gt; — checking 90°, 180°, 270° and 360°.&lt;/div&gt;`:&#x27;&#x27;}`:&#x27;&#x27;)+
+ `&lt;div class=&quot;side-small&quot;&gt;The diagram starts incomplete. Reveal each image only after the class has attempted the construction.&lt;/div&gt;`;
+}
+// Additional optional applications (Lesson 4). Other slides stay intact.
+function designPetal(k,wrong=false){
+  // The motif is deliberately chiral: the left and right edges, stem and vein differ.
+  const tr=`translate(360 252) rotate(${k*90})${wrong?&#x27; scale(-1 1)&#x27;:&#x27;&#x27;}`;
+  return `&lt;g transform=&quot;${tr}&quot;&gt;
+    &lt;path d=&quot;M -12 -48 C -52 -91 -34 -136 -3 -158 C 37 -134 43 -94 13 -51 C 5 -42 -6 -42 -12 -48 Z&quot; fill=&quot;#b5e2d8&quot; stroke=&quot;#17816e&quot; stroke-width=&quot;3.5&quot; stroke-linejoin=&quot;round&quot;/&gt;
+    &lt;path d=&quot;M -7 -56 C 12 -91 6 -126 -4 -144&quot; fill=&quot;none&quot; stroke=&quot;#1b8d78&quot; stroke-width=&quot;3&quot; stroke-linecap=&quot;round&quot;/&gt;
+    &lt;path d=&quot;M 0 -94 L 19 -104 M 2 -116 L -22 -124&quot; fill=&quot;none&quot; stroke=&quot;#72bda9&quot; stroke-width=&quot;2.5&quot; stroke-linecap=&quot;round&quot;/&gt;
+    &lt;circle cx=&quot;-19&quot; cy=&quot;-107&quot; r=&quot;5.5&quot; fill=&quot;#e19b43&quot; stroke=&quot;#fff&quot; stroke-width=&quot;1.5&quot;/&gt;
+  &lt;/g&gt;`;
+}
+function sceneDesignMistake(){
+ const a=state.extraDesign.tile;
+ let s=svgStart();
+ s+=`&lt;rect x=&quot;149&quot; y=&quot;41&quot; width=&quot;422&quot; height=&quot;422&quot; rx=&quot;13&quot; fill=&quot;#fbfdff&quot; stroke=&quot;#789fb9&quot; stroke-width=&quot;3&quot;/&gt;`;
+ s+=`&lt;rect x=&quot;166&quot; y=&quot;58&quot; width=&quot;388&quot; height=&quot;388&quot; rx=&quot;4&quot; fill=&quot;#f2f8fc&quot; stroke=&quot;#ccdfeb&quot; stroke-width=&quot;1.6&quot;/&gt;`;
+ for(let g=0;g&lt;=8;g++){
+   const t=166+g*48.5;
+   s+=line([t,58],[t,446],&#x27;#deebf4&#x27;,.8)+line([166,58+g*48.5],[554,58+g*48.5],&#x27;#deebf4&#x27;,.8);
+ }
+ s+=`&lt;circle cx=&quot;360&quot; cy=&quot;252&quot; r=&quot;52&quot; fill=&quot;#fff&quot; stroke=&quot;#bad5e1&quot; stroke-width=&quot;2&quot;/&gt;`;
+ function allPetals(){let out=&#x27;&#x27;;for(let k=0;k&lt;4;k++)out+=designPetal(k,!a.corrected&amp;&amp;k===2);return out;}
+ // The original design stays fully visible. Only a thin, unfilled outline of
+ // the first petal rotates, allowing the class to compare it with each petal.
+ s+=allPetals();
+ if(a.showGuide){
+   s+=`&lt;g transform=&quot;translate(360 252) rotate(${round(a.angle)})&quot; pointer-events=&quot;none&quot;&gt;
+     &lt;path d=&quot;M -12 -48 C -52 -91 -34 -136 -3 -158 C 37 -134 43 -94 13 -51 C 5 -42 -6 -42 -12 -48 Z&quot;
+       fill=&quot;none&quot; stroke=&quot;#1f62db&quot; stroke-width=&quot;4.5&quot; stroke-dasharray=&quot;8 5&quot; stroke-linejoin=&quot;round&quot;/&gt;
+     &lt;path d=&quot;M -7 -56 C 12 -91 6 -126 -4 -144&quot; fill=&quot;none&quot; stroke=&quot;#1f62db&quot; stroke-width=&quot;2.5&quot;/&gt;
+     &lt;circle cx=&quot;-19&quot; cy=&quot;-107&quot; r=&quot;10&quot; fill=&quot;none&quot; stroke=&quot;#1f62db&quot; stroke-width=&quot;4&quot;/&gt;
+   &lt;/g&gt;`;
+   s+=infoText(52,488,`Blue outline: first petal turned ${Math.round(a.angle)}°`,&#x27;#205c9f&#x27;,17);
+ }
+ s+=`&lt;circle cx=&quot;360&quot; cy=&quot;252&quot; r=&quot;18&quot; fill=&quot;#fff&quot; stroke=&quot;#d7a45b&quot; stroke-width=&quot;3&quot;/&gt;&lt;circle cx=&quot;360&quot; cy=&quot;252&quot; r=&quot;4.5&quot; fill=&quot;#c87d2f&quot;/&gt;`;
+ s+=`&lt;text x=&quot;376&quot; y=&quot;274&quot; font-size=&quot;17&quot; font-weight=&quot;800&quot; fill=&quot;#9a641f&quot;&gt;O&lt;/text&gt;`;
+ return s+end;
+}
+function panelDesignMistake(){
+ const a=state.extraDesign.tile;
+ return `&lt;div class=&quot;eyebrow&quot;&gt;DESIGN CHALLENGE · ORDER 4&lt;/div&gt;
+   &lt;p class=&quot;bigquestion&quot;&gt;Can you spot the designer&#x27;s mistake?&lt;/p&gt;
+   &lt;p class=&quot;panel-intro&quot;&gt;A designer wants a floor tile with &lt;b&gt;rotational symmetry of order 4&lt;/b&gt;, but something is wrong with the pattern.&lt;/p&gt;
+   &lt;div class=&quot;operation&quot;&gt;Find the mistake. Explain why the design does not have the required symmetry and how you would correct it.&lt;/div&gt;
+   &lt;div class=&quot;exercise-card&quot;&gt;&lt;b&gt;Discuss:&lt;/b&gt;&lt;p&gt;Which part would you change? How could you check your idea?&lt;/p&gt;&lt;/div&gt;
+   &lt;div class=&quot;actionrow&quot;&gt;&lt;button class=&quot;primary&quot; data-action=&quot;design-test&quot; ${a.checking?&#x27;disabled&#x27;:&#x27;&#x27;}&gt;Rotate to test ▶&lt;/button&gt;&lt;button data-action=&quot;design-fix&quot; ${a.checking?&#x27;disabled&#x27;:&#x27;&#x27;}&gt;${a.corrected?&#x27;Show original mistake&#x27;:&#x27;Show corrected design&#x27;}&lt;/button&gt;&lt;/div&gt;
+   &lt;label class=&quot;controls-label&quot; for=&quot;designAngle&quot;&gt;Compare the first petal after turning: &lt;b id=&quot;designAngleValue&quot;&gt;${Math.round(a.angle)}°&lt;/b&gt;&lt;/label&gt;
+   &lt;input id=&quot;designAngle&quot; class=&quot;range&quot; type=&quot;range&quot; min=&quot;0&quot; max=&quot;360&quot; step=&quot;90&quot; value=&quot;${Math.round(a.angle/90)*90}&quot; ${a.checking?&#x27;disabled&#x27;:&#x27;&#x27;} aria-label=&quot;Rotate the first petal outline in quarter turns&quot;&gt;
+   &lt;div class=&quot;angle-ticks2&quot;&gt;&lt;span&gt;0°&lt;/span&gt;&lt;span&gt;90°&lt;/span&gt;&lt;span&gt;180°&lt;/span&gt;&lt;span&gt;270°&lt;/span&gt;&lt;span&gt;360°&lt;/span&gt;&lt;/div&gt;
+   &lt;div class=&quot;side-small&quot;&gt;The blue outline shows the first petal after a turn. Compare its shape and dot with the petal already on the tile.&lt;/div&gt;
+   ${a.corrected?`&lt;div class=&quot;reveal-panel&quot;&gt;&lt;b&gt;What happened?&lt;/b&gt; The lower element was reflected instead of rotated. Each matching element must be a 90° rotation of the previous one about O.&lt;/div&gt;`:&#x27;&#x27;}
+   &lt;div class=&quot;side-small&quot;&gt;You can mark the diagram with Pen or Line before revealing the corrected design.&lt;/div&gt;`;
+}
+function logoPaperSvg(name){
+ if(name===&#x27;triangular&#x27;)return &#x27;&lt;g transform=&quot;translate(10 0)&quot;&gt;&#x27;+bgTriGrid()+&#x27;&lt;/g&gt;&#x27;;
+ if(name===&#x27;square&#x27;)return bgGrid();
+ return `&lt;g stroke=&quot;#f0f5f9&quot; stroke-width=&quot;1&quot;&gt;&lt;path d=&quot;M35 250 H685 M360 30 V470&quot;/&gt;&lt;/g&gt;`;
+}
+function sceneCreateLogo(){
+ const a=state.extraDesign.logo,O=[360,250];
+ let s=svgStart()+logoPaperSvg(a.paper);
+ // The user may draw one motif using Pen, then optionally see duplicates rotated 120 and 240 degrees.
+ if(a.preview){
+   const lines=state.ink[state.slide]||[];
+   for(let k=1;k&lt;3;k++){
+     s+=`&lt;g transform=&quot;rotate(${k*120} ${O[0]} ${O[1]})&quot; opacity=&quot;.75&quot;&gt;`;
+     for(const stroke of lines){
+       if(!stroke||!stroke.length)continue;
+       const d=ps(stroke)+(stroke.length===1?` L ${round(stroke[0][0]+.1)} ${round(stroke[0][1]+.1)}`:&#x27;&#x27;);
+       s+=`&lt;path d=&quot;${d}&quot; fill=&quot;none&quot; stroke=&quot;${stroke.kind===&#x27;line&#x27;?&#x27;#3784a5&#x27;:&#x27;#16856e&#x27;}&quot; stroke-width=&quot;${stroke.kind===&#x27;line&#x27;?1.8:4.6}&quot; stroke-linecap=&quot;round&quot; stroke-linejoin=&quot;round&quot;/&gt;`;
+     }
+     s+=&#x27;&lt;/g&gt;&#x27;;
+   }
+ }
+ s+=`&lt;circle cx=&quot;${O[0]}&quot; cy=&quot;${O[1]}&quot; r=&quot;6&quot; fill=&quot;#db882d&quot; stroke=&quot;white&quot; stroke-width=&quot;2&quot;/&gt;`;
+ s+=`&lt;text x=&quot;${O[0]+13}&quot; y=&quot;${O[1]+21}&quot; fill=&quot;#aa6822&quot; font-size=&quot;19&quot; font-weight=&quot;800&quot;&gt;O&lt;/text&gt;`;
+ return s+end;
+}
+function panelCreateLogo(){
+ const a=state.extraDesign.logo;
+ return `&lt;div class=&quot;eyebrow&quot;&gt;YOUR DESIGN · ORDER 3&lt;/div&gt;
+  &lt;p class=&quot;bigquestion&quot;&gt;Create a logo with rotational symmetry of order 3.&lt;/p&gt;
+  &lt;p class=&quot;panel-intro&quot;&gt;A community group needs a new logo. Design &lt;b&gt;one original element&lt;/b&gt;, then repeat it by rotating around the fixed centre O.&lt;/p&gt;
+  &lt;div class=&quot;operation&quot;&gt;You have plain, square dot and triangular dot paper available. &lt;b&gt;Choose the paper&lt;/b&gt; you think will help you most.&lt;/div&gt;
+  &lt;div class=&quot;controls-label&quot;&gt;Choose a paper for the board:&lt;/div&gt;
+  &lt;div class=&quot;actionrow&quot;&gt;&lt;button data-action=&quot;logo-plain&quot; class=&quot;${a.paper===&#x27;plain&#x27;?&#x27;active&#x27;:&#x27;&#x27;}&quot;&gt;Plain&lt;/button&gt;&lt;button data-action=&quot;logo-square&quot; class=&quot;${a.paper===&#x27;square&#x27;?&#x27;active&#x27;:&#x27;&#x27;}&quot;&gt;Square dots&lt;/button&gt;&lt;button data-action=&quot;logo-triangular&quot; class=&quot;${a.paper===&#x27;triangular&#x27;?&#x27;active&#x27;:&#x27;&#x27;}&quot;&gt;Triangular dots&lt;/button&gt;&lt;/div&gt;
+  &lt;div class=&quot;exercise-card&quot;&gt;Draw your first element with &lt;b&gt;Pen&lt;/b&gt; or &lt;b&gt;Line&lt;/b&gt;. Repeat it around O. Explain how you know your finished logo has order 3.&lt;/div&gt;
+  &lt;div class=&quot;actionrow&quot;&gt;&lt;button data-action=&quot;logo-preview&quot; class=&quot;primary&quot;&gt;${a.preview?&#x27;Hide rotated copies&#x27;:&#x27;Preview rotations ▶&#x27;}&lt;/button&gt;&lt;button data-action=&quot;logo-hint&quot;&gt;${a.hint?&#x27;Hide hint&#x27;:&#x27;Show hint&#x27;}&lt;/button&gt;&lt;/div&gt;
+  ${a.hint?`&lt;div class=&quot;reveal-panel&quot;&gt;Order 3 means three matching positions in one full turn. The turn between positions is &lt;b&gt;120°&lt;/b&gt;. Which type of paper makes that easiest to construct?&lt;/div&gt;`:&#x27;&#x27;}
+  &lt;div class=&quot;side-small&quot;&gt;You may also draw on your own paper rather than on the board. The preview rotates the element you drew on the board.&lt;/div&gt;`;
+}
+const scenesUnified=[sceneGear,sceneTrace,()=&gt;scenePoint(0),()=&gt;sceneWhole(0),()=&gt;scenePoint(1),()=&gt;sceneWhole(1),()=&gt;scenePoint(2),()=&gt;sceneWhole(2),sceneExamUnified,sceneStarter,sceneDesignMistake,sceneCreateLogo];
+const panelsUnified=[panelGear,panelTrace,()=&gt;panelPoint(0),()=&gt;panelWhole(0),()=&gt;panelPoint(1),()=&gt;panelWhole(1),()=&gt;panelPoint(2),()=&gt;panelWhole(2),panelExamUnified,panelStarter,panelDesignMistake,panelCreateLogo];
+function kindOfSlide(i){if(i===2||i===3)return 0;if(i===4||i===5)return 1;if(i===6||i===7)return 2;return -1}
+function currentScene(){return scenesUnified[state.slide]()}
+function currentPanel(){return panelsUnified[state.slide]()}
+function getSvgPoint(evt,el){let p=el.createSVGPoint();p.x=evt.clientX;p.y=evt.clientY;let ctm=el.getScreenCTM();return ctm?[p.matrixTransform(ctm.inverse()).x,p.matrixTransform(ctm.inverse()).y]:[0,0]}
+function snapSquare(p){return [clamp(Math.round((p[0]-GRID_X)/AX)*AX+GRID_X,35,685),clamp(Math.round((p[1]-GRID_Y)/AX)*AX+GRID_Y,25,475)]}
+function snapTriangle(p){let b=null,dist=1e8;let vf=(p[1]-CT[1])/TRI_H;for(let v=Math.round(vf)-2;v&lt;=Math.round(vf)+2;v++){let uf=(p[0]-CT[0])/TRI-v/2;for(let u=Math.round(uf)-2;u&lt;=Math.round(uf)+2;u++){let q=triXY(u,v),r=Math.hypot(p[0]-q[0],p[1]-q[1]);if(r&lt;dist){dist=r;b=q}}}return b}
+
+// Distance from a pointer to a segment; lets Eraser remove a long straight line at any point.
+function inkDistanceToSegment(p,a,b){
+ const dx=b[0]-a[0],dy=b[1]-a[1],lengthSquared=dx*dx+dy*dy;
+ const t=lengthSquared?Math.max(0,Math.min(1,((p[0]-a[0])*dx+(p[1]-a[1])*dy)/lengthSquared)):0;
+ return Math.hypot(p[0]-a[0]-t*dx,p[1]-a[1]-t*dy);
+}
+function inkDistanceToStroke(p,stroke){
+ if(!stroke?.length)return Infinity;
+ if(stroke.length===1)return Math.hypot(p[0]-stroke[0][0],p[1]-stroke[0][1]);
+ let best=Infinity;
+ for(let i=1;i&lt;stroke.length;i++)best=Math.min(best,inkDistanceToSegment(p,stroke[i-1],stroke[i]));
+ return best;
+}
+// Hold briefly at matching positions, rather than jumping straight from 0 to 360.
+function stagedCycle(t,steps){
+ const segment=Math.min(steps-1,Math.floor(t*steps));
+ const within=Math.min(1,t*steps-segment);
+ return (360/steps)*(segment+Math.min(1,within/0.65));
+}
+function stagedFullTurn(t){
+ const quarter=Math.min(3,Math.floor(t*4));
+ const within=Math.min(1,t*4-quarter);
+ return 90*(quarter+Math.min(1,within/0.64));
+}
+
+function updateInk(){let svg=$(&#x27;inkSvg&#x27;);if(!svg)return;let strokes=[...(state.ink[state.slide]||[]),...(state.drawing?[state.drawing]:[])];svg.innerHTML=strokes.map(stroke=&gt;{if(!stroke.length)return &#x27;&#x27;;let d=ps(stroke);if(stroke.length===1)d+=` L ${round(stroke[0][0]+.1)} ${round(stroke[0][1]+.1)}`;return `&lt;path d=&quot;${d}&quot; fill=&quot;none&quot; stroke=&quot;${stroke.kind===&#x27;line&#x27;?&#x27;#607c94&#x27;:&#x27;#ce721c&#x27;}&quot; stroke-width=&quot;${stroke.kind===&#x27;line&#x27;?1.8:4.6}&quot; stroke-linecap=&quot;round&quot; stroke-linejoin=&quot;round&quot;/&gt;`}).join(&#x27;&#x27;)}
+function wireInk(){
+ const svg=$(&#x27;inkSvg&#x27;);if(!svg)return;
+ svg.addEventListener(&#x27;pointerdown&#x27;,evt=&gt;{
+  if(state.tool===&#x27;none&#x27;)return;
+  evt.preventDefault();svg.setPointerCapture(evt.pointerId);
+  const p=getSvgPoint(evt,svg);
+  if(state.tool===&#x27;eraser&#x27;){
+   const strokes=state.ink[state.slide]||[];let idx=-1,dis=24;
+   strokes.forEach((stroke,i)=&gt;{let d=inkDistanceToStroke(p,stroke);if(d&lt;dis){dis=d;idx=i}});
+   if(idx&gt;=0){strokes.splice(idx,1);updateInk()}return;
+  }
+  state.drawing=[p];state.drawing.kind=state.tool===&#x27;line&#x27;?&#x27;line&#x27;:&#x27;pen&#x27;;
+  if(state.tool===&#x27;line&#x27;)state.drawing.push(p);
+  updateInk();
+ });
+ svg.addEventListener(&#x27;pointermove&#x27;,evt=&gt;{
+  if(!state.drawing)return;
+  const p=getSvgPoint(evt,svg);
+  if(state.drawing.kind===&#x27;line&#x27;)state.drawing[1]=p;
+  else state.drawing.push(p);
+  updateInk();
+ });
+ const up=()=&gt;{
+  if(!state.drawing)return;
+  if(state.drawing.kind!==&#x27;line&#x27;||Math.hypot(state.drawing[1][0]-state.drawing[0][0],state.drawing[1][1]-state.drawing[0][1])&gt;2){
+   (state.ink[state.slide]??=[]).push(state.drawing);
+  }
+  state.drawing=null;updateInk();
+ };
+ svg.addEventListener(&#x27;pointerup&#x27;,up);svg.addEventListener(&#x27;pointercancel&#x27;,up);
+}
+function render(){let i=state.slide;$(&#x27;slideTitle&#x27;).textContent=slidesUnified[i].title;$(&#x27;slideTime&#x27;).textContent=slidesUnified[i].time;let kind=kindOfSlide(i);$(&#x27;sceneArea&#x27;).classList.toggle(&#x27;edit-mode&#x27;,kind&gt;=0&amp;&amp;i%2===1&amp;&amp;sWhole(kind).editing);$(&#x27;sceneArea&#x27;).innerHTML=`&lt;div class=&quot;scene-caption&quot;&gt;${slidesUnified[i].cap}&lt;/div&gt;${currentScene()}&lt;svg id=&quot;inkSvg&quot; xmlns=&quot;${NS}&quot; class=&quot;ink-layer ${state.tool===&#x27;none&#x27;?&#x27;&#x27;:&#x27;enabled&#x27;}&quot; viewBox=&quot;0 0 720 500&quot; preserveAspectRatio=&quot;xMidYMid meet&quot;&gt;&lt;/svg&gt;`;$(&#x27;rightPanel&#x27;).innerHTML=currentPanel();$(&#x27;stageBottom&#x27;).innerHTML=&#x27;&#x27;;$(&#x27;slideCounter&#x27;).textContent=`${i+1} / ${slidesUnified.length}`;$(&#x27;prevSlide&#x27;).disabled=i===0;$(&#x27;nextSlide&#x27;).disabled=i===slidesUnified.length-1;$(&#x27;progress&#x27;).innerHTML=slidesUnified.map((_,j)=&gt;`&lt;i class=&quot;${j&lt;=i?&#x27;done&#x27;:&#x27;&#x27;}&quot;&gt;&lt;/i&gt;`).join(&#x27;&#x27;);$(&#x27;penTool&#x27;).classList.toggle(&#x27;active&#x27;,state.tool===&#x27;pen&#x27;);$(&#x27;lineTool&#x27;).classList.toggle(&#x27;active&#x27;,state.tool===&#x27;line&#x27;);$(&#x27;eraseTool&#x27;).classList.toggle(&#x27;active&#x27;,state.tool===&#x27;eraser&#x27;);wireInk();updateInk()}
+function refreshScene(){let existing=$(&#x27;baseSvg&#x27;);if(existing)existing.outerHTML=currentScene()}
+function stopAnimationUnified(){if(raf){cancelAnimationFrame(raf);raf=0;}state.l2.gear.animating=false;state.l2.trace.animating=false;for(let p of pointState)p.animating=false;for(let w of wholeState)w.checking=false;state.l3.exam.animating=false;state.l3.exam.checking=false;state.extraDesign.tile.checking=false}
+function go(i){stopAnimationUnified();state.slide=clamp(i,0,slidesUnified.length-1);state.tool=&#x27;none&#x27;;render()}
+function startTween(dur,change,end){if(raf)cancelAnimationFrame(raf);let t0=null;function frame(t){if(t0===null)t0=t;let p=clamp((t-t0)/dur,0,1);change(p);refreshScene();if(p&lt;1)raf=requestAnimationFrame(frame);else{raf=0;end?.();render()}}raf=requestAnimationFrame(frame)}
+function playPoint(k){let a=sPoint(k),d=DEMOS[k];if(a.animating||a.step&lt;3)return;a.animating=true;a.angle=0;render();startTween(k===2?2400:1600,p=&gt;a.angle=(k===2?240:d.angle)*p,()=&gt;{a.animating=false})}
+function playWhole(k){let a=sWhole(k),d=DEMOS[k];
+ if(a.checking || (!a.manual&amp;&amp;a.completed&lt;d.steps-1) || a.pts.length&lt;2)return;
+ a.checking=true;a.checkAngle=0;render();
+ if(a.manual){
+   const n=d.steps;
+   startTween(n*1550,p=&gt;a.checkAngle=stagedCycle(p,n),()=&gt;{a.checking=false;a.checkAngle=0});
+   return;
+ }
+ if(k===1){startTween(6800,p=&gt;a.checkAngle=stagedFullTurn(p),()=&gt;{a.checking=false;a.checkAngle=0})}else{startTween((d.steps-1)*1250,p=&gt;a.checkAngle=d.angle*(d.steps-1)*p,()=&gt;{a.checking=false})}}
+function buildAction(k,name){let a=sWhole(k),d=DEMOS[k],p=a.pts;
+ if(name===&#x27;whole-manual&#x27;){
+   stopAnimationUnified();a.manual=true;a.editing=false;a.checkAngle=0;state.tool=&#x27;none&#x27;;return;
+ }
+ if(name===&#x27;whole-auto&#x27;){
+   stopAnimationUnified();a.manual=false;a.checkAngle=0;state.tool=&#x27;none&#x27;;return;
+ }
+ if(name===&#x27;whole-example&#x27;){stopAnimationUnified();wholeState[k]=makeWhole(d);return}
+ if(name===&#x27;whole-custom&#x27;){stopAnimationUnified();wholeState[k]=makeWhole(d);wholeState[k].pts=[];wholeState[k].mode=&#x27;custom&#x27;;wholeState[k].editing=true;state.tool=&#x27;none&#x27;;return}
+ if(name===&#x27;whole-undo&#x27;&amp;&amp;a.editing)a.pts.pop();
+ if(name===&#x27;whole-done&#x27;&amp;&amp;a.pts.length&gt;=2)a.editing=false;
+ if(name===&#x27;whole-next&#x27;&amp;&amp;!a.editing&amp;&amp;!a.joined&amp;&amp;a.showCount&lt;p.length)a.showCount++;
+ if(name===&#x27;whole-join&#x27;&amp;&amp;!a.editing&amp;&amp;!a.joined&amp;&amp;a.showCount===p.length)a.joined=true;
+ if(name===&#x27;whole-next-turn&#x27;&amp;&amp;a.joined){a.completed=a.turn;if(a.turn&lt;d.steps-1){a.turn++;a.showCount=0;a.joined=false;}else{a.turn=d.steps}}
+ if(name===&#x27;whole-check&#x27;){playWhole(k);return}
+ if(name===&#x27;whole-reset&#x27;){stopAnimationUnified();a.turn=1;a.showCount=0;a.joined=false;a.completed=0;a.checkAngle=0;a.booklet=false;a.method=false;if(a.mode===&#x27;custom&#x27;&amp;&amp;a.pts.length&lt;2)a.editing=true}
+ if(name===&#x27;whole-booklet&#x27;)a.booklet=!a.booklet;
+ if(name===&#x27;whole-method&#x27;)a.method=!a.method;
+}
+function pointAction(k,name){let a=sPoint(k);if(name===&#x27;point-next&#x27;)a.step=Math.min(3,a.step+1);if(name===&#x27;point-reset&#x27;){stopAnimationUnified();pointState[k]=makePoint()}if(name===&#x27;point-rule&#x27;)a.showRule=!a.showRule;if(name===&#x27;point-animate&#x27;){playPoint(k);return}}
+function action(name){let i=state.slide,k=kindOfSlide(i);
+ if(i===0){let x=state.l2;if(name===&#x27;gear-next&#x27;){nextGear();return}if(name===&#x27;gear-reset&#x27;){stopAnimationUnified();x.gear={n:1,angle:0,animating:false,conclusion:false}}if(name===&#x27;gear-conclusion&#x27;)x.gear.conclusion=!x.gear.conclusion;}
+ else if(i===1){let x=state.l2;if(name===&#x27;trace-next&#x27;){x.trace.step=Math.min(x.trace.step+1,4);if(x.trace.step===4)x.trace.angle=0}if(name===&#x27;trace-reset&#x27;){stopAnimationUnified();x.trace={step:0,angle:0,animating:false,stampProgress:0,showRule:false}}if(name===&#x27;trace-animate&#x27;){rotateTrace();return}if(name===&#x27;trace-stamp&#x27;){stampTrace();return}if(name===&#x27;trace-lift&#x27;)x.trace.step=7;if(name===&#x27;trace-rule&#x27;)x.trace.showRule=!x.trace.showRule;}
+ else if(k&gt;=0){if(i%2===0)pointAction(k,name);else buildAction(k,name);}
+ else if(i===8){let a=state.l3.exam;if(name===&#x27;exam-next&#x27;&amp;&amp;a.copies&lt;3&amp;&amp;!a.animating){let dest=(a.copies+1)*90;a.animating=true;a.animAngle=0;render();startTween(900,p=&gt;a.animAngle=dest*p,()=&gt;{a.copies++;a.animAngle=0;a.animating=false});return}if(name===&#x27;exam-check&#x27;&amp;&amp;a.copies===3&amp;&amp;!a.checking){a.checking=true;a.checkAngle=0;render();startTween(6800,p=&gt;{a.checkAngle=stagedFullTurn(p);let label=$(&#x27;examCheckAngle&#x27;);if(label)label.textContent=`${Math.round(a.checkAngle)}°`},()=&gt;{a.checking=false;a.checkAngle=0});return}if(name===&#x27;exam-reset&#x27;){stopAnimationUnified();state.l3.exam={copies:0,animating:false,animAngle:0,checking:false,checkAngle:0,method:false}}}
+ else if(i===9){
+   if(name===&#x27;starter-next&#x27;)state.l3.starter.revealed=Math.min(5,state.l3.starter.revealed+1);
+   if(name===&#x27;starter-reset&#x27;)state.l3.starter.revealed=0;
+ }
+ else if(i===10){
+   const a=state.extraDesign.tile;
+   if(name===&#x27;design-fix&#x27;&amp;&amp;!a.checking){a.corrected=!a.corrected;}
+   if(name===&#x27;design-test&#x27;&amp;&amp;!a.checking){
+     a.checking=true;a.showGuide=true;a.angle=0;render();
+     startTween(7800,p=&gt;{
+       a.angle=stagedFullTurn(p);
+       const label=$(&#x27;designAngleValue&#x27;);if(label)label.textContent=`${Math.round(a.angle)}°`;
+       const slider=$(&#x27;designAngle&#x27;);if(slider)slider.value=Math.round(a.angle/90)*90;
+     },()=&gt;{a.checking=false;a.angle=360});return;
+   }
+ }
+ else if(i===11){
+   const a=state.extraDesign.logo;
+   if(name===&#x27;logo-plain&#x27;)a.paper=&#x27;plain&#x27;;
+   if(name===&#x27;logo-square&#x27;)a.paper=&#x27;square&#x27;;
+   if(name===&#x27;logo-triangular&#x27;)a.paper=&#x27;triangular&#x27;;
+   if(name===&#x27;logo-hint&#x27;)a.hint=!a.hint;
+   if(name===&#x27;logo-preview&#x27;)a.preview=!a.preview;
+ }
+ render();
+}
+$(&#x27;rightPanel&#x27;).addEventListener(&#x27;click&#x27;,e=&gt;{let b=e.target.closest(&#x27;button[data-action]&#x27;);if(b&amp;&amp;!b.disabled)action(b.dataset.action)});
+$(&#x27;rightPanel&#x27;).addEventListener(&#x27;input&#x27;,e=&gt;{
+ if(e.target.id===&#x27;traceSlider&#x27;){let a=state.l2.trace;a.angle=Number(e.target.value);a.step=5;let val=$(&#x27;traceValue&#x27;);if(val)val.textContent=`${Math.round(a.angle)}°`;if(a.angle&gt;=179.5)render();else refreshScene();}
+ if(e.target.id===&#x27;designAngle&#x27;){let a=state.extraDesign.tile;a.angle=Number(e.target.value);a.showGuide=true;let label=$(&#x27;designAngleValue&#x27;);if(label)label.textContent=`${Math.round(a.angle)}°`;refreshScene();}
+ if(e.target.id===&#x27;pointSlider&#x27;){let k=kindOfSlide(state.slide);if(k&lt;0)return;let a=sPoint(k);a.angle=Number(e.target.value);let val=$(&#x27;pointAngle&#x27;);if(val)val.textContent=`${Math.round(a.angle)}°`;refreshScene();}
+});
+$(&#x27;sceneArea&#x27;).addEventListener(&#x27;pointerdown&#x27;,e=&gt;{
+ let i=state.slide,k=kindOfSlide(i);if(k&lt;0||i%2!==1||state.tool!==&#x27;none&#x27;)return;
+ let a=sWhole(k),d=DEMOS[k];if(!a.editing)return;let svg=$(&#x27;baseSvg&#x27;);if(!svg||!svg.contains(e.target))return;
+ let raw=getSvgPoint(e,svg);let p=k===2?snapTriangle(raw):snapSquare(raw);let cen=d.center;
+ if(Math.hypot(p[0]-cen[0],p[1]-cen[1])&gt;188)return;
+ if(a.pts.length&amp;&amp;Math.hypot(p[0]-a.pts[a.pts.length-1][0],p[1]-a.pts[a.pts.length-1][1])&lt;2)return;
+ if(a.pts.length&gt;=8)return;
+ a.pts.push(p);render();
+});
+$(&#x27;penTool&#x27;).onclick=()=&gt;{state.tool=state.tool===&#x27;pen&#x27;?&#x27;none&#x27;:&#x27;pen&#x27;;let i=state.slide,k=kindOfSlide(i);if(k&gt;=0&amp;&amp;i%2===1&amp;&amp;sWhole(k).editing)state.tool=&#x27;none&#x27;;render()};
+$(&#x27;lineTool&#x27;).onclick=()=&gt;{state.tool=state.tool===&#x27;line&#x27;?&#x27;none&#x27;:&#x27;line&#x27;;let i=state.slide,k=kindOfSlide(i);if(k&gt;=0&amp;&amp;i%2===1&amp;&amp;sWhole(k).editing)state.tool=&#x27;none&#x27;;render()};
+$(&#x27;eraseTool&#x27;).onclick=()=&gt;{state.tool=state.tool===&#x27;eraser&#x27;?&#x27;none&#x27;:&#x27;eraser&#x27;;let i=state.slide,k=kindOfSlide(i);if(k&gt;=0&amp;&amp;i%2===1&amp;&amp;sWhole(k).editing)state.tool=&#x27;none&#x27;;render()};
+$(&#x27;undoTool&#x27;).onclick=()=&gt;{(state.ink[state.slide]||[]).pop();updateInk()};
+$(&#x27;clearTool&#x27;).onclick=()=&gt;{state.ink[state.slide]=[];updateInk()};
+$(&#x27;prevSlide&#x27;).onclick=()=&gt;go(state.slide-1);
+$(&#x27;nextSlide&#x27;).onclick=()=&gt;go(state.slide+1);
+$(&#x27;fullScreen&#x27;).onclick=()=&gt;{if(document.fullscreenElement)document.exitFullscreen?.();else document.documentElement.requestFullscreen?.().catch(()=&gt;{})};
+document.addEventListener(&#x27;keydown&#x27;,e=&gt;{if([&#x27;INPUT&#x27;,&#x27;TEXTAREA&#x27;,&#x27;SELECT&#x27;].includes(document.activeElement?.tagName))return;if(e.key===&#x27;ArrowRight&#x27;)go(state.slide+1);if(e.key===&#x27;ArrowLeft&#x27;)go(state.slide-1);if(e.key===&#x27;Escape&#x27;&amp;&amp;state.tool!==&#x27;none&#x27;){state.tool=&#x27;none&#x27;;render()}});
+render();
+&lt;/script&gt;
+&lt;script&gt;
+(function(){
+ const deckNo=1,offset=6,globalTotal=18,finalIndex=11;
+ const oldRender=render;
+ render=function(){
+   oldRender();
+   document.getElementById(&#x27;slideCounter&#x27;).textContent=(offset+state.slide+1)+&#x27; / &#x27;+globalTotal;
+   document.querySelector(&#x27;header .brand&#x27;).textContent=&#x27;S3 MATHEMATICS · ROTATIONAL SYMMETRY&#x27;;
+   const p=document.getElementById(&#x27;progress&#x27;);
+   p.innerHTML=Array.from({length:globalTotal},(_,j)=&gt;&#x27;&lt;i class=&quot;&#x27;+(j&lt;=offset+state.slide?&#x27;done&#x27;:&#x27;&#x27;)+&#x27;&quot;&gt;&lt;/i&gt;&#x27;).join(&#x27;&#x27;);
+   for(const dot of p.children){dot.style.width=&#x27;10px&#x27;;}
+   if(deckNo===0 &amp;&amp; state.slide===finalIndex)document.getElementById(&#x27;nextSlide&#x27;).disabled=false;
+   if(deckNo===1 &amp;&amp; state.slide===0)document.getElementById(&#x27;prevSlide&#x27;).disabled=false;
+   parent.postMessage({type:&#x27;rotation-slide&#x27;,deck:deckNo,index:state.slide},&#x27;*&#x27;);
+ };
+ const switchDeck=(to)=&gt;parent.postMessage({type:&#x27;rotation-switch&#x27;,to},&#x27;*&#x27;);
+ document.getElementById(&#x27;nextSlide&#x27;).addEventListener(&#x27;click&#x27;,function(e){
+    if(deckNo===0 &amp;&amp; state.slide===finalIndex){e.preventDefault();e.stopImmediatePropagation();switchDeck(1)}
+ },true);
+ document.getElementById(&#x27;prevSlide&#x27;).addEventListener(&#x27;click&#x27;,function(e){
+    if(deckNo===1 &amp;&amp; state.slide===0){e.preventDefault();e.stopImmediatePropagation();switchDeck(0)}
+ },true);
+ document.addEventListener(&#x27;keydown&#x27;,function(e){
+   if([&#x27;INPUT&#x27;,&#x27;TEXTAREA&#x27;,&#x27;SELECT&#x27;].includes(document.activeElement?.tagName))return;
+   if(deckNo===0 &amp;&amp; state.slide===finalIndex &amp;&amp; e.key===&#x27;ArrowRight&#x27;){e.preventDefault();e.stopImmediatePropagation();switchDeck(1)}
+   if(deckNo===1 &amp;&amp; state.slide===0 &amp;&amp; e.key===&#x27;ArrowLeft&#x27;){e.preventDefault();e.stopImmediatePropagation();switchDeck(0)}
+ },true);
+ window.addEventListener(&#x27;message&#x27;,function(e){
+  if(!e.data||e.data.type!==&#x27;rotation-goto&#x27;)return;
+  if(deckNo===0)slideNav(e.data.index);else go(e.data.index);
+ });
+ render();
+})();
+&lt;/script&gt;
+&lt;script&gt;(function(){
+  &#x27;use strict&#x27;;
+  var btn = document.getElementById(&#x27;fullScreen&#x27;);
+  if (!btn) return;
+  function showFullscreenHelp(){
+    var box=document.getElementById(&#x27;rotationFullscreenHelp&#x27;);
+    if (!box) {
+      box=document.createElement(&#x27;div&#x27;);
+      box.id=&#x27;rotationFullscreenHelp&#x27;;
+      box.setAttribute(&#x27;role&#x27;,&#x27;status&#x27;);
+      box.style.cssText=&#x27;position:fixed;z-index:99999;right:16px;bottom:70px;max-width:430px;padding:13px 17px;border:1px solid #b7cfe3;border-radius:10px;background:#fff;color:#17324b;box-shadow:0 5px 20px #17324b22;font:15px/1.45 Arial,sans-serif;&#x27;;
+      document.body.appendChild(box);
+    }
+    box.textContent=&#x27;Full screen is blocked in this preview. Open the downloaded HTML file in Chrome or Edge, or press F11 for browser full screen.&#x27;;
+    clearTimeout(showFullscreenHelp.timer);
+    showFullscreenHelp.timer=setTimeout(function(){box.remove();},9000);
+  }
+  btn.addEventListener(&#x27;click&#x27;,function(event){
+    event.preventDefault();
+    event.stopImmediatePropagation();
+    var result;
+    try {
+      // A srcdoc iframe shares its origin with this presentation wrapper.
+      // Request fullscreen synchronously during the actual button click.
+      if (parent &amp;&amp; parent !== window &amp;&amp; typeof parent.rotationToggleFullscreen === &#x27;function&#x27;) {
+        result=parent.rotationToggleFullscreen();
+      } else if (document.fullscreenElement &amp;&amp; document.exitFullscreen) {
+        result=Promise.resolve(document.exitFullscreen()).then(function(){return true;});
+      } else if (document.documentElement.requestFullscreen) {
+        result=Promise.resolve(document.documentElement.requestFullscreen()).then(function(){return true;});
+      } else result=Promise.resolve(false);
+    } catch(err) {result=Promise.resolve(false);}
+    Promise.resolve(result).then(function(ok){if(!ok) showFullscreenHelp();},showFullscreenHelp);
+  },true);
+})();&lt;/script&gt;&lt;/body&gt;&lt;/html&gt;" title="Rotational Symmetry — Constructions and Exam Practice"></iframe>
+<script>
+let active=0;
+const decks=[document.getElementById('deck1'),document.getElementById('deck2')];
+window.addEventListener('message',e=>{
+ if(!e.data||e.data.type!=='rotation-switch')return;
+ const target=e.data.to;if(target<0||target>1)return;
+ active=target;decks.forEach((f,i)=>{if(i===active)f.removeAttribute('hidden');else f.setAttribute('hidden','');});
+});
+</script><script>(function(){
+  'use strict';
+  window.rotationToggleFullscreen = function(){
+    var doc = document, root = doc.documentElement;
+    try {
+      if (doc.fullscreenElement) {
+        if (doc.exitFullscreen) return Promise.resolve(doc.exitFullscreen()).then(function(){return true;},function(){return false;});
+        if (doc.webkitExitFullscreen) {doc.webkitExitFullscreen(); return Promise.resolve(true);}
+      } else {
+        if (root.requestFullscreen) {
+          return Promise.resolve(root.requestFullscreen({navigationUI:'hide'})).then(function(){return true;},function(){return false;});
+        }
+        if (root.webkitRequestFullscreen) {root.webkitRequestFullscreen(); return Promise.resolve(true);}
+      }
+    } catch (err) {return Promise.resolve(false);}
+    return Promise.resolve(false);
+  };
+})();</script>
+<div id="rotationTabletDock" aria-label="Fullscreen tools and slide navigation">
+ <div id="rotationTabletControls" role="toolbar" aria-label="Drawing and slide navigation">
+  <div id="rotationTabletTools">
+   <button type="button" data-tool="penTool" aria-pressed="false">✎ Pen</button>
+   <button type="button" data-tool="lineTool" aria-pressed="false">╱ Line</button>
+   <button type="button" data-tool="eraseTool" aria-pressed="false">⌫ Eraser</button>
+   <button type="button" data-tool="undoTool">↶ Undo</button>
+   <button type="button" data-tool="clearTool">Clear drawing</button>
+  </div>
+  <div id="rotationTabletNav">
+   <button type="button" data-nav="prev">← Previous</button>
+   <span id="rotationTabletCounter" class="rotation-counter" aria-live="off">1 / 18</span>
+   <button type="button" data-nav="next">Next →</button>
+  </div>
+ </div>
+</div>
+<script id="rotation-tablet-v3-script">
+(function(){
+ 'use strict';
+ const root=document.documentElement;
+ const dock=document.getElementById('rotationTabletDock');
+ const frames=[document.getElementById('deck1'),document.getElementById('deck2')];
+ const activeDeck=()=>frames.find(f=>!f.hasAttribute('hidden'));
+ const getDoc=f=>{try{return f?.contentDocument||null;}catch(e){return null;}};
+ const getButton=id=>dock.querySelector('[data-tool="'+id+'"]');
+ const fullScreen=()=>!!(document.fullscreenElement||document.webkitFullscreenElement);
+ const touchScreen=()=>matchMedia('(any-pointer:coarse)').matches ||
+    matchMedia('(pointer:coarse)').matches || navigator.maxTouchPoints>0;
+ const enabled=()=>fullScreen()&&touchScreen();
+ // This stylesheet is injected into each of the two embedded decks. It is applied
+ // only during tablet fullscreen, without modifying any slide content or drawing code.
+ const innerCSS=`
+ html.rotation-tablet-inner,html.rotation-tablet-inner body{
+   height:100%!important;max-height:100%!important;overflow:hidden!important;
+ }
+ html.rotation-tablet-inner .present-bottom{display:none!important;}
+ html.rotation-tablet-inner main{
+   height:calc(100% - 68px)!important;min-height:0!important;max-height:none!important;
+   padding:9px 12px 8px!important;gap:8px!important;overflow:hidden!important;
+ }
+ html.rotation-tablet-inner .slide-body{min-height:0!important;overflow:hidden!important;gap:9px!important;}
+ html.rotation-tablet-inner .stage{min-height:0!important;overflow:hidden!important;}
+ html.rotation-tablet-inner .scene-area{min-height:0!important;}
+ html.rotation-tablet-inner .rightpanel{min-height:0!important;overflow-y:auto!important;}
+ html.rotation-tablet-inner .match-wrap{min-height:0!important;}
+ html.rotation-tablet-inner .stage-bottom{padding:5px 9px!important;min-height:45px!important;}
+ html.rotation-tablet-inner .slide-title h2{font-size:clamp(18px,2.3vw,30px)!important;}
+ @media(max-width:770px){
+   html.rotation-tablet-inner header{height:62px!important;}
+   html.rotation-tablet-inner main{height:calc(100% - 62px)!important;padding:6px!important;gap:5px!important;}
+   html.rotation-tablet-inner .slide-body{display:flex!important;flex-direction:column!important;}
+   html.rotation-tablet-inner .stage{flex:1 1 54%!important;min-height:0!important;}
+   html.rotation-tablet-inner .rightpanel{flex:1 1 46%!important;min-height:0!important;}
+   html.rotation-tablet-inner .match-wrap{min-height:0!important;}
+   html.rotation-tablet-inner .scene-area{min-height:0!important;}
+   html.rotation-tablet-inner .slide-title h2{font-size:20px!important;}
+ }
+ @media(max-height:600px){
+   html.rotation-tablet-inner header{height:49px!important;padding:0 10px!important;}
+   html.rotation-tablet-inner header h1{font-size:17px!important;}
+   html.rotation-tablet-inner main{height:calc(100% - 49px)!important;}
+   html.rotation-tablet-inner .slide-title h2{font-size:19px!important;}
+   html.rotation-tablet-inner .stage-bottom{min-height:34px!important;padding:3px 6px!important;}
+ }
+ `;
+ function measure(){
+   if(!root.classList.contains('rotation-tablet-active'))return;
+   const h=Math.ceil(dock.getBoundingClientRect().height);
+   if(h>0)root.style.setProperty('--rotation-dock-height',h+'px');
+ }
+ function installInner(frame){
+   const d=getDoc(frame);
+   if(!d?.documentElement)return;
+   if(!d.getElementById('rotationTabletInnerStyle')){
+     const el=d.createElement('style');el.id='rotationTabletInnerStyle';
+     el.textContent=innerCSS;d.head.appendChild(el);
+   }
+   d.documentElement.classList.toggle('rotation-tablet-inner',enabled());
+ }
+ function sync(){
+   const on=enabled();
+   root.classList.toggle('rotation-tablet-active',on);
+   frames.forEach(installInner);
+   if(on)measure();
+   const d=getDoc(activeDeck());
+   for(const id of ['penTool','lineTool','eraseTool']){
+     const b=getButton(id);const selected=!!d?.getElementById(id)?.classList.contains('active');
+     b.classList.toggle('is-active',selected);b.setAttribute('aria-pressed',String(selected));
+   }
+   const counter=d?.getElementById('slideCounter');
+   if(counter)document.getElementById('rotationTabletCounter').textContent=counter.textContent;
+   for(const [direction,id] of [['prev','prevSlide'],['next','nextSlide']]){
+     const source=d?.getElementById(id);
+     dock.querySelector('[data-nav="'+direction+'"]').disabled=!source||source.disabled;
+   }
+ }
+ dock.addEventListener('click',e=>{
+   const b=e.target.closest('button[data-tool],button[data-nav]');
+   if(!b||b.disabled)return;
+   e.preventDefault();e.stopPropagation();
+   const d=getDoc(activeDeck());
+   const id=b.dataset.tool||(b.dataset.nav==='prev'?'prevSlide':'nextSlide');
+   // Click the REAL original button to preserve animations, tool states and
+   // existing previous/next boundaries between lesson decks.
+   d?.getElementById(id)?.click();
+   requestAnimationFrame(sync);
+ });
+ ['fullscreenchange','webkitfullscreenchange'].forEach(evt=>document.addEventListener(evt,()=>{
+   sync();requestAnimationFrame(sync);
+ }));
+ window.addEventListener('resize',()=>{sync();requestAnimationFrame(measure);});
+ window.visualViewport?.addEventListener('resize',()=>requestAnimationFrame(measure));
+ window.addEventListener('message',e=>{
+   if(e.data?.type==='rotation-slide'||e.data?.type==='rotation-switch')requestAnimationFrame(sync);
+ });
+ for(const f of frames){
+   f.addEventListener('load',()=>{
+     const d=getDoc(f);
+     d?.addEventListener('click',e=>{
+       if(e.target.closest('#penTool,#lineTool,#eraseTool,#undoTool,#clearTool,#nextSlide,#prevSlide')){
+         requestAnimationFrame(sync);
+       }
+     });
+     sync();
+   });
+ }
+ new ResizeObserver(()=>{if(root.classList.contains('rotation-tablet-active'))measure();}).observe(dock);
+ sync();
+})();
+</script>
+</body></html>
